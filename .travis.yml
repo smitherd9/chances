@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: H7U3akdjP26A9Q7iGIw2kuLguRN+z64w/diNIdt5piX8M3mCi1rEet6Ty4xoNMt+/jvvjMTMHYmcXubyfFxVJpzZOUqy1M9JZPEW6rVsMyLLKcAoyLDjLNffWa7Dv3QI9Xb114teLU1TaZDRun3binpJ3El26d0WtnlBvIIWBbQ6GaRqWMYX27Hh6mJSSyU1FBL2P6Hae0y/FtmY1dHX+0Ng0WwpZ3n5Qkpox/KD8d8jpXnk9D7lHqkTSsaeykUsqQ7J0taU7GhR7pxuWFPHl9PtT0RfeUFR2eheLBPKL9dL0qvWKbc7LM4L7EiKXJMLAs+MPY8324YaWbkrucI8OyxYEJY+AQ4idFkx/LZr7yMKQj2m5UCWZxb9SRvovBL6wYKFVEi+qmZcmTsqbJSxCAA7M3MOjtqBq9d+Q2P3HUQV1L9uJkMDvnbbw+gAZ5K76A/DhdJLdgTofawk9cexUwGnAT5twfhD4cWLwblGbyKnGVFslLsK8C3hc2j45ZudKquI0hLv891APhlMnKQh/x2ulLrkJ0KzEyLeFmktHGLwIYk/0yBLNntAHxHH8rBlyGtRiMD8QCnS/uHU/5+gdlF8uaBTqYr2t9zf8i9jsCQIU2f9LQdamhyj7o3jiTWHYpARh1gQ5fWIHfEMhJ3vxXTIn/4AuEE7Hp+cECX1SB8=
+  app: shrouded-anchorage-57449
+  on:
+    repo: smitherd9/chances
