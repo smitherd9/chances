@@ -1,0 +1,27 @@
+{
+  "name": "chances",
+  "version": "1.0.0",
+  "description": "An app to determine chances of events for people living in NYC",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smitherd9/chances.git"
+  },
+  "author": "Daniel Smither",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smitherd9/chances/issues"
+  },
+  "homepage": "https://github.com/smitherd9/chances#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
