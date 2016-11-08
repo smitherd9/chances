@@ -10,7 +10,8 @@ app.use(jsonParser.json());
 
 var Data = {
     chancesRating: 0,
-    vioDesc: ""
+    vioDesc: "",
+    date: ""
         
 
 };
@@ -49,14 +50,30 @@ app.get('/test/:zip', function(req, res) {
             var dba = data.dba;
             var grade = data.grade;
             var score = data.score;
+            var date = data.inspection_date;
             console.log("line 62 chancesRating:", Data.chancesRating);
-            Data.vioDesc = Data.vioDesc + ', ' + vioDesc?vioDesc:"";         
+            // Data.vioDesc = Data.vioDesc + ', ' + vioDesc;       
+            // Data.vioDesc = vioDesc + ', '; 
+            
+            // response.body.sort(function(data){
+            //     if (data.hasOwnProperty('violation_description') && (data.hasOwnProperty('inspection_date'))) {
+            //         Data.vioDesc = vioDesc + ', Date: ' + date + ' ' + Data.vioDesc;
+            //     }
+                
+            // });
+            
+            
+            // Data.vioDesc = vioDesc + ', ' + Data.vioDesc;
+            // Data.date = date + ', ' + Data.date;
 
             // consider score relates to multiple restaurants -- with 2 rest critical chancesRating = 2
             if (critical === 'Critical') {
-                Data.chancesRating = Data.chancesRating + 1;
-                if (score > 7) {
+                Data.chancesRating = Data.chancesRating + 2;
+                if ((score >= 14) && (score < 28)) {
                     Data.chancesRating = Data.chancesRating + 4;
+                }
+                else if (score > 28) {
+                    Data.chancesRating = Data.chancesRating + 8
                 }
             }
             
@@ -77,6 +94,12 @@ app.get('/test/:zip', function(req, res) {
         for (let i = 0; i < response.body.length; i++) {
             var data = response.body[i];
             console.log(data.zipcode);
+            
+                if (data.hasOwnProperty('violation_description') && (data.hasOwnProperty('inspection_date'))) {
+                    Data.vioDesc = data.violation_description + ', Date: ' + data.inspection_date + ' ' + Data.vioDesc;
+                }
+                
+            
             getData(data);
 
         }

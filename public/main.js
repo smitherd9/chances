@@ -59,7 +59,6 @@ var getInput = function(){
     console.log(zip);
     $('#zip').val("");
     var dba = $('#dba').val().toUpperCase();
-    // dba.toUpperCase();
     
     if (dba) {
         query.dba = dba;
@@ -77,6 +76,7 @@ var getInput = function(){
     .done(function(data){
         console.log(data);
         $("#displayResults").append("<p>" + data.chancesRating + "</p>");
+        $("#displayDesc").append("<p>" + data.vioDesc + "</p></br>");
     });
     
     
