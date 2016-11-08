@@ -41,36 +41,47 @@ var displayRestaurantData = function(data){
 };
 
 
-$('#submit').click(function(e){
+$('.submit').click(function(e){
     e.preventDefault();
     getInput();
 });
 
 var getInput = function(){
+    var query = {};   
     
+    var cuisine = $('#cuisine').val();
+    if (cuisine) {
+        query.cuisine_description = cuisine;
+    } 
+    console.log(cuisine);
+    $('#cuisine').val("");
     var zip = $('#zip').val();
     console.log(zip);
-    $.ajax('http://hello-server-smitherd9.c9users.io/test', {
-        type: 'GET',
-        data: {"zip": zip}
-    })
+    $('#zip').val("");
+    var dba = $('#dba').val().toUpperCase();
+    // dba.toUpperCase();
     
+    if (dba) {
+        query.dba = dba;
+    } 
+    console.log(dba);
+    $('#dba').val("");
+    
+    $.ajax('http://hello-server-smitherd9.c9users.io/test/' + zip, {
+        type: 'GET',
+        data: query,
+        // make decision about when to send this, if sent empty it returns an empty object 
+        dataType: 'json'
+    })
     
     .done(function(data){
         console.log(data);
+        $("#displayResults").append("<p>" + data.chancesRating + "</p>");
     });
     
-    var street = $('#street').val();
-    console.log(street);
-    var cuisine = $('#cuisine').val();
-    console.log(cuisine);
+    
+    
 };
-
-
-
-
-
-
 
 
 

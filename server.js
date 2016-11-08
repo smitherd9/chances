@@ -8,106 +8,90 @@ var jsonParser = require('body-parser');
 app.use(express.static('public'));
 app.use(jsonParser.json());
 
-
 var Data = {
-    chancesRating: 0
-}
+    chancesRating: 0,
+    vioDesc: ""
+        
+
+};
 
 
 
-var chancesRating = 0;
 
 
 // use unirest to make ajax request to nyc open data and get response
 // you need to determine which data you want to use, make a get request to get that data
 // once you have the data, save data as variable, do something with it, and return it to the user
 
-app.get('/test', function(req, res){
-    console.log(req.body);  //should log the data that was sent from client 
+app.get('/test/:zip', function(req, res) {
+    console.log(req.query); //should log the data that was sent from client 
+    console.log(req.params);
+    req.query.zipcode = req.params.zip;
+    req.query.$limit = 30;
+    req.query.$$app_token = "bOdo0GBO11GSiRssvuQLv0t3A";
+    
+    
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
-    .query({
-        'zipcode': req.params.zip,
-        'critical_flag': 'Critical',
-        '$limit': 2,
-        '$$app_token': "bOdo0GBO11GSiRssvuQLv0t3A"
-        // 'score': '1'
-    })
-    
-    
+        .query(req.query)
+
+
     .end(function(response) {
-    // console.log(response.body[0].score);
-    // console.log(response.body[0].violation_description);
-    
-    
-    var getData = function(data){
-        var critical = data.critical_flag;
-        var score = data.score;
-        var zipcode = data.zipcode;
-        var cuisine = data.cuisine;
-        var vioCode = data.violation_code;
-        var vioDesc = data.violation_descripton;
-        var dba = data.dba;
+        console.log(response.body);
+        console.log("res.body.length: ", response.body.length);
+
+        var getData = function(data) {
+            var critical = data.critical_flag;
+            var score = data.score;
+            var zipcode = data.zipcode;
+            var cuisine = data.cuisine_description;
+            var vioCode = data.violation_code;
+            var vioDesc = data.violation_description;
+            var dba = data.dba;
+            var grade = data.grade;
+            var score = data.score;
+            console.log("line 62 chancesRating:", Data.chancesRating);
+            Data.vioDesc = Data.vioDesc + ', ' + vioDesc?vioDesc:"";         
+
+            // consider score relates to multiple restaurants -- with 2 rest critical chancesRating = 2
+            if (critical === 'Critical') {
+                Data.chancesRating = Data.chancesRating + 1;
+                if (score > 7) {
+                    Data.chancesRating = Data.chancesRating + 4;
+                }
+            }
+            
+            switch (grade) {
+                case 'B':
+                    Data.chancesRating = Data.chancesRating + 1;
+                    break;
+                case 'C':
+                    Data.chancesRating = Data.chancesRating + 2;
+                    break;
+                case 'P': 
+                    Data.chancesRating = Data.chancesRating + 3;
+                    break;
+            }
+            
+        };
         
-        // consider score relates to multiple restaurants -- with 2 rest critical chancesRating = 20
-        if (critical === 'Critical') {
-            Data.chancesRating = Data.chancesRating + 10;
-            
-            
+        for (let i = 0; i < response.body.length; i++) {
+            var data = response.body[i];
+            console.log(data.zipcode);
+            getData(data);
+
         }
-    };
-    
-    var sendData = function(Data){
-        res.json(Data);
-    }
-    
-      for (let i = 0; i < response.body.length; i++) {
-        var data = response.body[i];
-        console.log(data.zipcode);
-        getData(data);
+
+        var sendData = function(Data) {
+            res.json(Data);
+            Data.chancesRating = 0;
+        }
         
-    }
-    
-    sendData(Data);
-    
-    
-    
-    
-    // res.json(response.body);
-  
-   
-    
-    // console.log('Headers: ', response.headers);
-    // console.log('Body:', response.body);
-    
+
+        sendData(Data);
+
+
+    });
 });
-});
-
-// app.post('/')
-
-
-
-
-
-
-
-
-
-
-// $.ajax({
-//     url: "https://data.cityofnewyork.us/resource/9w7m-hzhe.json",
-//     type: "GET",
-//     data: {
-//       "$limit" : 5000,
-//       "$$app_token" : "bOdo0GBO11GSiRssvuQLv0t3A"
-//     }
-// }).done(data) {
-//   console.log(data);
-// };
-
-
-
-
-
 
 
 
