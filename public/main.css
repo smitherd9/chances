@@ -2,6 +2,68 @@
     box-sizing: border-box;
 }
 
+body {
+	background-color: #40345e;
+}
+
+navbar {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+h1, p {
+	font-family: 'Shrikhand', cursive;
+	color: white;
+}
+
+h1 small {
+	font-family: 'Shrikhand', cursive;
+	color: #317263;
+	float: right;
+	margin-right: 20px;
+}
+
+h2 {
+	font-family: 'Shrikhand', cursive;
+	color: white;
+}
+
+.input-group {
+	font-family: 'Bitter', cursive;
+	color: #40345e;
+	margin: 20px;
+	text-align: center;
+	
+	
+}
+
+.form-control {
+	width: 15em !important;   
+}
+
+img {
+	width: 4em;
+	height: 4em;
+	border-radius: 50%;
+	/*float: right;*/
+	text-align: center;
+	margin: 0 auto;
+}
+
+
+.glyphicons.glyphicons-menu-hamburger {
+	color: white;
+}
+
+
+.header-container span {
+	position: absolute;
+	margin: 0 auto;
+}
+
+
+
+
+/* Button Styles */
 
 .submit {
 	box-shadow:inset 0px 1px 3px 0px #91b8b3;
@@ -35,20 +97,23 @@
 
 
 
-#displayResults {
-    /*margin: 0;*/
+#displayScore, #displayDesc, #displayDate {
+    
     text-align: center;
-    border: 2px solid black;
-    border-radius: 5%;
+    /*border: 2px solid black;*/
+    /*border-radius: 5%;*/
     width: 25em;
     height: 25em;
-    /*background-color: red;*/
-
-    position: absolute;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
 
     margin: auto;
+}
+
+
+#displayScore {
+	font-size: 32px;
+	font-weight: bold;
 }

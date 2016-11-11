@@ -1,4 +1,18 @@
+
+
+
 $(document).ready(function() {
+
+//Extension function for animateCss
+$.fn.extend({
+        animateCss: function(animationName) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName);
+            });
+        }
+    });
+
 
 var MOCK_RESTAURANT_DATA = {
     'restaurantData':  [
@@ -27,21 +41,21 @@ var MOCK_RESTAURANT_DATA = {
 };
 
 
-var getRestaurantData = function(callBackFn){
-    setTimeout(function(){
-        callBackFn(MOCK_RESTAURANT_DATA);
-    }, 1);
-};
+// var getRestaurantData = function(callBackFn){
+//     setTimeout(function(){
+//         callBackFn(MOCK_RESTAURANT_DATA);
+//     }, 1);
+// };
 
 
-var displayRestaurantData = function(data){
-    for (item in data.restaurantData) {
-    $('#displayResults').append('<p>' + data.restaurantData[index].text + '</p>');
-    }
-};
+// var displayRestaurantData = function(data){
+//     for (item in data.restaurantData) {
+//     $('#displayResults').append('<p>' + data.restaurantData[index].text + '</p>');
+//     }
+// };
 
 
-$('.submit').click(function(e){
+$('.input-group-btn').click(function(e){
     e.preventDefault();
     getInput();
 });
@@ -75,8 +89,15 @@ var getInput = function(){
     
     .done(function(data){
         console.log(data);
-        $("#displayResults").append("<p>" + data.chancesRating + "</p>");
-        $("#displayDesc").append("<p>" + data.vioDesc + "</p></br>");
+        
+        $("#displayScore").append("<p>" + data.chancesRating + "</p>").animateCss('slideInLeft');
+        
+        $.each(data.vioDesc, function(index, value){
+            console.log(value.inspection_date);
+            $("#displayDate").append("<p>" + moment(value.inspection_date).fromNow() + "</p></br>").animateCss('fadeInUp');       // moment(value.date).fromNow()  or .format()   to format the date
+            $("#displayDesc").append("<p>" + value.description + "</p></br>").animateCss('slideInRight');
+        });
+        
     });
     
     
