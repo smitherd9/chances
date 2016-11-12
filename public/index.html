@@ -1,16 +1,98 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1">
     <title>What are the chances?</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Shrikhand" rel="stylesheet">
+
 </head>
+
 <body>
 
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">What are the Chances?</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                <li><a href="#"><span class="glyphicons glyphicons-menu-hamburger"></span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="header-container">
+        <span><img src="foodpoisoning.gif"></span>
+        <h1>What are the Chances? <small>food poisoning in NYC</small></h1>
+    </div>
+    </div>
+    <!--<div class="container">-->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">What is your zipcode?</span>
+                    <input type="text" class="form-control" id="zip" placeholder="Ex: 10021" aria-describedby="basic-addon1">
+                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">What is the restaurant name?</span>
+                    <input type="text" class="form-control" id="dba" placeholder="Ex: Finestra Restaurant" aria-describedby="basic-addon1">
+                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+                </div>
+            </div>
+
+            
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">What type of cuisine would you like to eat?</span>
+                        <input type="text" class="form-control" id="cuisine" placeholder="Ex: 10021" aria-describedby="basic-addon1">
+                        <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+                    </div>
+                </div>
+            </div>
+
+            <br/>
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="displayScore"><h2>Rating:</h2></div>
+                </div>
 
 
-<p>Hello World!</p>
+                <div class="col-md-4">
+                    <div id="displayDesc"><h2>Description of Violations:</h2></div>
+                </div>
 
+
+                <div class="col-md-4">
+                    <div id="displayDate"><h2>Date of Inspection:</h2></div>
+                </div>
+
+            </div>
+        <!--</div>-->
+
+
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js'></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="main.js"></script>
 </body>
 
 
