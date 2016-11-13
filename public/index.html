@@ -20,11 +20,9 @@
                 <a class="navbar-brand" href="index.html">What are the Chances?</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="about.html">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                <li><a href="#"><span class="glyphicons glyphicons-menu-hamburger"></span></a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
         </div>
     </nav>
@@ -40,8 +38,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="input-group">
-                    <!--<span class="input-group-addon" id="basic-addon1">What is your zipcode?</span>-->
-                    <input type="text" class="form-control" id="zip" placeholder="What is your zipcode?" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" id="zip" placeholder="Search by zipcode" aria-describedby="basic-addon1">
                     <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
       </span>
@@ -59,8 +56,7 @@
 
             <div class="col-sm-4">
                 <div class="input-group">
-                    <!--<span class="input-group-addon" id="basic-addon1">What is the restaurant name?</span>-->
-                    <input type="text" class="form-control" id="dba" placeholder="What is the restaurant name?" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" id="dba" placeholder="Search by restaurant name" aria-describedby="basic-addon1">
                     <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
       </span>
@@ -70,8 +66,7 @@
 
             <div class="col-sm-4">
                 <div class="input-group">
-                    <!--<span class="input-group-addon" id="basic-addon1">What type of cuisine would you like to eat?</span>-->
-                    <input type="text" class="form-control" id="cuisine" placeholder="What type of cuisine?" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" id="cuisine" placeholder="Search by type of cuisine" aria-describedby="basic-addon1">
                     <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
       </span>
@@ -89,12 +84,9 @@
                 <h2>Rating:</h2>
                 <div id="displayScore">
                 </div>
-                <div id="ratingDesc">
-                    <h3>Each score is calculated by finding the average inspection score and letter grade for each inspection from the NYC Department of Health, and generating a rating based on 1 to 10. 1 being a low chance of food poisoning and 10 being
-                        a very high chance.</h3>
-                </div>
             </div>
         </div>
+        
 
 
         <div class="col-sm-3">
@@ -102,7 +94,10 @@
                 <h2>Violations:</h2>
                 <div id="displayDesc">
                 </div>
+                <div class="small-screen-btn"><button id="vioDesc-btn" class="btn btn-default" type="button">Read Violation Descriptions</button></div>
+                <div class="small-screen"><div id="vioDesc-small"></div></div>
             </div>
+            
         </div>
 
 
@@ -111,6 +106,8 @@
                 <h2>Date of Inspection:</h2>
                 <div id="displayDate">
                 </div>
+                <div class="small-screen-btn"><button id="inspDate-btn" class="btn btn-default" type="button">See dates of inspections</button></div>
+                <div class="small-screen"><div id="inspDate-small"></div></div>
             </div>
         </div>
 
@@ -119,6 +116,8 @@
                 <h2>Name of Restaurant:</h2>
                 <div id="displayName">
                 </div>
+                <div class="small-screen-btn"><button id="restName-btn" class="btn btn-default" type="button">See restaurant names</button></div>
+                <div class="small-screen"><div id="restName-small"></div></div>
             </div>
         </div>
 

@@ -14,81 +14,6 @@ $.fn.extend({
     });
     
     
-    /* Float Label Pattern Plugin for Bootstrap 3.1.0 by Travis Wilson
-**************************************************/
-
-
-    // $.fn.floatLabels = function (options) {
-
-    //     // Settings
-    //     var self = this;
-    //     var settings = $.extend({}, options);
-
-
-    //     // Event Handlers
-    //     function registerEventHandlers() {
-    //         self.on('input keyup change', 'input, textarea', function () {
-    //             actions.swapLabels(this);
-    //         });
-    //     }
-
-
-    //     // Actions
-    //     var actions = {
-    //         initialize: function() {
-    //             self.each(function () {
-    //                 var $this = $(this);
-    //                 var $label = $this.children('label');
-    //                 var $field = $this.find('input,textarea').first();
-
-    //                 if ($this.children().first().is('label')) {
-    //                     $this.children().first().remove();
-    //                     $this.append($label);
-    //                 }
-
-    //                 var placeholderText = ($field.attr('placeholder') && $field.attr('placeholder') != $label.text()) ? $field.attr('placeholder') : $label.text();
-
-    //                 $label.data('placeholder-text', placeholderText);
-    //                 $label.data('original-text', $label.text());
-
-    //                 if ($field.val() == '') {
-    //                     $field.addClass('empty')
-    //                 }
-    //             });
-    //         },
-    //         swapLabels: function (field) {
-    //             var $field = $(field);
-    //             var $label = $(field).siblings('label').first();
-    //             var isEmpty = Boolean($field.val());
-
-    //             if (isEmpty) {
-    //                 $field.removeClass('empty');
-    //                 $label.text($label.data('original-text'));
-    //             }
-    //             else {
-    //                 $field.addClass('empty');
-    //                 $label.text($label.data('placeholder-text'));
-    //             }
-    //         }
-    //     }
-
-
-    //     // Initialization
-    //     function init() {
-    //         registerEventHandlers();
-
-    //         actions.initialize();
-    //         self.each(function () {
-    //             actions.swapLabels($(this).find('input,textarea').first());
-    //         });
-    //     }
-    //     init();
-
-
-    //     return this;
-    // };
-
-
 
 $('.input-group-btn').click(function(e){
     e.preventDefault();
@@ -101,6 +26,43 @@ $('.input-group').keypress(function(e){
         getInput();
     }
 });
+
+$('.small-screen').hide();
+// $('#vioDesc-small').hide();
+// $('#inspDate-small').hide();
+// $('#restName-small').hide();
+
+
+// $('#vioDesc-btn').on('click', function(){
+//     $('#vioDesc-small').append("<p>" + value.description + "</p></br>");
+//     $('.small-screen').animateCss('slideInUp');
+// });
+
+var buttonListener = function(data) {
+   $('#vioDesc-btn').on('click', function(data){
+   console.log('vioDesc button clicked');
+   $('#vioDesc-small').append("<p>" + data.vioDesc.description + "</p></br>");
+   $('.small-screen').animateCss('slideInUp');
+  });
+  
+  
+  $('#inspDate-btn').on('click', function(){
+   console.log('inspDate button clicked');
+   $('#inspDate-small').append("<p>" + moment(value.inspection_date).fromNow() + "</p></br>");
+   $('.small-screen').animateCss('slideInUp');
+  });
+  
+  
+   $('#restName-btn').on('click', function(){
+   console.log('restName button clicked');
+   $('#restName-small').append("<p>" + value.dba + "</p></br>");
+   $('.small-screen').animateCss('slideInUp');
+  });
+  
+  
+};
+
+
 
 var getInput = function(){
     var query = {};
@@ -180,6 +142,7 @@ var byZip = function(zip, query) {
         $('#displayDesc').html('');
         $('#displayName').html('');
         $('#displayScore').html('');
+        buttonListener(data);
         
         $("#displayScore").append("<p>" + data.chancesRating + "</p>").animateCss('slideInLeft');
         
@@ -188,6 +151,9 @@ var byZip = function(zip, query) {
             $("#displayDate").append("<p>" + moment(value.inspection_date).fromNow() + "</p></br>").animateCss('fadeInUp');      
             $("#displayDesc").append("<p>" + value.description + "</p></br>").animateCss('slideInRight');
             $("#displayName").append("<p>" + value.dba + "</p></br>").animateCss('slideInRight');
+            
+
+            
         });
         
     });

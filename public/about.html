@@ -19,30 +19,42 @@
                 <a class="navbar-brand" href="index.html">What are the Chances?</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="about.html">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicons glyphicons-menu-hamburger"></span></a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="page-header">
         <div class="header-container">
-        <span><img src="foodpoisoning.gif"></span>
-        <h1>What are the Chances? <small>food poisoning in NYC</small></h1>
+            <span class="center-block"><img src="foodpoisoning.gif"></span>
+            <h1>What are the Chances? <small>food poisoning in NYC</small></h1>
+        </div>
     </div>
-    </div>
-    
-    <div id="about">
-    <p>What are the Chances? is an app designed to give you an idea</p>
-    <p>of your chances of getting food poisoning at restaurants across New York City.</p>
-    </div>
-    
-    <div id="howWork">
-        <p>It gets restaurant inspection data from New York City's Open Data API and calculates</p>
-        <p>a rating based on the each restaurant's average inspection score.</p>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="about">
+                    <h3>What is it?</h3>
+                    <p>What are the Chances? is an app designed to give you an idea
+                    of your chances of getting food poisoning at restaurants across New York City.</p>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div id="howWork">
+                    <h3>How does it work?</h3>
+                    <p>What are the Chances? gets restaurant inspection data from New York City's Open Data API and calculates
+                    a rating based on the each restaurant's average inspection score and the average number of times
+                    a particular grade was received.  It then returns a number from 1 to 10, with 1 being the smallest
+                    chance of sickness and 10 being the highest.</p><br/>
+                    <p>More information can be found here: <a href="http://www1.nyc.gov/assets/doh/downloads/pdf/rii/how-we-score-grade.pdf">NYC DOHMH -- How we score and grade</a></p>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

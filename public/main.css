@@ -10,7 +10,14 @@ navbar {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
-h1, h2, h3, p {
+p {
+	font-family: 'Bitter', cursive;
+	color: #317263;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+h1, h2, h3 {
 	font-family: 'Shrikhand', cursive;
 	color: white;
 }
@@ -31,9 +38,6 @@ h1 small {
 	
 }
 
-/*.form-control {*/
-/*	width: 15em !important;   */
-/*}*/
 
 img {
 	width: 7em;
@@ -55,6 +59,8 @@ img {
 	/*position: absolute;*/
 	margin: 0 auto;
 }
+
+
 
 
 /*Styles for float label control plugin*/
@@ -151,6 +157,16 @@ img {
 }
 
 
+.small-screen-btn {
+	display: none;
+}
+
+.small-screen {
+	z-index: 1000;
+	color: black;
+}
+
+
 .groupName {
     
     text-align: center;
@@ -164,22 +180,20 @@ img {
 }
 
 #displayScore {
+	font-size: 5em;
+	font-weight: bold;
 	text-align: center;
-    /*width: 10em;*/
-    /*height: 10em;*/
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
-
     margin: auto;
 }
 
 
 
 
-#displayDesc, #displayDate, #displayName, #ratingDesc {
-    
+#displayDesc, #displayDate, #displayName {
     text-align: center;
     width: 10em;
     height: 10em;
@@ -187,12 +201,30 @@ img {
     bottom: 0;
     left: 0;
     right: 0;
-
     margin: auto;
 }
 
-
-#displayScore {
-	font-size: 5em;
-	font-weight: bold;
+@media (max-width: 768px) {
+	#displayDesc, #displayDate, #displayName {
+		display: none;
+	}
+	
+	.small-screen-btn {
+	display: inline-block;
+	top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
+
+	/*#vioDesc-small, #inspDate-small, #restName-small {*/
+	/*	display: inline-block;*/
+	/*	z-index: 1000;*/
+	/*	color: black;*/
+	/*}*/
+
+}
+
+
+
