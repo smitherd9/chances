@@ -10,7 +10,7 @@ navbar {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
-h1, p {
+h1, h2, h3, p {
 	font-family: 'Shrikhand', cursive;
 	color: white;
 }
@@ -20,11 +20,6 @@ h1 small {
 	color: #317263;
 	float: right;
 	margin-right: 20px;
-}
-
-h2 {
-	font-family: 'Shrikhand', cursive;
-	color: white;
 }
 
 .input-group {
@@ -159,10 +154,19 @@ img {
 .groupName {
     
     text-align: center;
-    /*border: 2px solid black;*/
-    /*border-radius: 5%;*/
     width: 10em;
     height: 25em;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#displayScore {
+	text-align: center;
+    /*width: 10em;*/
+    /*height: 10em;*/
     top:0;
     bottom: 0;
     left: 0;
@@ -174,13 +178,11 @@ img {
 
 
 
-#displayScore, #displayDesc, #displayDate, #displayName {
+#displayDesc, #displayDate, #displayName, #ratingDesc {
     
     text-align: center;
-    /*border: 2px solid black;*/
-    /*border-radius: 5%;*/
     width: 10em;
-    height: 25em;
+    height: 10em;
     top:0;
     bottom: 0;
     left: 0;
@@ -191,6 +193,6 @@ img {
 
 
 #displayScore {
-	font-size: 40px;
+	font-size: 5em;
 	font-weight: bold;
 }
