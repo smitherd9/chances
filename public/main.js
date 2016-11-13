@@ -107,6 +107,12 @@ var getInput = function(){
     console.log(query);
     
     var cuisine = $('#cuisine').val();
+    if ((cuisine) && (zip) && (dba)) {
+        query.cuisine_description = cuisine;
+        query.zipcode = zip;
+        query.dba = dba;
+        byAll(cuisine, zip, dba, query);
+    }
     if (cuisine) {
         query.cuisine_description = cuisine;
         byCuisine(cuisine, query);
@@ -134,6 +140,32 @@ var getInput = function(){
 
     
 };
+
+var byAll = function(cuisine, zip, dba, query) {
+    $.ajax('http://hello-server-smitherd9.c9users.io/all/' + cuisine + zip + dba, {
+        type: 'GET',
+        data: query,
+        dataType: 'json'
+    })
+    
+    .done(function(data){
+        console.log(data);
+        $('#displayDate').html('');
+        $('#displayDesc').html('');
+        $('#displayName').html('');
+        $('#displayScore').html('');
+        
+        $("#displayScore").append("<p>" + data.chancesRating + "</p>").animateCss('slideInLeft');
+        
+        $.each(data.vioDesc, function(index, value){
+            console.log(value.inspection_date);
+            $("#displayDate").append("<p>" + moment(value.inspection_date).fromNow() + "</p></br>").animateCss('fadeInUp');      
+            $("#displayDesc").append("<p>" + value.description + "</p></br>").animateCss('slideInRight');
+            $("#displayName").append("<p>" + value.dba + "</p></br>").animateCss('slideInRight');
+        });
+        
+    });
+}
 
 var byZip = function(zip, query) {
     $.ajax('http://hello-server-smitherd9.c9users.io/zip/' + zip, {

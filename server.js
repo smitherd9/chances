@@ -13,17 +13,46 @@ var Data = {
     vioDesc: [],
     score: [],
     grade: [],
-    dba: []
-        
-
+    
 };
+
+app.get('/all/:zip/:dba/:cuisine_description', function(req, res) {
+    console.log('req.query: ', req.query); 
+    console.log('req.params: ', req.params);
+    req.query.zipcode = req.params.zip;
+    req.query.dba = req.params.dba;
+    req.query.cuisine_description = req.params.cuisine_description;
+    req.query.$limit = 15;
+    req.query.$$app_token = "bOdo0GBO11GSiRssvuQLv0t3A";
+    
+    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
+        .query(req.query)
+
+
+    .end(function(response) {
+        console.log(response.body);
+        console.log("res.body.length: ", response.body.length);
+        Data.vioDesc = [];
+        Data.grade = [];
+        Data.dba = [];
+        Data.score = [];
+        storeInData(response.body);
+        var sendData = function(Data) {
+            res.json(Data);
+            Data.chancesRating = 0;
+            
+        };
+        
+        sendData(Data);
+    });
+    
+});
 
 
 app.get('/zip/:zip', function(req, res) {
     console.log('req.query: ', req.query); //should log the data that was sent from client 
     console.log('req.params: ', req.params);
     req.query.zipcode = req.params.zip;
-    // req.query.dba = req.params.dba;
     req.query.$limit = 15;
     req.query.$$app_token = "bOdo0GBO11GSiRssvuQLv0t3A";
     
