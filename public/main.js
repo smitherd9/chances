@@ -1,4 +1,9 @@
+// var Data = {
+//     info: []
+// };
 
+
+var Data = [];
 
 
 $(document).ready(function() {
@@ -38,12 +43,20 @@ $('.small-screen').hide();
 //     $('.small-screen').animateCss('slideInUp');
 // });
 
-var buttonListener = function(data) {
-   $('#vioDesc-btn').on('click', function(data){
+
+    
+   $('#vioDesc-btn').on('click', function(){
    console.log('vioDesc button clicked');
-   $('#vioDesc-small').append("<p>" + data.vioDesc.description + "</p></br>");
+   
+   displayDescription(Data);
+//   console.log('button listener func: ', Data);
+   });
+  
+  var displayDescription = function(Data){
+      console.log('Data in displayDescription: ', Data);
+   $('#vioDesc-small').append("<p>" + Data[0].vioDesc.description + "</p></br>");
    $('.small-screen').animateCss('slideInUp');
-  });
+  };
   
   
   $('#inspDate-btn').on('click', function(){
@@ -60,7 +73,7 @@ var buttonListener = function(data) {
   });
   
   
-};
+
 
 
 
@@ -142,7 +155,8 @@ var byZip = function(zip, query) {
         $('#displayDesc').html('');
         $('#displayName').html('');
         $('#displayScore').html('');
-        buttonListener(data);
+        Data.push(data);
+        console.log(Data);
         
         $("#displayScore").append("<p>" + data.chancesRating + "</p>").animateCss('slideInLeft');
         
