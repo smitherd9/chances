@@ -31,68 +31,89 @@
 
     <div class="page-header">
         <div class="header-container">
-        <span class="center-block"><img src="foodpoisoning.gif"></span>
-        <h1>What are the Chances? <small>food poisoning in NYC</small></h1>
+            <span class="center-block"><img src="foodpoisoning.gif"></span>
+            <h1>What are the Chances? <small>food poisoning in NYC</small></h1>
+        </div>
     </div>
-    </div>
-    <!--<div class="container">-->
+    
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="input-group">
+                <!--<span class="input-group-addon" id="basic-addon1">What is your zipcode?</span>-->
+                <input type="text" class="form-control" id="zip" placeholder="What is your zipcode?" aria-describedby="basic-addon1">
+                <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+            </div>
+            </div>
+
+            <!--Template for float label pattern plugin-->
+            <!--    <form role="form">-->
+            <!--        <div class="form-group float-label-control">-->
+            <!--            <label for="">Zipcode</label>-->
+            <!--            <input type="text" class="form-control" placeholder="What's your zipcode?">-->
+            <!--        </div>-->
+            <!--    </form>-->
+            <!--</div>-->
+
+            <div class="col-sm-4">
+                <div class="input-group">
+                    <!--<span class="input-group-addon" id="basic-addon1">What is the restaurant name?</span>-->
+                    <input type="text" class="form-control" id="dba" placeholder="What is the restaurant name?" aria-describedby="basic-addon1">
+                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+                </div>
+            </div>
+
+
+            <div class="col-sm-4">
+                <div class="input-group">
+                    <!--<span class="input-group-addon" id="basic-addon1">What type of cuisine would you like to eat?</span>-->
+                    <input type="text" class="form-control" id="cuisine" placeholder="What type of cuisine?" aria-describedby="basic-addon1">
+                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+                </div>
+            </div>
+        </div>
+
+        <br/>
         <div class="row">
-            <div class="col-md-4">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">What is your zipcode?</span>
-                    <input type="text" class="form-control" id="zip" placeholder="What is your zipcode?" aria-describedby="basic-addon1">
-                    <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
+            <div class="col-sm-3">
+                <div id="displayScore">
+                    <h2>Rating:</h2>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">What is the restaurant name?</span>
-                    <input type="text" class="form-control" id="dba" placeholder="Ex: Finestra Restaurant" aria-describedby="basic-addon1">
-                    <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
+
+            <div class="col-sm-3">
+                <div id="displayDesc">
+                    <h2>Violations:</h2>
                 </div>
             </div>
 
+
+            <div class="col-sm-3">
+                <div id="displayDate">
+                    <h2>Date of Inspection:</h2>
+                </div>
+            </div>
             
-                <div class="col-md-4">
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">What type of cuisine would you like to eat?</span>
-                        <input type="text" class="form-control" id="cuisine" placeholder="Ex: Italian" aria-describedby="basic-addon1">
-                        <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                    </div>
+            <div class="col-sm-3">
+                <div id="displayName">
+                    <h2>Name of Restaurant:</h2>
                 </div>
             </div>
 
-            <br/>
-            <div class="row">
-                <div class="col-md-4">
-                    <div id="displayScore"><h2>Rating:</h2></div>
-                </div>
+        </div>
+        
 
 
-                <div class="col-md-4">
-                    <div id="displayDesc"><h2>Description of Violations:</h2></div>
-                </div>
-
-
-                <div class="col-md-4">
-                    <div id="displayDate"><h2>Date of Inspection:</h2></div>
-                </div>
-
-            </div>
-        <!--</div>-->
-
-
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js'></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="main.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js'></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
 </body>
 
 

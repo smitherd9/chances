@@ -12,47 +12,82 @@ $.fn.extend({
             });
         }
     });
-
-
-var MOCK_RESTAURANT_DATA = {
-    'restaurantData':  [
-            {
-            'zipcode': '10021',
-            'critical_flag': 'Critical',
-            'cuisine_description': 'Japanese',
-            'dba': 'KO SUSHI',
-            'score': '31',
-            'violation_code': '04N',
-            'violation_description': 'Filth flies or food/refuse/sewage-associated (FRSA) flies present in facility\u001as food and/or non-food areas. Filth flies include house flies, little house flies, blow flies, bottle flies and flesh flies. Food/refuse/sewage-associated flies include fruit flies, drain flies and Phorid flies.'
-            },
-            
-            {
-            'zipcode': '10021',
-            'critical_flag': 'Critical',
-            'cuisine_description': 'Italian',
-            'dba': 'NUMERO 28',
-            'score': '24',
-            'violation_code': '02I',
-            'violation_description': 'Food prepared from ingredients at ambient temperature not cooled to 41Âº F or below within 4 hours.'
-            }
-        ]
-        
     
-};
+    
+    /* Float Label Pattern Plugin for Bootstrap 3.1.0 by Travis Wilson
+**************************************************/
 
 
-// var getRestaurantData = function(callBackFn){
-//     setTimeout(function(){
-//         callBackFn(MOCK_RESTAURANT_DATA);
-//     }, 1);
-// };
+    // $.fn.floatLabels = function (options) {
+
+    //     // Settings
+    //     var self = this;
+    //     var settings = $.extend({}, options);
 
 
-// var displayRestaurantData = function(data){
-//     for (item in data.restaurantData) {
-//     $('#displayResults').append('<p>' + data.restaurantData[index].text + '</p>');
-//     }
-// };
+    //     // Event Handlers
+    //     function registerEventHandlers() {
+    //         self.on('input keyup change', 'input, textarea', function () {
+    //             actions.swapLabels(this);
+    //         });
+    //     }
+
+
+    //     // Actions
+    //     var actions = {
+    //         initialize: function() {
+    //             self.each(function () {
+    //                 var $this = $(this);
+    //                 var $label = $this.children('label');
+    //                 var $field = $this.find('input,textarea').first();
+
+    //                 if ($this.children().first().is('label')) {
+    //                     $this.children().first().remove();
+    //                     $this.append($label);
+    //                 }
+
+    //                 var placeholderText = ($field.attr('placeholder') && $field.attr('placeholder') != $label.text()) ? $field.attr('placeholder') : $label.text();
+
+    //                 $label.data('placeholder-text', placeholderText);
+    //                 $label.data('original-text', $label.text());
+
+    //                 if ($field.val() == '') {
+    //                     $field.addClass('empty')
+    //                 }
+    //             });
+    //         },
+    //         swapLabels: function (field) {
+    //             var $field = $(field);
+    //             var $label = $(field).siblings('label').first();
+    //             var isEmpty = Boolean($field.val());
+
+    //             if (isEmpty) {
+    //                 $field.removeClass('empty');
+    //                 $label.text($label.data('original-text'));
+    //             }
+    //             else {
+    //                 $field.addClass('empty');
+    //                 $label.text($label.data('placeholder-text'));
+    //             }
+    //         }
+    //     }
+
+
+    //     // Initialization
+    //     function init() {
+    //         registerEventHandlers();
+
+    //         actions.initialize();
+    //         self.each(function () {
+    //             actions.swapLabels($(this).find('input,textarea').first());
+    //         });
+    //     }
+    //     init();
+
+
+    //     return this;
+    // };
+
 
 
 $('.input-group-btn').click(function(e){
@@ -60,48 +95,125 @@ $('.input-group-btn').click(function(e){
     getInput();
 });
 
+$('.input-group').keypress(function(e){
+    if (event.which == 13){
+        e.preventDefault();
+        getInput();
+    }
+});
+
 var getInput = function(){
-    var query = {};   
+    var query = {};
+    console.log(query);
     
     var cuisine = $('#cuisine').val();
     if (cuisine) {
         query.cuisine_description = cuisine;
+        byCuisine(cuisine, query);
     } 
     console.log(cuisine);
     $('#cuisine').val("");
+    
+    
     var zip = $('#zip').val();
+    if (zip) {
+        query.zipcode = zip;
+        byZip(zip, query);
+    }
     console.log(zip);
     $('#zip').val("");
+    
     var dba = $('#dba').val().toUpperCase();
     
     if (dba) {
         query.dba = dba;
+        byDba(dba, query);
     } 
     console.log(dba);
     $('#dba').val("");
+
     
-    $.ajax('http://hello-server-smitherd9.c9users.io/test/' + zip, {
+};
+
+var byZip = function(zip, query) {
+    $.ajax('http://hello-server-smitherd9.c9users.io/zip/' + zip, {
         type: 'GET',
         data: query,
-        // make decision about when to send this, if sent empty it returns an empty object 
         dataType: 'json'
     })
     
     .done(function(data){
         console.log(data);
+        $('#displayDate').html('');
+        $('#displayDesc').html('');
+        $('#displayName').html('');
+        $('#displayScore').html('');
         
         $("#displayScore").append("<p>" + data.chancesRating + "</p>").animateCss('slideInLeft');
         
         $.each(data.vioDesc, function(index, value){
             console.log(value.inspection_date);
-            $("#displayDate").append("<p>" + moment(value.inspection_date).fromNow() + "</p></br>").animateCss('fadeInUp');       // moment(value.date).fromNow()  or .format()   to format the date
+            $("#displayDate").append("<p>" + moment(value.inspection_date).fromNow() + "</p></br>").animateCss('fadeInUp');      
             $("#displayDesc").append("<p>" + value.description + "</p></br>").animateCss('slideInRight');
+            $("#displayName").append("<p>" + value.dba + "</p></br>").animateCss('slideInRight');
         });
         
     });
+}
+
+
+var byDba = function(dba, query) {
+    $.ajax('http://hello-server-smitherd9.c9users.io/dba/' + dba, {
+        type: 'GET',
+        data: query,
+        dataType: 'json'
+    })
     
+    .done(function(data){
+        console.log(data);
+        $('#displayDate').html('');
+        $('#displayDesc').html('');
+        $('#displayName').html('');
+        $('#displayScore').html('');
+        
+        $("#displayScore").append("<p>" + data.chancesRating + "</p>").animateCss('slideInLeft');
+        
+        $.each(data.vioDesc, function(index, value){
+            console.log(value.inspection_date);
+            $("#displayDate").append("<p>" + moment(value.inspection_date).fromNow() + "</p></br>").animateCss('fadeInUp');      
+            $("#displayDesc").append("<p>" + value.description + "</p></br>").animateCss('slideInRight');
+            $("#displayName").append("<p>" + value.dba + "</p></br>").animateCss('slideInRight');
+        });
+        
+    });
+}
+
+
+var byCuisine = function(cuisine, query) {
+    $.ajax('http://hello-server-smitherd9.c9users.io/cuisine/' + cuisine, {
+        type: 'GET',
+        data: query,
+        dataType: 'json'
+    })
     
-    
+    .done(function(data){
+        console.log(data);
+        $('#displayDate').html('');
+        $('#displayDesc').html('');
+        $('#displayName').html('');
+        $('#displayScore').html('');
+        
+        $("#displayScore").append("<p>" + data.chancesRating + "</p>").animateCss('slideInLeft');
+        
+        $.each(data.vioDesc, function(index, value){
+            console.log(value.inspection_date);
+            
+            $("#displayDate").append("<p>" + moment(value.inspection_date).fromNow() + "</p></br>").animateCss('fadeInUp');      
+            $("#displayDesc").append("<p>" + value.description + "</p></br>").animateCss('slideInRight');
+            $("#displayName").append("<p>" + value.dba + "</p></br>").animateCss('slideInRight');
+        });
+        
+    });
 };
 
 
