@@ -14,8 +14,8 @@ describe('chances', function() {
     // var query = 'zipcode=10021&dba=UP%20THAI';
         
     
-    nock('/9w7m-hzhe\.json/')
-                .get('/')
+    nock(/9w7m\-hzhe\.json/)
+                .get(/zipcode/)
                 .reply(200, {
                   body: []
                  });

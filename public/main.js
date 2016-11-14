@@ -33,50 +33,58 @@ $('.input-group').keypress(function(e){
 });
 
 $('.small-screen').hide();
-// $('#vioDesc-small').hide();
-// $('#inspDate-small').hide();
-// $('#restName-small').hide();
-
-
-// $('#vioDesc-btn').on('click', function(){
-//     $('#vioDesc-small').append("<p>" + value.description + "</p></br>");
-//     $('.small-screen').animateCss('slideInUp');
-// });
-
 
     
    $('#vioDesc-btn').on('click', function(){
    console.log('vioDesc button clicked');
-   
    displayDescription(Data);
-//   console.log('button listener func: ', Data);
    });
   
   var displayDescription = function(Data){
-      console.log('Data in displayDescription: ', Data);
-   $('#vioDesc-small').append("<p>" + Data[0].vioDesc.description + "</p></br>");
+   console.log('Data in displayDescription: ', Data);
+   $('.small-screen').show();
+   $('#inspDate-btn').fadeOut(500);
+   $('#inspDate-h2').fadeOut(500);
+   $('#restName-btn').fadeOut(500);
+   $('#restName-h2').fadeOut(500);
+   
+   $('#vioDesc-small').append("<p>" + Data[0].vioDesc[0].description + "</p></br>");
    $('.small-screen').animateCss('slideInUp');
   };
   
   
   $('#inspDate-btn').on('click', function(){
    console.log('inspDate button clicked');
-   $('#inspDate-small').append("<p>" + moment(value.inspection_date).fromNow() + "</p></br>");
-   $('.small-screen').animateCss('slideInUp');
+   displayInspDate(Data);
   });
+  
+  var displayInspDate = function(){
+   $('.small-screen').show();
+   $('#vioDesc-btn').fadeOut(500);
+   $('#vioDesc-h2').fadeOut(500);
+   $('#restName-btn').fadeOut(500);
+   $('#restName-h2').fadeOut(500);
+   $('#inspDate-small').append("<p>" + moment(Data[0].vioDesc[0].inspection_date).fromNow() + "</p></br>");
+   $('.small-screen').animateCss('slideInUp');
+  }
   
   
    $('#restName-btn').on('click', function(){
    console.log('restName button clicked');
-   $('#restName-small').append("<p>" + value.dba + "</p></br>");
-   $('.small-screen').animateCss('slideInUp');
+   displayRestName(Data);
   });
   
+  var displayRestName = function(Data){
+   $('.small-screen').show();
+   $('#inspDate-btn').fadeOut(500);
+   $('#inspDate-h2').fadeOut(500);
+   $('#vioDesc-btn').fadeOut(500);
+   $('#vioDesc-h2').fadeOut(500);
+   $('#restName-small').append("<p>" + value.dba + "</p></br>");
+   $('.small-screen').animateCss('slideInUp');
+  }
   
-
-
-
-
+  
 var getInput = function(){
     var query = {};
     console.log(query);
