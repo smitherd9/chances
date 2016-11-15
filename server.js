@@ -16,42 +16,43 @@ var Data = {
 
 };
 
-app.get('/all/:zip/:dba/:cuisine_description', function(req, res) {
-    console.log('req.query: ', req.query);
-    console.log('req.params: ', req.params);
-    req.query.zipcode = req.params.zip;
-    req.query.dba = req.params.dba;
-    req.query.cuisine_description = req.params.cuisine_description;
-    req.query.$limit = 15;
-    req.query.$$app_token = "bOdo0GBO11GSiRssvuQLv0t3A";
+// app.get('/all/:zip/:dba/:cuisine_description', function(req, res) {
+//     console.log('req.query: ', req.query);
+//     console.log('req.params: ', req.params);
+//     req.query.zipcode = req.params.zip;
+//     req.query.dba = req.params.dba;
+//     req.query.cuisine_description = req.params.cuisine_description;
+//     req.query.$limit = 15;
+//     req.query.$$app_token = "bOdo0GBO11GSiRssvuQLv0t3A";
 
-    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
-        .query(req.query)
+//     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
+//         .query(req.query)
 
 
-    .end(function(response) {
-        console.log(response.body);
-        console.log("res.body.length: ", response.body.length);
-        Data.vioDesc = [];
-        Data.grade = [];
-        Data.score = [];
-        storeInData(response.body);
-        var sendData = function(Data) {
-            res.json(Data);
-            Data.chancesRating = 0;
+//     .end(function(response) {
+//         console.log(response.body);
+//         console.log("res.body.length: ", response.body.length);
+//         Data.vioDesc = [];
+//         Data.grade = [];
+//         Data.score = [];
+//         storeInData(response.body);
+//         var sendData = function(Data) {
+//             res.json(Data);
+//             Data.chancesRating = 0;
 
-        };
+//         };
 
-        sendData(Data);
-    });
+//         sendData(Data);
+//     });
 
-});
+// });
 
 
 app.get('/zip/:zip', function(req, res) {
     console.log('req.query: ', req.query); //should log the data that was sent from client 
     console.log('req.params: ', req.params);
     req.query.zipcode = req.params.zip;
+    console.log('r.q.zip: ', req.query.zipcode, typeof(req.query.zipcode));
     req.query.$limit = 15;
     req.query.$$app_token = "bOdo0GBO11GSiRssvuQLv0t3A";
 
@@ -98,6 +99,7 @@ app.get('/dba/:dba', function(req, res) {
         Data.score = [];
         storeInData(response.body);
         var sendData = function(Data) {
+            console.log('Line 102 Chances Rating: ', Data.chancesRating);
             res.json(Data);
             Data.chancesRating = 0;
 
@@ -139,7 +141,7 @@ app.get('/cuisine/:cuisine_description', function(req, res) {
 var storeInData = function(response) {
     for (let i = 0; i < response.length; i++) {
         var data = response[i];
-        console.log(data.zipcode);
+        console.log('storeInData: ', data.zipcode);
 
         if (data.hasOwnProperty('violation_description') && (data.hasOwnProperty('inspection_date')) && (data.hasOwnProperty('dba'))) {
             Data.vioDesc.push({
@@ -247,7 +249,7 @@ var finalChancesScore = function() {
 
     if (AvgA === Math.max(AvgA, AvgB, AvgC, AvgP, AvgN)) {
         Data.chancesRating = Data.chancesRating - 1;
-        console.log('Chances Rating: ', Data.chancesRating);
+        console.log('Line 251 Chances Rating: ', Data.chancesRating);
     }
     if (AvgB === Math.max(AvgA, AvgB, AvgC, AvgP, AvgN)) {
         Data.chancesRating = Data.chancesRating + 1;
@@ -259,32 +261,34 @@ var finalChancesScore = function() {
         Data.chancesRating = Data.chancesRating + 4;
     }
     
-    if (AvgA === AvgB) {
+    if ((AvgA != 0) && (AvgA === AvgB)) {
         Data.chancesRating = Data.chancesRating;
     }
     
-    if (AvgA === AvgC) {
+    if ((AvgA != 0) && (AvgA === AvgC)) {
         Data.chancesRating = Data.chancesRating + 1;
     }
     
-    if (AvgA === AvgP) {
+    if ((AvgA != 0) && (AvgA === AvgP)) {
         Data.chancesRating = Data.chancesRating + 2;
     }
+    console.log('Line 275 Chances Rating: ', Data.chancesRating);
     
-    if (AvgB === AvgC) {
+    if ((AvgB != 0) && (AvgB === AvgC)) {
         Data.chancesRating = Data.chancesRating + 1;
     }
     
-    if (AvgB === AvgP) {
+    if ((AvgB != 0) && (AvgB === AvgP)) {
         Data.chancesRating = Data.chancesRating + 2;
     }
     
-    if (AvgC === AvgP) {
+    if ((AvgC != 0) && (AvgC === AvgP)) {
         Data.chancesRating = Data.chancesRating + 3;
     }
-    // else if (AvgN === Math.max(AvgA, AvgB, AvgC, AvgP, AvgN)) {
-    //     Data.chancesRating === Data.chancesRating + 0;
-    // }
+    console.log('Line 286 Chances Rating: ', Data.chancesRating);
+    
+
+
 
 };
 
