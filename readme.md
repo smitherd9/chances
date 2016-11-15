@@ -4,7 +4,7 @@
 ### What are the Chances? is an app designed to give users an idea of 
 ### their chances of getting food poisoning at restaurants across New York City.
 
-[[https://github.com/smitherd9/chances/blob/staging/public/chancesscreenshot.PNG|alt=chancesScreenshot]]
+![chancesscreenshot](https://cloud.githubusercontent.com/assets/17256531/20318125/f91f2ee4-ab36-11e6-83e5-84de092304a5.PNG)
 
 [[https://github.com/smitherd9/chances/blob/staging/public/chancesscreenshot_mobile_top.PNG|alt=chancesScreenshot_mobile_top]]
 
