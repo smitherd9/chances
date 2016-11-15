@@ -44,7 +44,7 @@ $('.small-screen').hide();
    $('#restName-h2').fadeOut(500);
    
    for (var i = 0; i < Data[0].vioDesc.length; i++){
-   $('#vioDesc-small').append("<p>" + Data[0].vioDesc[0].description + "</p></br>");
+   $('#vioDesc-small').append("<p>" + Data[0].vioDesc[i].description + "</p></br>");
    $('.small-screen').animateCss('slideInUp');
    }
    console.log('Data[0].vioDesc.length: ', Data[0].vioDesc.length);
@@ -66,7 +66,7 @@ $('.small-screen').hide();
    $('#restName-h2').fadeOut(500);
    
    for (var i = 0; i < Data[0].vioDesc.length; i++){
-   $('#inspDate-small').append("<p>" + moment(Data[0].vioDesc[0].inspection_date).fromNow() + "</p></br>");
+   $('#inspDate-small').append("<p>" + moment(Data[0].vioDesc[i].inspection_date).fromNow() + "</p></br>");
    $('.small-screen').animateCss('slideInUp');
   }
 }
@@ -85,7 +85,7 @@ $('.small-screen').hide();
    $('#vioDesc-h2').fadeOut(500);
   
    for (var i = 0; i < Data[0].vioDesc.length; i++){
-   $('#restName-small').append("<p>" + Data[0].vioDesc[0].dba + "</p></br>");
+   $('#restName-small').append("<p>" + Data[0].vioDesc[i].dba + "</p></br>");
    $('.small-screen').animateCss('slideInUp');
   }
 }
