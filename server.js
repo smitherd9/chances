@@ -16,37 +16,6 @@ var Data = {
 
 };
 
-// app.get('/all/:zip/:dba/:cuisine_description', function(req, res) {
-//     console.log('req.query: ', req.query);
-//     console.log('req.params: ', req.params);
-//     req.query.zipcode = req.params.zip;
-//     req.query.dba = req.params.dba;
-//     req.query.cuisine_description = req.params.cuisine_description;
-//     req.query.$limit = 15;
-//     req.query.$$app_token = "bOdo0GBO11GSiRssvuQLv0t3A";
-
-//     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
-//         .query(req.query)
-
-
-//     .end(function(response) {
-//         console.log(response.body);
-//         console.log("res.body.length: ", response.body.length);
-//         Data.vioDesc = [];
-//         Data.grade = [];
-//         Data.score = [];
-//         storeInData(response.body);
-//         var sendData = function(Data) {
-//             res.json(Data);
-//             Data.chancesRating = 0;
-
-//         };
-
-//         sendData(Data);
-//     });
-
-// });
-
 
 app.get('/zip/:zip', function(req, res) {
     console.log('req.query: ', req.query); //should log the data that was sent from client 
@@ -54,7 +23,7 @@ app.get('/zip/:zip', function(req, res) {
     req.query.zipcode = req.params.zip;
     console.log('r.q.zip: ', req.query.zipcode, typeof(req.query.zipcode));
     req.query.$limit = 15;
-    req.query.$$app_token = "bOdo0GBO11GSiRssvuQLv0t3A";
+    req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
         .query(req.query)
@@ -62,7 +31,7 @@ app.get('/zip/:zip', function(req, res) {
 
     .end(function(response) {
         console.log(response.body);
-        console.log("res.body.length: ", response.body.length);
+        console.log('res.body.length: ', response.body.length);
         Data.vioDesc = [];
         Data.grade = [];
         Data.score = [];
@@ -85,7 +54,7 @@ app.get('/dba/:dba', function(req, res) {
     console.log('req.params: ', req.params);
     req.query.dba = req.params.dba;
     req.query.$limit = 15;
-    req.query.$$app_token = "bOdo0GBO11GSiRssvuQLv0t3A";
+    req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
         .query(req.query)
@@ -93,7 +62,7 @@ app.get('/dba/:dba', function(req, res) {
 
     .end(function(response) {
         console.log(response.body);
-        console.log("res.body.length: ", response.body.length);
+        console.log('res.body.length: ', response.body.length);
         Data.vioDesc = [];
         Data.grade = [];
         Data.score = [];
@@ -115,7 +84,7 @@ app.get('/cuisine/:cuisine_description', function(req, res) {
     console.log('req.params: ', req.params);
     req.query.cuisine_description = req.params.cuisine_description;
     req.query.$limit = 15;
-    req.query.$$app_token = "bOdo0GBO11GSiRssvuQLv0t3A";
+    req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
         .query(req.query)
@@ -123,7 +92,7 @@ app.get('/cuisine/:cuisine_description', function(req, res) {
 
     .end(function(response) {
         console.log(response.body);
-        console.log("res.body.length: ", response.body.length);
+        console.log('res.body.length: ', response.body.length);
         Data.vioDesc = [];
         Data.grade = [];
         Data.score = [];
@@ -196,7 +165,7 @@ var finalChancesScore = function() {
     gradeNum.push(numOfA);
 
     var numOfB = Data.grade.reduce(function(f, g) {
-        if (g === "B")
+        if (g === 'B')
             f++;
         return f;
     }, 0);
@@ -204,7 +173,7 @@ var finalChancesScore = function() {
     gradeNum.push(numOfB);
 
     var numOfC = Data.grade.reduce(function(h, i) {
-        if (i === "C")
+        if (i === 'C')
             h++;
         return h;
     }, 0);
@@ -220,7 +189,7 @@ var finalChancesScore = function() {
     gradeNum.push(numOfP);
 
     var numOfN = Data.grade.reduce(function(l, m) {
-        if (m === "N")
+        if (m === 'N')
             l++;
         return l;
     }, 0);
@@ -249,7 +218,7 @@ var finalChancesScore = function() {
 
     if (AvgA === Math.max(AvgA, AvgB, AvgC, AvgP, AvgN)) {
         Data.chancesRating = Data.chancesRating - 1;
-        console.log('Line 251 Chances Rating: ', Data.chancesRating);
+
     }
     if (AvgB === Math.max(AvgA, AvgB, AvgC, AvgP, AvgN)) {
         Data.chancesRating = Data.chancesRating + 1;
@@ -272,7 +241,7 @@ var finalChancesScore = function() {
     if ((AvgA != 0) && (AvgA === AvgP)) {
         Data.chancesRating = Data.chancesRating + 2;
     }
-    console.log('Line 275 Chances Rating: ', Data.chancesRating);
+
     
     if ((AvgB != 0) && (AvgB === AvgC)) {
         Data.chancesRating = Data.chancesRating + 1;
@@ -285,7 +254,7 @@ var finalChancesScore = function() {
     if ((AvgC != 0) && (AvgC === AvgP)) {
         Data.chancesRating = Data.chancesRating + 3;
     }
-    console.log('Line 286 Chances Rating: ', Data.chancesRating);
+
     
 
 

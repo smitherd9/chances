@@ -43,8 +43,13 @@ $('.small-screen').hide();
    $('#restName-btn').fadeOut(500);
    $('#restName-h2').fadeOut(500);
    
+   for (var i = 0; i < Data[0].vioDesc.length; i++){
    $('#vioDesc-small').append("<p>" + Data[0].vioDesc[0].description + "</p></br>");
    $('.small-screen').animateCss('slideInUp');
+   }
+   console.log('Data[0].vioDesc.length: ', Data[0].vioDesc.length);
+   console.log('Data[0].vioDesc[0].description: ', Data[0].vioDesc[0].description);
+
   };
   
   
@@ -59,15 +64,18 @@ $('.small-screen').hide();
    $('#vioDesc-h2').fadeOut(500);
    $('#restName-btn').fadeOut(500);
    $('#restName-h2').fadeOut(500);
+   
+   for (var i = 0; i < Data[0].vioDesc.length; i++){
    $('#inspDate-small').append("<p>" + moment(Data[0].vioDesc[0].inspection_date).fromNow() + "</p></br>");
    $('.small-screen').animateCss('slideInUp');
   }
-  
-  
+}
+
    $('#restName-btn').on('click', function(){
    console.log('restName button clicked');
    displayRestName(Data);
   });
+
   
   var displayRestName = function(Data){
    $('.small-screen').show();
@@ -75,9 +83,12 @@ $('.small-screen').hide();
    $('#inspDate-h2').fadeOut(500);
    $('#vioDesc-btn').fadeOut(500);
    $('#vioDesc-h2').fadeOut(500);
-   $('#restName-small').append("<p>" + value.dba + "</p></br>");
+  
+   for (var i = 0; i < Data[0].vioDesc.length; i++){
+   $('#restName-small').append("<p>" + Data[0].vioDesc[0].dba + "</p></br>");
    $('.small-screen').animateCss('slideInUp');
   }
+}
   
   
 var getInput = function(){
