@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
@@ -11,33 +11,32 @@ navbar {
 }
 
 p {
-	font-family: 'Bitter', cursive;
+	font-family: "Bitter", cursive;
 	color: #317263;
 	font-weight: bold;
 	font-size: 1.3em;
 }
 
-h1, h2, h3 {
-	font-family: 'Shrikhand', cursive;
+h1,
+h2,
+h3 {
+	font-family: "Shrikhand", cursive;
 	color: white;
 }
 
 h1 small {
-	font-family: 'Shrikhand', cursive;
+	font-family: "Shrikhand", cursive;
 	color: #317263;
 	float: right;
 	margin-right: 20px;
 }
 
 .input-group {
-	font-family: 'Bitter', cursive;
+	font-family: "Bitter", cursive;
 	color: #40345e;
 	margin: 20px;
 	text-align: center;
-	
-	
 }
-
 
 img {
 	width: 7em;
@@ -48,11 +47,9 @@ img {
 	margin: 0 auto;
 }
 
-
 .glyphicons.glyphicons-menu-hamburger {
 	color: white;
 }
-
 
 .header-container span {
 	text-align: center;
@@ -61,39 +58,38 @@ img {
 }
 
 
-
-
 /* Button Styles */
 
 .submit {
-	box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
-	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
-	background-color:#768d87;
-	border-radius:5px;
-	border:1px solid #566963;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:2px 20px;
-	text-decoration:none;
-	text-shadow:0px -1px 0px #2b665e;
-}
-.submit:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
-	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
-	background-color:#6c7c7c;
-}
-.submit:active {
-	position:relative;
-	top:1px;
+	box-shadow: inset 0px 1px 3px 0px #91b8b3;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+	background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#768d87", endColorstr="#6c7c7c", GradientType=0);
+	background-color: #768d87;
+	border-radius: 5px;
+	border: 1px solid #566963;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 2px 20px;
+	text-decoration: none;
+	text-shadow: 0px -1px 0px #2b665e;
 }
 
+.submit:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+	background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#6c7c7c", endColorstr="#768d87", GradientType=0);
+	background-color: #6c7c7c;
+}
+
+.submit:active {
+	position: relative;
+	top: 1px;
+}
 
 .small-screen-btn {
 	display: none;
@@ -106,65 +102,53 @@ img {
 	color: black;
 }
 
-
 .groupName {
-    
-    text-align: center;
-    width: 10em;
-    height: 25em;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+	text-align: center;
+	width: 10em;
+	height: 25em;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 #displayScore {
 	font-size: 5em;
 	font-weight: bold;
 	text-align: center;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
-
-
-
-#displayDesc, #displayDate, #displayName {
-    text-align: center;
-    width: 10em;
-    height: 10em;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+#displayDesc,
+#displayDate,
+#displayName {
+	text-align: center;
+	width: 10em;
+	height: 10em;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 @media (max-width: 768px) {
-	#displayDesc, #displayDate, #displayName {
+	#displayDesc,
+	#displayDate,
+	#displayName {
 		display: none;
 	}
-	
 	.small-screen-btn {
-	display: inline-block;
-	top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+		display: inline-block;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
 }
-
-	/*#vioDesc-small, #inspDate-small, #restName-small {*/
-	/*	display: inline-block;*/
-	/*	z-index: 1000;*/
-	/*	color: black;*/
-	/*}*/
-
-}
-
-
-

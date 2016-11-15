@@ -51,7 +51,7 @@ describe('ZIP', function() {
             violation_description: 'Cold food item held above 41Âº F (smoked fish and reduced oxygen packaged foods above 38 ÂºF) except during necessary preparation.',
             zipcode: '10021'
         }]);
-        
+
     it('should return status code 200 json on GET', function(done) {
         chai.request(app)
             .get('/zip/10021')
@@ -81,7 +81,7 @@ describe('ZIP', function() {
 });
 
 describe('DBA', function() {
-    
+
     nock(/cityofnewyork\.us/)
         .get(/resource/)
         .reply(200, [{
@@ -216,8 +216,8 @@ describe('CUISINE', function() {
 
                 done();
             });
-        });
     });
+});
 
 
 describe('about', function() {

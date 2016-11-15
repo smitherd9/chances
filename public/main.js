@@ -13,7 +13,13 @@ $(document).ready(function() {
     }
   });
 
+  $('.small-screen').hide();
+  $('#vioDesc-btn-hide').hide();
+  $('#inspDate-btn-hide').hide();
+  $('#restName-btn-hide').hide();
 
+
+  // Button Listeners
 
   $('.input-group-btn').click(function(e) {
     e.preventDefault();
@@ -27,24 +33,34 @@ $(document).ready(function() {
     }
   });
 
-  $('.small-screen').hide();
-  $('#vioDesc-btn-hide').hide();
-  $('#inspDate-btn-hide').hide();
-  $('#restName-btn-hide').hide();
-
-
   $('#vioDesc-btn').on('click', function() {
-    console.log('vioDesc button clicked');
     displayDescription(Data);
   });
 
   $('#vioDesc-btn-hide').on('click', function() {
-    console.log('vioDesc button hide clicked');
+
     hideDescription();
   });
 
+  $('#inspDate-btn').on('click', function() {
+    displayInspDate(Data);
+  });
+
+  $('#inspDate-btn-hide').on('click', function() {
+    hideInspDate();
+  });
+
+  $('#restName-btn').on('click', function() {
+    displayRestName(Data);
+  });
+
+  $('#restName-btn-hide').on('click', function() {
+    hideRestName();
+  });
+
+  // Display functions for small screens 768px and under
+
   var displayDescription = function(Data) {
-    console.log('Data in displayDescription: ', Data);
     $('.small-screen').show();
     $('#inspDate-btn').fadeOut(500);
     $('#inspDate-h2').fadeOut(500);
@@ -57,8 +73,6 @@ $(document).ready(function() {
       $('#vioDesc-small').append('<p>' + Data[0].vioDesc[i].description + '</p></br>');
       $('.small-screen').animateCss('slideInUp');
     }
-    console.log('Data[0].vioDesc.length: ', Data[0].vioDesc.length);
-    console.log('Data[0].vioDesc[0].description: ', Data[0].vioDesc[0].description);
   };
 
   var hideDescription = function() {
@@ -74,17 +88,6 @@ $(document).ready(function() {
     }, 300);
 
   };
-
-
-  $('#inspDate-btn').on('click', function() {
-    console.log('inspDate button clicked');
-    displayInspDate(Data);
-  });
-
-  $('#inspDate-btn-hide').on('click', function() {
-    console.log('inspDate button hide clicked');
-    hideInspDate();
-  });
 
   var displayInspDate = function() {
     $('.small-screen').show();
@@ -114,17 +117,6 @@ $(document).ready(function() {
     }, 300);
 
   };
-
-  $('#restName-btn').on('click', function() {
-    console.log('restName button clicked');
-    displayRestName(Data);
-  });
-
-  $('#restName-btn-hide').on('click', function() {
-    console.log('restName button hide clicked');
-    hideRestName();
-  });
-
 
   var displayRestName = function(Data) {
     $('.small-screen').show();
@@ -156,9 +148,11 @@ $(document).ready(function() {
   };
 
 
+
+  // Function for getting input from the user
+
   var getInput = function() {
     var query = {};
-    console.log(query);
 
     var cuisine = $('#cuisine').val();
     if ((cuisine) && (zip) && (dba)) {
@@ -171,16 +165,13 @@ $(document).ready(function() {
       query.cuisine_description = cuisine;
       byCuisine(cuisine, query);
     }
-    console.log(cuisine);
     $('#cuisine').val('');
-
 
     var zip = $('#zip').val();
     if (zip) {
       query.zipcode = zip;
       byZip(zip, query);
     }
-    console.log(zip);
     $('#zip').val('');
 
     var dba = $('#dba').val().toUpperCase();
@@ -189,37 +180,13 @@ $(document).ready(function() {
       query.dba = dba;
       byDba(dba, query);
     }
-    console.log(dba);
     $('#dba').val('');
 
 
   };
 
-  var byAll = function(cuisine, zip, dba, query) {
-    $.ajax('http://hello-server-smitherd9.c9users.io/all/' + cuisine + zip + dba, {
-      type: 'GET',
-      data: query,
-      dataType: 'json'
-    })
 
-    .done(function(data) {
-      console.log(data);
-      $('#displayDate').html('');
-      $('#displayDesc').html('');
-      $('#displayName').html('');
-      $('#displayScore').html('');
-
-      $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
-
-      $.each(data.vioDesc, function(index, value) {
-        console.log(value.inspection_date);
-        $('#displayDate').append('<p>' + moment(value.inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-        $('#displayDesc').append('<p>' + value.description + '</p></br>').animateCss('slideInRight');
-        $('#displayName').append('<p>' + value.dba + '</p></br>').animateCss('slideInRight');
-      });
-
-    });
-  }
+  // AJAX requests to What are the Chances? API 
 
   var byZip = function(zip, query) {
     $.ajax('http://hello-server-smitherd9.c9users.io/zip/' + zip, {
@@ -229,18 +196,15 @@ $(document).ready(function() {
     })
 
     .done(function(data) {
-      console.log(data);
       $('#displayDate').html('');
       $('#displayDesc').html('');
       $('#displayName').html('');
       $('#displayScore').html('');
       Data.push(data);
-      console.log(Data);
 
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
       $.each(data.vioDesc, function(index, value) {
-        console.log(value.inspection_date);
         $('#displayDate').append('<p>' + moment(value.inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
         $('#displayDesc').append('<p>' + value.description + '</p></br>').animateCss('slideInRight');
         $('#displayName').append('<p>' + value.dba + '</p></br>').animateCss('slideInRight');
@@ -250,7 +214,7 @@ $(document).ready(function() {
       });
 
     });
-  }
+  };
 
 
   var byDba = function(dba, query) {
@@ -261,7 +225,6 @@ $(document).ready(function() {
     })
 
     .done(function(data) {
-      console.log(data);
       $('#displayDate').html('');
       $('#displayDesc').html('');
       $('#displayName').html('');
@@ -270,7 +233,6 @@ $(document).ready(function() {
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
       $.each(data.vioDesc, function(index, value) {
-        console.log(value.inspection_date);
         $('#displayDate').append('<p>' + moment(value.inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
         $('#displayDesc').append('<p>' + value.description + '</p></br>').animateCss('slideInRight');
         $('#displayName').append('<p>' + value.dba + '</p></br>').animateCss('slideInRight');
@@ -288,7 +250,6 @@ $(document).ready(function() {
     })
 
     .done(function(data) {
-      console.log(data);
       $('#displayDate').html('');
       $('#displayDesc').html('');
       $('#displayName').html('');
@@ -297,8 +258,6 @@ $(document).ready(function() {
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
       $.each(data.vioDesc, function(index, value) {
-        console.log(value.inspection_date);
-
         $('#displayDate').append('<p>' + moment(value.inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
         $('#displayDesc').append('<p>' + value.description + '</p></br>').animateCss('slideInRight');
         $('#displayName').append('<p>' + value.dba + '</p></br>').animateCss('slideInRight');
