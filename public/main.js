@@ -1,8 +1,3 @@
-// var Data = {
-//     info: []
-// };
-
-
 var Data = [];
 
 
