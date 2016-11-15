@@ -1,1 +1,134 @@
-<p>Hello World!</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>What are the chances?</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Shrikhand" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">What are the Chances?</a>
+            </div>
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="header-container">
+            <span class="center-block"><img src="foodpoisoning.gif"></span>
+            <h1>What are the Chances? <small>food poisoning in NYC</small></h1>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="zip" placeholder="Search by zipcode" aria-describedby="basic-addon1">
+                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+                </div>
+            </div>
+
+
+            <div class="col-sm-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="dba" placeholder="Search by restaurant name" aria-describedby="basic-addon1">
+                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+                </div>
+            </div>
+
+
+            <div class="col-sm-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="cuisine" placeholder="Search by type of cuisine" aria-describedby="basic-addon1">
+                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="groupName">
+                    <h2>Rating:</h2>
+                    <div id="displayScore">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="groupName">
+                    <h2 id="vioDesc-h2">Violations:</h2>
+                    <div id="displayDesc">
+                    </div>
+                    <div class="small-screen-btn"><button id="vioDesc-btn" class="btn btn-default" type="button">Read Violation Descriptions</button></div>
+                    <div class="small-screen-btn"><button id="vioDesc-btn-hide" class="btn btn-default" type="button">Hide Violation Descriptions</button></div>
+                    <div class="small-screen">
+                        <div id="vioDesc-small"></div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-sm-3">
+                <div class="groupName">
+                    <h2 id="inspDate-h2">Date of Inspection:</h2>
+                    <div id="displayDate">
+                    </div>
+                    <div class="small-screen-btn"><button id="inspDate-btn" class="btn btn-default" type="button">See dates of inspections</button></div>
+                    <div class="small-screen-btn"><button id="inspDate-btn-hide" class="btn btn-default" type="button">Hide dates of inspections</button></div>
+                    <div class="small-screen">
+                        <div id="inspDate-small"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="groupName">
+                    <h2 id="restName-h2">Name of Restaurant:</h2>
+                    <div id="displayName">
+                    </div>
+                    <div class="small-screen-btn"><button id="restName-btn" class="btn btn-default" type="button">See restaurant names</button></div>
+                    <div class="small-screen-btn"><button id="restName-btn-hide" class="btn btn-default" type="button">Hide restaurant names</button></div>
+                    <div class="small-screen">
+                        <div id="restName-small"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+
+
+</html>
