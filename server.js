@@ -157,7 +157,7 @@ var finalChancesScore = function() {
     }
 
     var numOfA = Data.grade.reduce(function(d, e) {
-        if (e === "A")
+        if (e === 'A')
             d++;
         return d;
     }, 0);
@@ -181,7 +181,7 @@ var finalChancesScore = function() {
     gradeNum.push(numOfC);
 
     var numOfP = Data.grade.reduce(function(j, k) {
-        if (k === "P")
+        if (k === 'P')
             j++;
         return j;
     }, 0);
