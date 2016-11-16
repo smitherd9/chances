@@ -189,7 +189,7 @@ $(document).ready(function() {
   // AJAX requests to What are the Chances? API 
 
   var byZip = function(zip, query) {
-    $.ajax('http://hello-server-smitherd9.c9users.io/zip/' + zip, {
+    $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
       type: 'GET',
       data: query,
       dataType: 'json'
@@ -218,7 +218,7 @@ $(document).ready(function() {
 
 
   var byDba = function(dba, query) {
-    $.ajax('http://hello-server-smitherd9.c9users.io/dba/' + dba, {
+    $.ajax('https://boiling-shelf-21235.herokuapp.com/dba/' + dba, {
       type: 'GET',
       data: query,
       dataType: 'json'
@@ -243,7 +243,7 @@ $(document).ready(function() {
 
 
   var byCuisine = function(cuisine, query) {
-    $.ajax('http://hello-server-smitherd9.c9users.io/cuisine/' + cuisine, {
+    $.ajax('https://boiling-shelf-21235.herokuapp.com/cuisine/' + cuisine, {
       type: 'GET',
       data: query,
       dataType: 'json'
