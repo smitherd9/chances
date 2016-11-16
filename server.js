@@ -94,6 +94,7 @@ app.get('/cuisine/:cuisine_description', function(req, res) {
 
 
 var storeInData = function(response) {
+    console.log(response.length);
     for (let i = 0; i < response.length; i++) {
         var data = response[i];
 

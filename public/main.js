@@ -201,6 +201,7 @@ $(document).ready(function() {
       $('#displayName').html('');
       $('#displayScore').html('');
       Data.push(data);
+      console.log(data);
 
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
@@ -229,6 +230,7 @@ $(document).ready(function() {
       $('#displayDesc').html('');
       $('#displayName').html('');
       $('#displayScore').html('');
+      console.log(data);
 
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
@@ -254,6 +256,7 @@ $(document).ready(function() {
       $('#displayDesc').html('');
       $('#displayName').html('');
       $('#displayScore').html('');
+      console.log(data);
 
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
