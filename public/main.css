@@ -3,19 +3,42 @@
 }
 
 body {
+	background-color: #33294b;  
+}
+
+footer {
+	height: 25em;
+}
+
+.navbar {
+	background-color: rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid whitesmoke;
+}
+
+.navbar-right {
+	margin-right: 0.1em;
+}
+
+.container-fluid {
 	background-color: #40345e;
 }
 
-navbar {
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-p {
+#about p {
+	color: #c5c2ce;
 	font-family: "Bitter", cursive;
-	color: #317263;
+	color: #c5c2ce;
 	font-weight: bold;
 	font-size: 1.3em;
 }
+
+#howWork p {
+	font-family: "Bitter", cursive;
+	color: #c5c2ce;
+	font-weight: bold;
+	font-size: 1.3em;
+
+}
+
 
 h1,
 h2,
@@ -24,12 +47,6 @@ h3 {
 	color: white;
 }
 
-h1 small {
-	font-family: "Shrikhand", cursive;
-	color: #317263;
-	float: right;
-	margin-right: 20px;
-}
 
 .input-group {
 	font-family: "Bitter", cursive;
@@ -41,19 +58,23 @@ h1 small {
 img {
 	width: 7em;
 	height: 7em;
-	border-radius: 50%;
-	/*float: right;*/
+	border-radius: 50%;	
 	text-align: center;
 	margin: 0 auto;
 }
 
-.glyphicons.glyphicons-menu-hamburger {
-	color: white;
+.header-container {
+	text-align: center;	
+}
+
+.header-container h1 {
+	text-align: center;
+	color: #317263;
+	
 }
 
 .header-container span {
-	text-align: center;
-	/*position: absolute;*/
+	text-align: center;	
 	margin: 0 auto;
 }
 
@@ -152,3 +173,7 @@ img {
 		margin: auto;
 	}
 }
+
+
+
+

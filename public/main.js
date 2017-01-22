@@ -154,16 +154,15 @@ $(document).ready(function() {
   var getInput = function() {
     var query = {};
 
-    var cuisine = $('#cuisine').val();
-    if ((cuisine) && (zip) && (dba)) {
-      query.cuisine_description = cuisine;
-      query.zipcode = zip;
-      query.dba = dba;
-      byAll(cuisine, zip, dba, query);
-    }
+    var cuisine = $('#cuisine').val();   
+      
+ 
     if (cuisine) {
-      query.cuisine_description = cuisine;
-      byCuisine(cuisine, query);
+      var upper = cuisine[0].toUpperCase();
+      var lower = cuisine.slice(1).toLowerCase();
+      var newCuisineString = upper + lower;
+      query.cuisine_description = newCuisineString;
+      byCuisine(newCuisineString, query);
     }
     $('#cuisine').val('');
 
@@ -181,8 +180,7 @@ $(document).ready(function() {
       byDba(dba, query);
     }
     $('#dba').val('');
-
-
+    
   };
 
 
