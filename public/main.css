@@ -8,6 +8,7 @@ body {
 
 footer {
 	height: 7em;
+	background-color: #28203c;
 }
 
 .footer-copyright {
@@ -41,8 +42,7 @@ footer {
 
 #about p {
 	color: #c5c2ce;
-	font-family: "Bitter", cursive;
-	color: #c5c2ce;
+	font-family: "Bitter", cursive;	
 	font-weight: bold;
 	font-size: 1.3em;
 }
@@ -139,25 +139,27 @@ img {
 	color: black;
 }
 
-.groupName {
+#groupName {
 	text-align: center;
 	width: 10em;
 	height: 25em;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	margin: auto;
 }
 
+#violation-description {
+	background-color: #33294b;
+}
+
+#name-of-restaurant {
+	background-color: #33294b;
+}
+
 #displayScore {
-	font-size: 5em;
+	font-size: 10em;
 	font-weight: bold;
 	text-align: center;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	color: cornflowerblue;
+	font-family: "Shrikhand", cursive;
 	margin: auto;
 }
 
@@ -167,11 +169,9 @@ img {
 	text-align: center;
 	width: 10em;
 	height: 10em;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	margin: auto;
+	color: cornflowerblue;
+	font-family: "Shrikhand", cursive;
 }
 
 @media (max-width: 768px) {

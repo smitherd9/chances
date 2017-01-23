@@ -74,18 +74,23 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="groupName">
-                    <h2>Rating:</h2>
+            <div class="col-md-12" id="groupName">
+                <!-- <div class="groupName"> -->
+                    <h2>Overall Rating:</h2>
                     <div id="displayScore">
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
-
-            <div class="col-sm-3">
-                <div class="groupName">
+        </div>
+        <!-- <div class="groupName"> -->
+        <div class="row" id="violation-description">    
+            <div class="col-sm-3" id="groupName">
+                
                     <h2 id="vioDesc-h2">Violations:</h2>
+            </div>
+                    <div class="col-sm-3">
                     <div id="displayDesc">
+                    </div>
                     </div>
                     <div class="small-screen-btn"><button id="vioDesc-btn" class="btn btn-default" type="button">Read Violation Descriptions</button></div>
                     <div class="small-screen-btn"><button id="vioDesc-btn-hide" class="btn btn-default" type="button">Hide Violation Descriptions</button></div>
@@ -93,12 +98,12 @@
                         <div id="vioDesc-small"></div>
                     </div>
                 </div>
-
-            </div>
-
-
-            <div class="col-sm-3">
-                <div class="groupName">
+        <!-- </div> -->
+        
+        
+        <div class="row">
+            <div class="col-sm-3" id="groupName">
+                <!-- <div class="groupName"> -->
                     <h2 id="inspDate-h2">Date of Inspection:</h2>
                     <div id="displayDate">
                     </div>
@@ -107,11 +112,13 @@
                     <div class="small-screen">
                         <div id="inspDate-small"></div>
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
+        </div>
 
-            <div class="col-sm-3">
-                <div class="groupName">
+        <div class="row" id="name-of-restaurant">
+            <div class="col-sm-3" id="groupName">
+                <!-- <div class="groupName"> -->
                     <h2 id="restName-h2">Name of Restaurant:</h2>
                     <div id="displayName">
                     </div>
@@ -120,18 +127,19 @@
                     <div class="small-screen">
                         <div id="restName-small"></div>
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
-
         </div>
+
+        </div>   
     </div>
     <footer>
-    <!-- <div class="container-fluid"> -->
+    
         <div class="footer-copyright">
             <span><i class="fa fa-copyright" aria-hidden="true"></i>2016 Daniel Smither</span>
                 
         </div>
-    <!-- </div> -->
+    
 
     </footer>
 
