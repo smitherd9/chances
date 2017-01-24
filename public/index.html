@@ -9,34 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Bitter|Shrikhand" rel="stylesheet">
     <link rel="stylesheet" href="main.css" type="text/css" />
-    
-
 </head>
 
 <body>
-
     <nav class="navbar navbar-inverse">
-        
-            <div class="navbar-header">
-                <a class="navbar-brand" href="index.html"><h3>What are the Chances?</h3></a>
-            </div>
-            <ul class="nav navbar-nav">
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="about.html"><h3>About</h3></a></li>
-            </ul>
-        
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"><h3>What are the Chances?</h3></a>
+        </div>
+        <ul class="nav navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="about.html"><h3>About</h3></a></li>
+        </ul>
     </nav>
-
-    
     <div class="page-header">
         <div class="header-container">
             <span class="center-block"><img src="foodpoisoning.gif"></span>
             <h1>Food poisoning in NYC</h1>
         </div>
     </div>
-    
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4">
@@ -47,8 +38,6 @@
       </span>
                 </div>
             </div>
-
-
             <div class="col-sm-4">
                 <div class="input-group">
                     <input type="text" class="form-control" id="dba" placeholder="Search by restaurant name" aria-describedby="basic-addon1">
@@ -57,8 +46,6 @@
       </span>
                 </div>
             </div>
-
-
             <div class="col-sm-4">
                 <div class="input-group">
                     <input type="text" class="form-control" id="cuisine" placeholder="Search by type of cuisine" aria-describedby="basic-addon1">
@@ -69,87 +56,97 @@
             </div>
         </div>
     </div>
-
     <br/>
-
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12" id="groupName">
-                <!-- <div class="groupName"> -->
-                    <h2>Overall Rating:</h2>
-                    <div id="displayScore">
-                    </div>
-                <!-- </div> -->
+        <div class="row" id="rating-display">
+            <h2>Overall Rating:</h2>
+            <div id="displayScore"></div>
+        </div>
+        <div class="row" id="violation-description">
+            <div class="col-sm-3" id="groupName">
+                <h2 id="vioDesc-h2">Violations:</h2>
+            </div>
+            <div class="col-sm-3" id="description-columns">
+                <div id="displayDesc"></div>
+            </div>
+            <div class="col-sm-3" id="description-columns">
+                <div id="displayDesc2"></div>
+            </div>
+            <div class="col-sm-3" id="description-columns">
+                <div id="displayDesc3"></div>
+            </div>
+            <div class="small-screen-btn">
+                <button id="vioDesc-btn" class="btn btn-default" type="button">Read Violation Descriptions</button>
+            </div>
+            <div class="small-screen-btn">
+                <button id="vioDesc-btn-hide" class="btn btn-default" type="button">Hide Violation Descriptions</button>
+            </div>
+            <div class="small-screen">
+                <div id="vioDesc-small"></div>
             </div>
         </div>
-        <!-- <div class="groupName"> -->
-        <div class="row" id="violation-description">    
+        <div class="row">
             <div class="col-sm-3" id="groupName">
-                
-                    <h2 id="vioDesc-h2">Violations:</h2>
+                <h2 id="inspDate-h2">Date of Inspection:</h2>
             </div>
-                    <div class="col-sm-3">
-                    <div id="displayDesc">
-                    </div>
-                    </div>
-                    <div class="small-screen-btn"><button id="vioDesc-btn" class="btn btn-default" type="button">Read Violation Descriptions</button></div>
-                    <div class="small-screen-btn"><button id="vioDesc-btn-hide" class="btn btn-default" type="button">Hide Violation Descriptions</button></div>
-                    <div class="small-screen">
-                        <div id="vioDesc-small"></div>
-                    </div>
+            <div id="displayDate-wrapper">
+                <div class="col-sm-3" id="date-columns">
+                    <div id="displayDate"></div>
                 </div>
-        <!-- </div> -->
-        
-        
-        <div class="row">
-            <div class="col-sm-3" id="groupName">
-                <!-- <div class="groupName"> -->
-                    <h2 id="inspDate-h2">Date of Inspection:</h2>
-                    <div id="displayDate">
-                    </div>
-                    <div class="small-screen-btn"><button id="inspDate-btn" class="btn btn-default" type="button">See dates of inspections</button></div>
-                    <div class="small-screen-btn"><button id="inspDate-btn-hide" class="btn btn-default" type="button">Hide dates of inspections</button></div>
-                    <div class="small-screen">
-                        <div id="inspDate-small"></div>
-                    </div>
-                <!-- </div> -->
+                <div class="col-sm-3" id="date-columns">
+                    <div id="displayDate2"></div>
+                </div>
+                <div class="col-sm-3" id="date-columns">
+                    <div id="displayDate3"></div>
+                </div>
+                <div class="small-screen-btn">
+                    <button id="inspDate-btn" class="btn btn-default" type="button">See dates of inspections</button>
+                </div>
+                <div class="small-screen-btn">
+                    <button id="inspDate-btn-hide" class="btn btn-default" type="button">Hide dates of inspections</button>
+                </div>
+                <div class="small-screen">
+                    <div id="inspDate-small"></div>
+                </div>
             </div>
         </div>
-
         <div class="row" id="name-of-restaurant">
             <div class="col-sm-3" id="groupName">
-                <!-- <div class="groupName"> -->
-                    <h2 id="restName-h2">Name of Restaurant:</h2>
-                    <div id="displayName">
-                    </div>
-                    <div class="small-screen-btn"><button id="restName-btn" class="btn btn-default" type="button">See restaurant names</button></div>
-                    <div class="small-screen-btn"><button id="restName-btn-hide" class="btn btn-default" type="button">Hide restaurant names</button></div>
-                    <div class="small-screen">
-                        <div id="restName-small"></div>
-                    </div>
-                <!-- </div> -->
+                <h2 id="restName-h2">Name of Restaurant:</h2>
+            </div>
+            <div id="displayName-wrapper">
+                <div class="col-sm-3" id="name-columns">
+                    <div id="displayName"></div>
+                </div>
+                <div class="col-sm-3" id="name-columns">
+                    <div id="displayName2"></div>
+                </div>
+                <div class="col-sm-3" id="name-columns">
+                    <div id="displayName3"></div>
+                </div>
+                <div class="small-screen-btn">
+                    <button id="restName-btn" class="btn btn-default" type="button">See restaurant names</button>
+                </div>
+                <div class="small-screen-btn">
+                    <button id="restName-btn-hide" class="btn btn-default" type="button">Hide restaurant names</button>
+                </div>
+                <div class="small-screen">
+                    <div id="restName-small"></div>
+                </div>
             </div>
         </div>
-
-        </div>   
+    </div>
     </div>
     <footer>
-    
         <div class="footer-copyright">
             <span><i class="fa fa-copyright" aria-hidden="true"></i>2016 Daniel Smither</span>
-                
         </div>
-    
-
     </footer>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/346d870b8b.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </body>
-
-
 
 </html>

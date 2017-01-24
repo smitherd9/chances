@@ -154,6 +154,13 @@ img {
 	background-color: #33294b;
 }
 
+#rating-display {
+	text-align: center;
+	width: 10em;
+	height: 25em;
+	margin: auto;
+}
+
 #displayScore {
 	font-size: 10em;
 	font-weight: bold;
@@ -164,14 +171,43 @@ img {
 }
 
 #displayDesc,
+#displayDesc2,
+#displayDesc3,
 #displayDate,
-#displayName {
+#displayDate2,
+#displayDate3,
+#displayName,
+#displayName2,
+#displayName3 {
 	text-align: center;
 	width: 10em;
 	height: 10em;
 	margin: auto;
 	color: cornflowerblue;
 	font-family: "Shrikhand", cursive;
+}
+
+#displayDesc,
+#displayDesc2,
+#displayDesc3 {
+	font-size: 16px;
+	width: 14em;
+}
+
+#displayDate-wrapper, #displayName-wrapper {
+	font-size: 24px;
+}
+
+#description-columns {
+	margin-left: 5em;
+}
+
+#date-columns {
+	margin-left: 2em;
+}
+
+#name-columns {
+	margin-left: 2em;
 }
 
 @media (max-width: 768px) {

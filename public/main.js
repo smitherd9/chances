@@ -195,22 +195,36 @@ $(document).ready(function() {
 
     .done(function(data) {
       $('#displayDate').html('');
+      $('#displayDate2').html('');
+      $('#displayDate3').html('');
+
       $('#displayDesc').html('');
+      $('#displayDesc2').html('');
+      $('#displayDesc3').html('');
+      
       $('#displayName').html('');
+      $('#displayName2').html('');
+      $('#displayName3').html('');
+      
       $('#displayScore').html('');
+
       Data.push(data);
       console.log(data);
 
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
-      $.each(data.vioDesc, function(index, value) {
-        $('#displayDate').append('<p>' + moment(value.inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-        $('#displayDesc').append('<p>' + value.description + '</p></br>').animateCss('slideInRight');
-        $('#displayName').append('<p>' + value.dba + '</p></br>').animateCss('slideInRight');
+      $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
+      $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
+      $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
 
+      $('#displayDesc').append('<p>' + data.vioDesc[0].description + '</p></br>').animateCss('slideInRight');        
+      $('#displayDesc2').append('<p>' + data.vioDesc[1].description + '</p></br>').animateCss('slideInRight');
+      $('#displayDesc3').append('<p>' + data.vioDesc[2].description + '</p></br>').animateCss('slideInRight');
+      
+      $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p></br>').animateCss('slideInRight');
+      $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p></br>').animateCss('slideInRight');
+      $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p></br>').animateCss('slideInRight');
 
-
-      });
 
     });
   };
@@ -225,18 +239,35 @@ $(document).ready(function() {
 
     .done(function(data) {
       $('#displayDate').html('');
+      $('#displayDate2').html('');
+      $('#displayDate3').html('');
+
       $('#displayDesc').html('');
+      $('#displayDesc2').html('');
+      $('#displayDesc3').html('');
+      
       $('#displayName').html('');
+      $('#displayName2').html('');
+      $('#displayName3').html('');
+      
       $('#displayScore').html('');
       console.log(data);
 
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
-      $.each(data.vioDesc, function(index, value) {
-        $('#displayDate').append('<p>' + moment(value.inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-        $('#displayDesc').append('<p>' + value.description + '</p></br>').animateCss('slideInRight');
-        $('#displayName').append('<p>' + value.dba + '</p></br>').animateCss('slideInRight');
-      });
+      $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
+
+      $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
+      $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
+      $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
+
+      $('#displayDesc').append('<p>' + data.vioDesc[0].description + '</p></br>').animateCss('slideInRight');        
+      $('#displayDesc2').append('<p>' + data.vioDesc[1].description + '</p></br>').animateCss('slideInRight');
+      $('#displayDesc3').append('<p>' + data.vioDesc[2].description + '</p></br>').animateCss('slideInRight');
+      
+      $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p></br>').animateCss('slideInRight');
+      $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p></br>').animateCss('slideInRight');
+      $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p></br>').animateCss('slideInRight');
 
     });
   }
@@ -251,18 +282,35 @@ $(document).ready(function() {
 
     .done(function(data) {
       $('#displayDate').html('');
+      $('#displayDate2').html('');
+      $('#displayDate3').html('');
+
       $('#displayDesc').html('');
+      $('#displayDesc2').html('');
+      $('#displayDesc3').html('');
+      
       $('#displayName').html('');
+      $('#displayName2').html('');
+      $('#displayName3').html('');
+      
       $('#displayScore').html('');
       console.log(data);
 
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
-      $.each(data.vioDesc, function(index, value) {
-        $('#displayDate').append('<p>' + moment(value.inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-        $('#displayDesc').append('<p>' + value.description + '</p></br>').animateCss('slideInRight');
-        $('#displayName').append('<p>' + value.dba + '</p></br>').animateCss('slideInRight');
-      });
+      $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
+
+      $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
+      $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
+      $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
+
+      $('#displayDesc').append('<p>' + data.vioDesc[0].description + '</p></br>').animateCss('slideInRight');        
+      $('#displayDesc2').append('<p>' + data.vioDesc[1].description + '</p></br>').animateCss('slideInRight');
+      $('#displayDesc3').append('<p>' + data.vioDesc[2].description + '</p></br>').animateCss('slideInRight');
+      
+      $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p></br>').animateCss('slideInRight');
+      $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p></br>').animateCss('slideInRight');
+      $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p></br>').animateCss('slideInRight');
 
     });
   };
