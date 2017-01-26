@@ -78,6 +78,8 @@ $(document).ready(function() {
 
 
   // Function for pagination, loads 3 more results for each button click
+  // TODO:  Add logic for handling the end of array so user doesn't get undefined displayed
+  // TODO:  Add logic to handle showing only one desc, date and name for small screens
 
   var loadData = function(p) {
     console.log(Data[0]);
