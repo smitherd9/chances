@@ -1,4 +1,6 @@
 var Data = [];
+var page = 0;
+var itemsPerPage = 3;
 
 
 $(document).ready(function() {
@@ -58,94 +60,129 @@ $(document).ready(function() {
     hideRestName();
   });
 
+  $('#load-more-btn').on('click', function() {
+    page = page + 1;
+    loadMore(page);
+    console.log(page);
+    $('#load-previous-btn').show();
+  });
+
+  $('#load-previous-btn').on('click', function() {
+    page = page - 1;
+    loadMore(page);
+    console.log(page);
+  });
+
+
+
+
+
+  // Function for pagination, loads 3 more results for each button click
+
+  var loadMore = function(p) {
+    console.log(Data[0]);
+    clearResults();
+    $('#displayDesc').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 0].description + '</p></br>').animateCss('slideInRight');        
+    $('#displayDesc2').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 1].description + '</p></br>').animateCss('slideInRight');
+    $('#displayDesc3').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 2].description + '</p></br>').animateCss('slideInRight');
+
+    $('#displayDate').append('<p>' + moment(Data[0].vioDesc[(p * itemsPerPage) + 0].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
+    $('#displayDate2').append('<p>' + moment(Data[0].vioDesc[(p * itemsPerPage) + 1].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
+    $('#displayDate3').append('<p>' + moment(Data[0].vioDesc[(p * itemsPerPage) + 2].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
+
+    $('#displayName').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 0].dba + '</p></br>').animateCss('fadeIn');
+    $('#displayName2').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 1].dba + '</p></br>').animateCss('fadeIn');
+    $('#displayName3').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 2].dba + '</p></br>').animateCss('fadeIn');
+  }
+
   // Display functions for small screens 768px and under
 
-  var displayDescription = function(Data) {
-    $('.small-screen').show();
-    $('#inspDate-btn').fadeOut(500);
-    $('#inspDate-h2').fadeOut(500);
-    $('#restName-btn').fadeOut(500);
-    $('#restName-h2').fadeOut(500);
-    $('#vioDesc-btn').fadeOut(500);
-    $('#vioDesc-btn-hide').fadeIn(500);
+  // var displayDescription = function(Data) {
+  //   $('.small-screen').show();
+  //   $('#inspDate-btn').fadeOut(500);
+  //   $('#inspDate-h2').fadeOut(500);
+  //   $('#restName-btn').fadeOut(500);
+  //   $('#restName-h2').fadeOut(500);
+  //   $('#vioDesc-btn').fadeOut(500);
+  //   $('#vioDesc-btn-hide').fadeIn(500);
 
-    for (var i = 0; i < Data[0].vioDesc.length; i++) {
-      $('#vioDesc-small').append('<p>' + Data[0].vioDesc[i].description + '</p></br>');
-      $('.small-screen').animateCss('slideInUp');
-    }
-  };
+  //   for (var i = 0; i < Data[0].vioDesc.length; i++) {
+  //     $('#vioDesc-small').append('<p>' + Data[0].vioDesc[i].description + '</p></br>');
+  //     $('.small-screen').animateCss('slideInUp');
+  //   }
+  // };
 
-  var hideDescription = function() {
-    $('#inspDate-btn').fadeIn(500);
-    $('#inspDate-h2').fadeIn(500);
-    $('#restName-btn').fadeIn(500);
-    $('#restName-h2').fadeIn(500);
-    $('#vioDesc-btn').fadeIn(500);
-    $('#vioDesc-btn-hide').fadeOut(500);
-    $('.small-screen').animateCss('slideOutDown');
-    setTimeout(function() {
-      $('#vioDesc-small').html('');
-    }, 300);
+  // var hideDescription = function() {
+  //   $('#inspDate-btn').fadeIn(500);
+  //   $('#inspDate-h2').fadeIn(500);
+  //   $('#restName-btn').fadeIn(500);
+  //   $('#restName-h2').fadeIn(500);
+  //   $('#vioDesc-btn').fadeIn(500);
+  //   $('#vioDesc-btn-hide').fadeOut(500);
+  //   $('.small-screen').animateCss('slideOutDown');
+  //   setTimeout(function() {
+  //     $('#vioDesc-small').html('');
+  //   }, 300);
 
-  };
+  // };
 
-  var displayInspDate = function() {
-    $('.small-screen').show();
-    $('#vioDesc-btn').fadeOut(500);
-    $('#vioDesc-h2').fadeOut(500);
-    $('#restName-btn').fadeOut(500);
-    $('#restName-h2').fadeOut(500);
-    $('#inspDate-btn').fadeOut(500);
-    $('#inspDate-btn-hide').fadeIn(500);
+  // var displayInspDate = function() {
+  //   $('.small-screen').show();
+  //   $('#vioDesc-btn').fadeOut(500);
+  //   $('#vioDesc-h2').fadeOut(500);
+  //   $('#restName-btn').fadeOut(500);
+  //   $('#restName-h2').fadeOut(500);
+  //   $('#inspDate-btn').fadeOut(500);
+  //   $('#inspDate-btn-hide').fadeIn(500);
 
-    for (var i = 0; i < Data[0].vioDesc.length; i++) {
-      $('#inspDate-small').append('<p>' + moment(Data[0].vioDesc[i].inspection_date).fromNow() + '</p></br>');
-      $('.small-screen').animateCss('slideInUp');
-    }
-  };
+  //   for (var i = 0; i < Data[0].vioDesc.length; i++) {
+  //     $('#inspDate-small').append('<p>' + moment(Data[0].vioDesc[i].inspection_date).fromNow() + '</p></br>');
+  //     $('.small-screen').animateCss('slideInUp');
+  //   }
+  // };
 
-  var hideInspDate = function() {
-    $('#inspDate-btn').fadeIn(500);
-    $('#inspDate-btn-hide').fadeOut(500);
-    $('#restName-btn').fadeIn(500);
-    $('#restName-h2').fadeIn(500);
-    $('#vioDesc-btn').fadeIn(500);
-    $('#vioDesc-h2').fadeIn(500);
-    $('.small-screen').animateCss('slideOutDown');
-    setTimeout(function() {
-      $('#inspDate-small').html('');
-    }, 300);
+  // var hideInspDate = function() {
+  //   $('#inspDate-btn').fadeIn(500);
+  //   $('#inspDate-btn-hide').fadeOut(500);
+  //   $('#restName-btn').fadeIn(500);
+  //   $('#restName-h2').fadeIn(500);
+  //   $('#vioDesc-btn').fadeIn(500);
+  //   $('#vioDesc-h2').fadeIn(500);
+  //   $('.small-screen').animateCss('slideOutDown');
+  //   setTimeout(function() {
+  //     $('#inspDate-small').html('');
+  //   }, 300);
 
-  };
+  // };
 
-  var displayRestName = function(Data) {
-    $('.small-screen').show();
-    $('#inspDate-btn').fadeOut(500);
-    $('#inspDate-h2').fadeOut(500);
-    $('#vioDesc-btn').fadeOut(500);
-    $('#vioDesc-h2').fadeOut(500);
-    $('#restName-btn').fadeOut(500);
-    $('#restName-btn-hide').fadeIn(500);
+  // var displayRestName = function(Data) {
+  //   $('.small-screen').show();
+  //   $('#inspDate-btn').fadeOut(500);
+  //   $('#inspDate-h2').fadeOut(500);
+  //   $('#vioDesc-btn').fadeOut(500);
+  //   $('#vioDesc-h2').fadeOut(500);
+  //   $('#restName-btn').fadeOut(500);
+  //   $('#restName-btn-hide').fadeIn(500);
 
-    for (var i = 0; i < Data[0].vioDesc.length; i++) {
-      $('#restName-small').append('<p>' + Data[0].vioDesc[i].dba + '</p></br>');
-      $('.small-screen').animateCss('slideInUp');
-    }
-  };
+  //   for (var i = 0; i < Data[0].vioDesc.length; i++) {
+  //     $('#restName-small').append('<p>' + Data[0].vioDesc[i].dba + '</p></br>');
+  //     $('.small-screen').animateCss('slideInUp');
+  //   }
+  // };
 
-  var hideRestName = function() {
-    $('#inspDate-btn').fadeIn(500);
-    $('#inspDate-h2').fadeIn(500);
-    $('#restName-btn').fadeIn(500);
-    $('#restName-btn-hide').fadeOut(500);
-    $('#vioDesc-btn').fadeIn(500);
-    $('#vioDesc-h2').fadeIn(500);
-    $('.small-screen').animateCss('slideOutDown');
-    setTimeout(function() {
-      $('#restName-small').html('');
-    }, 300);
+  // var hideRestName = function() {
+  //   $('#inspDate-btn').fadeIn(500);
+  //   $('#inspDate-h2').fadeIn(500);
+  //   $('#restName-btn').fadeIn(500);
+  //   $('#restName-btn-hide').fadeOut(500);
+  //   $('#vioDesc-btn').fadeIn(500);
+  //   $('#vioDesc-h2').fadeIn(500);
+  //   $('.small-screen').animateCss('slideOutDown');
+  //   setTimeout(function() {
+  //     $('#restName-small').html('');
+  //   }, 300);
 
-  };
+  // };
 
 
 
@@ -184,7 +221,8 @@ $(document).ready(function() {
   };
 
 
-  var displayResults = function(data) {
+
+  var clearResults = function() {
       $('#displayDate').html('');
       $('#displayDate2').html('');
       $('#displayDate3').html('');
@@ -197,24 +235,32 @@ $(document).ready(function() {
       $('#displayName2').html('');
       $('#displayName3').html('');
       
+      
+  }
+
+
+  var displayResults = function(data) {
+      $('#load-more-btn').show();
       $('#displayScore').html('');
+      clearResults();
+
 
       Data.push(data);
       console.log(data);
 
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
-      $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-      $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-      $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
+      $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
+      $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
+      $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
 
       $('#displayDesc').append('<p>' + data.vioDesc[0].description + '</p></br>').animateCss('slideInRight');        
       $('#displayDesc2').append('<p>' + data.vioDesc[1].description + '</p></br>').animateCss('slideInRight');
       $('#displayDesc3').append('<p>' + data.vioDesc[2].description + '</p></br>').animateCss('slideInRight');
       
-      $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p></br>').animateCss('slideInRight');
-      $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p></br>').animateCss('slideInRight');
-      $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p></br>').animateCss('slideInRight');
+      $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p></br>').animateCss('fadeIn');
+      $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p></br>').animateCss('fadeIn');
+      $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p></br>').animateCss('fadeIn');
   }
 
 

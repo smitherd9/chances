@@ -12,6 +12,9 @@
 </head>
 
 <body>
+
+<!-- Navbar -->
+
     <nav class="navbar navbar-inverse">
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html"><h3>What are the Chances?</h3></a>
@@ -28,6 +31,10 @@
             <h1>Food poisoning in NYC</h1>
         </div>
     </div>
+
+<!--     End Header -->
+<!--     Begin Search Section -->
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4">
@@ -57,10 +64,18 @@
         </div>
     </div>
     <br/>
+
+    <!-- End Search Section -->
+    <!-- Begin Content -->
+
     <div class="container-fluid">
         <div class="row" id="rating-display">
             <h2>Overall Rating:</h2>
             <div id="displayScore"></div>
+            <div class="row" id="load-btns">
+            <button id="load-previous-btn">Load Previous Results</button>
+            <button id="load-more-btn">Load More Results</button>
+            </div>
         </div>
         <div class="row" id="violation-description">
             <div class="col-sm-3" id="groupName">
@@ -75,16 +90,8 @@
             <div class="col-sm-3" id="description-columns">
                 <div id="displayDesc3"></div>
             </div>
-            <div class="small-screen-btn">
-                <button id="vioDesc-btn" class="btn btn-default" type="button">Read Violation Descriptions</button>
-            </div>
-            <div class="small-screen-btn">
-                <button id="vioDesc-btn-hide" class="btn btn-default" type="button">Hide Violation Descriptions</button>
-            </div>
-            <div class="small-screen">
-                <div id="vioDesc-small"></div>
-            </div>
         </div>
+
         <div class="row">
             <div class="col-sm-3" id="groupName">
                 <h2 id="inspDate-h2">Date of Inspection:</h2>
@@ -99,17 +106,9 @@
                 <div class="col-sm-3" id="date-columns">
                     <div id="displayDate3"></div>
                 </div>
-                <div class="small-screen-btn">
-                    <button id="inspDate-btn" class="btn btn-default" type="button">See dates of inspections</button>
-                </div>
-                <div class="small-screen-btn">
-                    <button id="inspDate-btn-hide" class="btn btn-default" type="button">Hide dates of inspections</button>
-                </div>
-                <div class="small-screen">
-                    <div id="inspDate-small"></div>
-                </div>
             </div>
         </div>
+
         <div class="row" id="name-of-restaurant">
             <div class="col-sm-3" id="groupName">
                 <h2 id="restName-h2">Name of Restaurant:</h2>
@@ -124,17 +123,9 @@
                 <div class="col-sm-3" id="name-columns">
                     <div id="displayName3"></div>
                 </div>
-                <div class="small-screen-btn">
-                    <button id="restName-btn" class="btn btn-default" type="button">See restaurant names</button>
-                </div>
-                <div class="small-screen-btn">
-                    <button id="restName-btn-hide" class="btn btn-default" type="button">Hide restaurant names</button>
-                </div>
-                <div class="small-screen">
-                    <div id="restName-small"></div>
-                </div>
             </div>
         </div>
+
     </div>
     
     <footer>
