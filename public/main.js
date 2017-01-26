@@ -184,16 +184,7 @@ $(document).ready(function() {
   };
 
 
-  // AJAX requests to What are the Chances? API 
-
-  var byZip = function(zip, query) {
-    $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
-      type: 'GET',
-      data: query,
-      dataType: 'json'
-    })
-
-    .done(function(data) {
+  var displayResults = function(data) {
       $('#displayDate').html('');
       $('#displayDate2').html('');
       $('#displayDate3').html('');
@@ -224,8 +215,20 @@ $(document).ready(function() {
       $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p></br>').animateCss('slideInRight');
       $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p></br>').animateCss('slideInRight');
       $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p></br>').animateCss('slideInRight');
+  }
 
 
+  // AJAX requests to What are the Chances? API 
+
+  var byZip = function(zip, query) {
+    $.ajax('http://localhost:8080/zip/' + zip, {
+      type: 'GET',
+      data: query,
+      dataType: 'json'
+    })
+
+    .done(function(data) {
+      displayResults(data);
     });
   };
 
@@ -238,37 +241,7 @@ $(document).ready(function() {
     })
 
     .done(function(data) {
-      $('#displayDate').html('');
-      $('#displayDate2').html('');
-      $('#displayDate3').html('');
-
-      $('#displayDesc').html('');
-      $('#displayDesc2').html('');
-      $('#displayDesc3').html('');
-      
-      $('#displayName').html('');
-      $('#displayName2').html('');
-      $('#displayName3').html('');
-      
-      $('#displayScore').html('');
-      console.log(data);
-
-      $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
-
-      $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
-
-      $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-      $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-      $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-
-      $('#displayDesc').append('<p>' + data.vioDesc[0].description + '</p></br>').animateCss('slideInRight');        
-      $('#displayDesc2').append('<p>' + data.vioDesc[1].description + '</p></br>').animateCss('slideInRight');
-      $('#displayDesc3').append('<p>' + data.vioDesc[2].description + '</p></br>').animateCss('slideInRight');
-      
-      $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p></br>').animateCss('slideInRight');
-      $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p></br>').animateCss('slideInRight');
-      $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p></br>').animateCss('slideInRight');
-
+      displayResults(data);
     });
   }
 
@@ -281,37 +254,7 @@ $(document).ready(function() {
     })
 
     .done(function(data) {
-      $('#displayDate').html('');
-      $('#displayDate2').html('');
-      $('#displayDate3').html('');
-
-      $('#displayDesc').html('');
-      $('#displayDesc2').html('');
-      $('#displayDesc3').html('');
-      
-      $('#displayName').html('');
-      $('#displayName2').html('');
-      $('#displayName3').html('');
-      
-      $('#displayScore').html('');
-      console.log(data);
-
-      $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
-
-      $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
-
-      $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-      $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-      $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p></br>').animateCss('fadeInUp');
-
-      $('#displayDesc').append('<p>' + data.vioDesc[0].description + '</p></br>').animateCss('slideInRight');        
-      $('#displayDesc2').append('<p>' + data.vioDesc[1].description + '</p></br>').animateCss('slideInRight');
-      $('#displayDesc3').append('<p>' + data.vioDesc[2].description + '</p></br>').animateCss('slideInRight');
-      
-      $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p></br>').animateCss('slideInRight');
-      $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p></br>').animateCss('slideInRight');
-      $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p></br>').animateCss('slideInRight');
-
+      displayResults(data);
     });
   };
 
