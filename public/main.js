@@ -62,14 +62,14 @@ $(document).ready(function() {
 
   $('#load-more-btn').on('click', function() {
     page = page + 1;
-    loadMore(page);
+    loadData(page);
     console.log(page);
     $('#load-previous-btn').show();
   });
 
   $('#load-previous-btn').on('click', function() {
     page = page - 1;
-    loadMore(page);
+    loadData(page);
     console.log(page);
   });
 
@@ -79,7 +79,7 @@ $(document).ready(function() {
 
   // Function for pagination, loads 3 more results for each button click
 
-  var loadMore = function(p) {
+  var loadData = function(p) {
     console.log(Data[0]);
     clearResults();
     $('#displayDesc').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 0].description + '</p></br>').animateCss('slideInRight');        
@@ -94,96 +94,6 @@ $(document).ready(function() {
     $('#displayName2').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 1].dba + '</p></br>').animateCss('fadeIn');
     $('#displayName3').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 2].dba + '</p></br>').animateCss('fadeIn');
   }
-
-  // Display functions for small screens 768px and under
-
-  // var displayDescription = function(Data) {
-  //   $('.small-screen').show();
-  //   $('#inspDate-btn').fadeOut(500);
-  //   $('#inspDate-h2').fadeOut(500);
-  //   $('#restName-btn').fadeOut(500);
-  //   $('#restName-h2').fadeOut(500);
-  //   $('#vioDesc-btn').fadeOut(500);
-  //   $('#vioDesc-btn-hide').fadeIn(500);
-
-  //   for (var i = 0; i < Data[0].vioDesc.length; i++) {
-  //     $('#vioDesc-small').append('<p>' + Data[0].vioDesc[i].description + '</p></br>');
-  //     $('.small-screen').animateCss('slideInUp');
-  //   }
-  // };
-
-  // var hideDescription = function() {
-  //   $('#inspDate-btn').fadeIn(500);
-  //   $('#inspDate-h2').fadeIn(500);
-  //   $('#restName-btn').fadeIn(500);
-  //   $('#restName-h2').fadeIn(500);
-  //   $('#vioDesc-btn').fadeIn(500);
-  //   $('#vioDesc-btn-hide').fadeOut(500);
-  //   $('.small-screen').animateCss('slideOutDown');
-  //   setTimeout(function() {
-  //     $('#vioDesc-small').html('');
-  //   }, 300);
-
-  // };
-
-  // var displayInspDate = function() {
-  //   $('.small-screen').show();
-  //   $('#vioDesc-btn').fadeOut(500);
-  //   $('#vioDesc-h2').fadeOut(500);
-  //   $('#restName-btn').fadeOut(500);
-  //   $('#restName-h2').fadeOut(500);
-  //   $('#inspDate-btn').fadeOut(500);
-  //   $('#inspDate-btn-hide').fadeIn(500);
-
-  //   for (var i = 0; i < Data[0].vioDesc.length; i++) {
-  //     $('#inspDate-small').append('<p>' + moment(Data[0].vioDesc[i].inspection_date).fromNow() + '</p></br>');
-  //     $('.small-screen').animateCss('slideInUp');
-  //   }
-  // };
-
-  // var hideInspDate = function() {
-  //   $('#inspDate-btn').fadeIn(500);
-  //   $('#inspDate-btn-hide').fadeOut(500);
-  //   $('#restName-btn').fadeIn(500);
-  //   $('#restName-h2').fadeIn(500);
-  //   $('#vioDesc-btn').fadeIn(500);
-  //   $('#vioDesc-h2').fadeIn(500);
-  //   $('.small-screen').animateCss('slideOutDown');
-  //   setTimeout(function() {
-  //     $('#inspDate-small').html('');
-  //   }, 300);
-
-  // };
-
-  // var displayRestName = function(Data) {
-  //   $('.small-screen').show();
-  //   $('#inspDate-btn').fadeOut(500);
-  //   $('#inspDate-h2').fadeOut(500);
-  //   $('#vioDesc-btn').fadeOut(500);
-  //   $('#vioDesc-h2').fadeOut(500);
-  //   $('#restName-btn').fadeOut(500);
-  //   $('#restName-btn-hide').fadeIn(500);
-
-  //   for (var i = 0; i < Data[0].vioDesc.length; i++) {
-  //     $('#restName-small').append('<p>' + Data[0].vioDesc[i].dba + '</p></br>');
-  //     $('.small-screen').animateCss('slideInUp');
-  //   }
-  // };
-
-  // var hideRestName = function() {
-  //   $('#inspDate-btn').fadeIn(500);
-  //   $('#inspDate-h2').fadeIn(500);
-  //   $('#restName-btn').fadeIn(500);
-  //   $('#restName-btn-hide').fadeOut(500);
-  //   $('#vioDesc-btn').fadeIn(500);
-  //   $('#vioDesc-h2').fadeIn(500);
-  //   $('.small-screen').animateCss('slideOutDown');
-  //   setTimeout(function() {
-  //     $('#restName-small').html('');
-  //   }, 300);
-
-  // };
-
 
 
   // Function for getting input from the user
@@ -267,7 +177,7 @@ $(document).ready(function() {
   // AJAX requests to What are the Chances? API 
 
   var byZip = function(zip, query) {
-    $.ajax('http://localhost:8080/zip/' + zip, {
+    $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
       type: 'GET',
       data: query,
       dataType: 'json'
