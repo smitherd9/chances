@@ -15,11 +15,6 @@ $(document).ready(function() {
     }
   });
 
-  $('.small-screen').hide();
-  $('#vioDesc-btn-hide').hide();
-  $('#inspDate-btn-hide').hide();
-  $('#restName-btn-hide').hide();
-
 
   // Button Listeners
 
@@ -35,30 +30,6 @@ $(document).ready(function() {
     }
   });
 
-  $('#vioDesc-btn').on('click', function() {
-    displayDescription(Data);
-  });
-
-  $('#vioDesc-btn-hide').on('click', function() {
-
-    hideDescription();
-  });
-
-  $('#inspDate-btn').on('click', function() {
-    displayInspDate(Data);
-  });
-
-  $('#inspDate-btn-hide').on('click', function() {
-    hideInspDate();
-  });
-
-  $('#restName-btn').on('click', function() {
-    displayRestName(Data);
-  });
-
-  $('#restName-btn-hide').on('click', function() {
-    hideRestName();
-  });
 
   $('#load-more-btn').on('click', function() {
     page = page + 1;
