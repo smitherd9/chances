@@ -1,6 +1,7 @@
 var Data = [];
 var page = 0;
 var itemsPerPage = 3;
+var totalPages = 0;
 
 
 $(document).ready(function() {
@@ -32,25 +33,38 @@ $(document).ready(function() {
 
 
   $('#load-more-btn').on('click', function() {
+    if (page < totalPages - 1){
     page = page + 1;
     loadData(page);
     console.log(page);
+
     $('#load-previous-btn').show();
+    if (page == totalPages - 1) {
+        $('#load-more-btn').hide();
+      }
+    }
   });
 
   $('#load-previous-btn').on('click', function() {
+    if (page > 0) {
     page = page - 1;
     loadData(page);
     console.log(page);
+    $('#load-more-btn').show();
+    if (page == 0) {
+      $('#load-previous-btn').hide();
+    }
+  }
   });
 
 
 
 
 
-  // Function for pagination, loads 3 more results for each button click
-  // TODO:  Add logic for handling the end of array so user doesn't get undefined displayed
+  // Function for pagination, loads 3 more results for each button click   
   // TODO:  Add logic to handle showing only one desc, date and name for small screens
+
+ 
 
   var loadData = function(p) {
     console.log(Data[0]);
@@ -123,13 +137,16 @@ $(document).ready(function() {
 
 
   var displayResults = function(data) {
+
       $('#load-more-btn').show();
       $('#displayScore').html('');
       clearResults();
 
 
       Data.push(data);
+      totalPages = data.vioDesc.length / itemsPerPage;
       console.log(data);
+      console.log('totalPages: ' + totalPages);
 
       $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
 
