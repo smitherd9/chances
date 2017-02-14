@@ -48,7 +48,7 @@ background: linear-gradient(to left, #360033 , #0b8793); /* W3C, IE 10+/ Edge, F
 /*Footer Styles*/
 
 footer {
-	height: 11em;
+	height: 5em;
 	background: #000000; 
     background: -webkit-linear-gradient(to top, #000000 , #434343); 
     background: linear-gradient(to top, #000000 , #434343);
