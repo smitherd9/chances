@@ -26,6 +26,25 @@ background: linear-gradient(to left, #360033 , #0b8793); /* W3C, IE 10+/ Edge, F
 }
 
 
+.page-header {
+	border: none;
+
+}
+
+.navbar-header {
+	float: none;
+
+}
+
+.navbar-brand > h3 {
+	font-size: 36px;
+}
+
+.navbar-brand {
+	float: none;
+}
+
+
 /*Footer Styles*/
 
 footer {
@@ -81,6 +100,7 @@ background: linear-gradient(to top, #360033 , #0b8793); */
 }
 
 
+
 h1,
 h2,
 h3 {
@@ -104,14 +124,17 @@ img {
 	margin: 0 auto;
 }
 
+#rating-display > h2 {
+	font-size: 24px;
+}
+
 .header-container {
 	text-align: center;	
 }
 
 .header-container h1 {
 	text-align: center;
-	color: #317263;
-	
+	color: white;
 }
 
 .header-container span {

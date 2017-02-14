@@ -20,16 +20,15 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html"><h3>What are the Chances?</h3></a>
         </div>
-        <ul class="nav navbar-nav">
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="about.html"><h3>About</h3></a></li>
-        </ul>
     </nav>
+
+    <!-- Header -->
+
     <div class="page-header">
         <div class="header-container">
-            <span class="center-block"><img src="foodpoisoning.gif"></span>
+            <span class="center-block"><a href="" class="hvr-float-shadow"><img src="foodpoisoning.gif"></a></span>
             <h1>Food poisoning in NYC</h1>
+            <a href="about.html" class="hvr-bounce-in"><h3>About</h3></a>
         </div>
     </div>
 
@@ -41,7 +40,7 @@
             <div class="col-sm-12">
                 <div class="search-container">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="zip" placeholder="Search by zipcode" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" id="zip" placeholder="Search by zipcode Ex: 10021" aria-describedby="basic-addon1">
                     <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
       </span>
@@ -54,7 +53,7 @@
                 </div>
 
                 <div class="input-group">
-                    <input type="text" class="form-control" id="cuisine" placeholder="Search by type of cuisine" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" id="cuisine" placeholder="Search by type of cuisine Ex: Italian" aria-describedby="basic-addon1">
                     <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
       </span>
@@ -79,7 +78,7 @@
         </div>
         <div class="row" id="violation-description">
             <div class="col-sm-3" id="groupName">
-                <h2 id="vioDesc-h2">Violations:</h2>
+                <h3 id="vioDesc-h2">Violations:</h3>
             </div>
             <div class="col-sm-3" id="description-columns">
                 <div id="displayDesc"></div>
@@ -94,7 +93,7 @@
 
         <div class="row">
             <div class="col-sm-3" id="groupName">
-                <h2 id="inspDate-h2">Date of Inspection:</h2>
+                <h3 id="inspDate-h3">Date of Inspection:</h3>
             </div>
             <div id="displayDate-wrapper">
                 <div class="col-sm-3" id="date-columns">
@@ -111,7 +110,7 @@
 
         <div class="row" id="name-of-restaurant">
             <div class="col-sm-3" id="groupName">
-                <h2 id="restName-h2">Name of Restaurant:</h2>
+                <h3 id="restName-h3">Name of Restaurant:</h3>
             </div>
             <div id="displayName-wrapper">
                 <div class="col-sm-3" id="name-columns">
