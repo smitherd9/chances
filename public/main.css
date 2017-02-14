@@ -116,6 +116,10 @@ h3 {
 	text-align: center;
 }
 
+.input-group .form-control {
+	height: 46px;
+}
+
 img {
 	width: 7em;
 	height: 7em;
@@ -157,6 +161,10 @@ img {
 
 
 /* Button Styles */
+
+.btn {
+	height: 46px;
+}
 
 #load-more-btn, #load-previous-btn {
 	box-shadow: inset 0px 1px 3px 0px #91b8b3;	
