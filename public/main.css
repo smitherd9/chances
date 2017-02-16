@@ -2,6 +2,10 @@
 	box-sizing: border-box;
 }
 
+body, html {
+	height: 100%;
+}
+
 body {
 	/*background-color: #33294b;*/
 
@@ -47,19 +51,37 @@ background: linear-gradient(to left, #360033 , #0b8793); /* W3C, IE 10+/ Edge, F
 
 /*Footer Styles*/
 
-footer {
-	height: 5em;
+/*footer {
+	height: 60px;
 	background: #000000; 
     background: -webkit-linear-gradient(to top, #000000 , #434343); 
     background: linear-gradient(to top, #000000 , #434343);
     position: absolute;
     width: 100%;
     padding-top: 1em;
+    text-align: center;
+ }*/
 
 /*background: #360033; 
 background: -webkit-linear-gradient(to top, #360033 , #0b8793); 
 background: linear-gradient(to top, #360033 , #0b8793); */
         
+
+
+.footer {
+	position: absolute;
+	/*bottom: 0;*/
+	width: 100%;
+	height: 50px;
+	background: #000000; 
+    background: -webkit-linear-gradient(to top, #000000 , #434343); 
+    background: linear-gradient(to top, #000000 , #434343);
+    text-align: center;
+
+}
+
+.footer p {
+	color: white;
 }
 
 .footer-copyright {
@@ -78,8 +100,13 @@ background: linear-gradient(to top, #360033 , #0b8793); */
 
 
 #footer-container {
-    text-align: center;
-}
+/*    text-align: center;
+    height: 5em;*/
+ }
+
+ #footer-row {
+ 	padding-top: 0.5em;
+ }   
 
 
 
@@ -150,6 +177,10 @@ img {
 	display: block;
 	margin: 0 auto;
 	width: 40%;
+}
+
+.container-fluid {
+	padding-bottom: 5em;
 }
 
 #load-btns {
@@ -306,7 +337,7 @@ img {
 		margin-top: 3em;
 	}
 
-	#groupName {
+	.groupName {
 		text-align: center;
 		height: 5em;
 		margin-right: 17em;

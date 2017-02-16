@@ -105,6 +105,10 @@ $(document).ready(function() {
       query.zipcode = zip;
       byZip(zip, query);
     }
+
+// TODO: Fix zipcode search so only NYC zipcodes work
+//     && (zip >= 10001) && (zip <= 10048) || (zip = 10055) || (zip = 10060) || (zip = 10069)
+    
     $('#zip').val('');
 
     var dba = $('#dba').val().toUpperCase();
@@ -167,7 +171,7 @@ $(document).ready(function() {
   // AJAX requests to What are the Chances? API 
 
   var byZip = function(zip, query) {
-    $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
+    $.ajax('http://localhost:8080/zip/' + zip, {
       type: 'GET',
       data: query,
       dataType: 'json'

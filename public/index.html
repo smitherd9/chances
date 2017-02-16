@@ -3,153 +3,141 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>What are the chances?</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Bitter|Shrikhand" rel="stylesheet">
     <link rel="stylesheet" href="main.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link href="hover-min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 </head>
 
 <body>
-
-<!-- Navbar -->
-
+    <!-- Navbar -->
     <nav class="navbar navbar-inverse">
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html"><h3>What are the Chances?</h3></a>
         </div>
     </nav>
-
     <!-- Header -->
-
-    <div class="page-header">
-        <div class="header-container">
-            <span class="center-block"><a href="" class="hvr-float-shadow"><img src="foodpoisoning.gif"></a></span>
-            <h1>Food poisoning in NYC</h1>
-            <a href="about.html" class="hvr-bounce-in"><h3>About</h3></a>
-        </div>
-    </div>
-
-<!--     End Header -->
-<!--     Begin Search Section -->
-
     <div class="container-fluid">
+        <div class="page-header">
+            <div class="header-container">
+                <span class="center-block"><a href="" class="hvr-float-shadow"><img src="foodpoisoning.gif"></a></span>
+                <h1>Food poisoning in NYC</h1>
+                <a href="about.html" class="hvr-bounce-in"><h3>About</h3></a>
+            </div>
+        </div>
+        <!--     End Header -->
+        <!--     Begin Search Section -->
+        <!-- <div class="container-fluid"> -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="search-container">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="zip" placeholder="Search by zipcode Ex: 10021" aria-describedby="basic-addon1">
-                    <span class="input-group-btn">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="zip" placeholder="Enter a NYC zipcode Ex: 10021" aria-describedby="basic-addon1">
+                        <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
       </span>
-                </div>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="dba" placeholder="Search by restaurant name" aria-describedby="basic-addon1">
-                    <span class="input-group-btn">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="dba" placeholder="Enter a NYC restaurant name Ex: Up Thai" aria-describedby="basic-addon1">
+                        <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
       </span>
-                </div>
-
-                <div class="input-group">
-                    <input type="text" class="form-control" id="cuisine" placeholder="Search by type of cuisine Ex: Italian" aria-describedby="basic-addon1">
-                    <span class="input-group-btn">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="cuisine" placeholder="Search by type of cuisine Ex: Italian" aria-describedby="basic-addon1">
+                        <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
       </span>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
-    </div>
-<!--     <br/> -->
-
-    <!-- End Search Section -->
-    <!-- Begin Content -->
-
-    <div class="container-fluid">
+        <!-- </div> -->
+        <!--     <br/> -->
+        <!-- End Search Section -->
+        <!-- Begin Content -->
+        <!-- <div class="container-fluid"> -->
         <div class="row" id="rating-display">
             <h2>Overall Rating:</h2>
-            <div id="displayScore"></div>
+            <div id="displayScore">
+            </div>
             <div class="row" id="load-btns">
-            <button id="load-previous-btn">Load Previous Results</button>
-            <button id="load-more-btn">Load More Results</button>
+                <button id="load-previous-btn">Load Previous Results</button>
+                <button id="load-more-btn">Load More Results</button>
             </div>
         </div>
         <div class="row" id="violation-description">
-            <div class="col-sm-3" id="groupName">
+            <div class="col-sm-3 groupName">
                 <h3 id="vioDesc-h2">Violations:</h3>
             </div>
-            <div class="col-sm-3" id="description-columns">
-                <div id="displayDesc"></div>
+            <div class="col-sm-3 description-columns">
+                <div id="displayDesc">
+                </div>
             </div>
-            <div class="col-sm-3" id="description-columns">
-                <div id="displayDesc2"></div>
+            <div class="col-sm-3 description-columns">
+                <div id="displayDesc2">
+                </div>
             </div>
-            <div class="col-sm-3" id="description-columns">
-                <div id="displayDesc3"></div>
+            <div class="col-sm-3 description-columns">
+                <div id="displayDesc3">
+                </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-sm-3" id="groupName">
+        <div class="row" id="date-of-inspection">
+            <div class="col-sm-3 groupName">
                 <h3 id="inspDate-h3">Date of Inspection:</h3>
             </div>
             <div id="displayDate-wrapper">
-                <div class="col-sm-3" id="date-columns">
+                <div class="col-sm-3 date-columns">
                     <div id="displayDate"></div>
                 </div>
-                <div class="col-sm-3" id="date-columns">
+                <div class="col-sm-3 date-columns">
                     <div id="displayDate2"></div>
                 </div>
-                <div class="col-sm-3" id="date-columns">
+                <div class="col-sm-3 date-columns">
                     <div id="displayDate3"></div>
                 </div>
             </div>
         </div>
-
         <div class="row" id="name-of-restaurant">
-            <div class="col-sm-3" id="groupName">
+            <div class="col-sm-3 groupName">
                 <h3 id="restName-h3">Name of Restaurant:</h3>
             </div>
             <div id="displayName-wrapper">
-                <div class="col-sm-3" id="name-columns">
-                    <div id="displayName"></div>
+                <div class="col-sm-3 name-columns">
+                    <div id="displayName">
+                    </div>
                 </div>
-                <div class="col-sm-3" id="name-columns">
-                    <div id="displayName2"></div>
+                <div class="col-sm-3 name-columns">
+                    <div id="displayName2">
+                    </div>
                 </div>
-                <div class="col-sm-3" id="name-columns">
-                    <div id="displayName3"></div>
+                <div class="col-sm-3 name-columns">
+                    <div id="displayName3">
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
-    
-    <footer>
+    <footer class="footer">
         <div class="container" id="footer-container">
-            <div class="row">
-                <div class="col-sm-4"><a href="https://www.linkedin.com/in/daniel-smither-62b871130" target="_blank"><i class="fa fa-linkedin-square fa-3x hvr-grow-rotate" aria-hidden="true"></i></a>
-                    <a href="https://github.com/smitherd9" target="_blank"><h4>LinkedIn</h4></a>
-                </div>
-                <div class="col-sm-4">
-                    <a href="https://github.com/smitherd9" target="_blank"><i class="fa fa-github fa-3x hvr-grow-rotate" aria-hidden="true"></i></a>
-                    <a href="https://github.com/smitherd9" target="_blank"><h4>GitHub</h4></a>
-                </div>
-                <div class="col-sm-4"><a href="https://twitter.com/DanielSmither2" target="_blank"><i class="fa fa-twitter fa-3x hvr-grow-rotate" aria-hidden="true"></i></a>
-                    <a href="https://github.com/smitherd9" target="_blank"><h4>Twitter</h4></a>
+            <div class="row" id="footer-row">
+                <div class="col-sm-12">
+                <span>
+                    <p><i class="fa fa-copyright" aria-hidden="true"></i>2016 A project by
+                    <a href="https://smitherd9.github.io">
+                    Daniel Smither
+                    </a>
+                </span>
+                    </p>
                 </div>
             </div>
-        </div>
-
-        <div class="footer-copyright">
-            <span><a href="https://smitherd9.github.io"><i class="fa fa-copyright" aria-hidden="true"></i>2016 Daniel Smither</a></span>
-            <a href="mailto:smitherd9@gmail.com">smitherd9@gmail.com</a>
         </div>
     </footer>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
