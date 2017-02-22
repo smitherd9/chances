@@ -83,26 +83,6 @@ background: linear-gradient(to top, #360033 , #0b8793); */
 	color: white;
 }
 
-/*.footer-copyright {
-	text-align: center;
-}
-
-.footer-copyright span {
-	color: whitesmoke;
-	font-family: "Bitter", cursive;
-
-}*/
-
-/*.footer-copyright > a {	
-	display: block;
-}*/
-
-
-/*#footer-container {
-    text-align: center;
-    height: 5em;
- }*/
-
  #footer-row {
  	padding-top: 0.5em;
  }   
@@ -237,8 +217,8 @@ img {
 
 }
 
-#name-of-restaurant {
-	/*background-color: #33294b;*/
+#date-of-inspection  {
+	padding-top: 8em;
         
 }
 
