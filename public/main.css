@@ -354,5 +354,45 @@ img {
 }
 
 
+/*Media Queries*/
+
+@media screen and (min-width: 300px) {
+	.search-container {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.search-container {
+		width: 65%;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.search-container {
+	width: 60%;
+	}
+}
+
+
+@media screen and (min-width: 1000px) {
+	.search-container {
+		width: 55%;
+	}
+}
+
+@media screen and (min-width: 1125px) {
+	.search-container {
+		width: 50%;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.search-container {
+		width: 45%;
+	}
+}
+
+
 
 
