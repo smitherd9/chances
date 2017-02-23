@@ -51,22 +51,6 @@ background: linear-gradient(to left, #360033 , #0b8793); /* W3C, IE 10+/ Edge, F
 
 /*Footer Styles*/
 
-/*footer {
-	height: 60px;
-	background: #000000; 
-    background: -webkit-linear-gradient(to top, #000000 , #434343); 
-    background: linear-gradient(to top, #000000 , #434343);
-    position: absolute;
-    width: 100%;
-    padding-top: 1em;
-    text-align: center;
- }*/
-
-/*background: #360033; 
-background: -webkit-linear-gradient(to top, #360033 , #0b8793); 
-background: linear-gradient(to top, #360033 , #0b8793); */
-        
-
 
 .footer {
 	position: absolute;	
@@ -92,13 +76,13 @@ background: linear-gradient(to top, #360033 , #0b8793); */
 
 #about p {
 	color: #c5c2ce;
-	font-family: "Bitter", cursive;	
+	font-family: 'Lato', sans-serif;
 	font-weight: bold;
 	font-size: 1.3em;
 }
 
 #howWork p {
-	font-family: "Bitter", cursive;
+	font-family: 'Lato', sans-serif;
 	color: #c5c2ce;
 	font-weight: bold;
 	font-size: 1.3em;
@@ -116,7 +100,7 @@ h3 {
 
 
 .input-group {
-	font-family: "Bitter", cursive;
+	font-family: 'Lato', sans-serif;
 	color: #40345e;
 	margin: 20px;
 	text-align: center;
@@ -261,7 +245,7 @@ img {
 	margin: auto;
 	margin-top: 1em;
 	color: cornflowerblue;
-	font-family: "Shrikhand", cursive;
+	font-family: 'Lato', sans-serif;
 }
 
 #displayDesc,
