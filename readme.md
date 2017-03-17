@@ -5,8 +5,11 @@
 ### their chances of getting food poisoning at restaurants across New York City.
 
 
-#### Desktop Screenshot
-![chancesscreenshot](https://cloud.githubusercontent.com/assets/17256531/20318125/f91f2ee4-ab36-11e6-83e5-84de092304a5.PNG)
+#### Home Screen Desktop Screenshot
+![watc-home-desktop](https://cloud.githubusercontent.com/assets/17256531/24046549/49a459da-0af9-11e7-8cbd-2621b77b1384.png)
+
+#### Results Screen Desktop Screenshot
+![results-desktop](https://cloud.githubusercontent.com/assets/17256531/24046558/4de9ac48-0af9-11e7-8754-18d29d270615.png)
 
 
 
@@ -23,5 +26,8 @@
 #### What Are The Chances? was built using HTML, CSS, Javascript, jQuery, NodeJS, Express, and Unirest.  Body Parser middleware was also used.
 #### Dev dependencies include Chai, Mocha and Nock for testing and Travis CI is used for continuous integration.
 
-#### Mobile Screenshot
-![chancesscreenshot_mobile_top](https://cloud.githubusercontent.com/assets/17256531/20318161/25ef1f10-ab37-11e6-9d26-413d25fafe37.PNG)
+#### Mobile Home Screen 
+![mobile-home](https://cloud.githubusercontent.com/assets/17256531/24046562/513e1d66-0af9-11e7-88ec-bdec5e169640.png)
+
+#### Mobile Results Screen
+![mobile-results](https://cloud.githubusercontent.com/assets/17256531/24046565/539f2000-0af9-11e7-8565-f40a3d85552b.png)
