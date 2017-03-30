@@ -144,6 +144,9 @@ $(document).ready(function() {
 
       $('#load-more-btn').show();
       $('#overallRating-h2').show();
+      $('#vioDesc-h3').show();
+      $('#inspDate-h3').show();
+      $('#restName-h3').show();
       $('#displayScore').html('');
       clearResults();
 
