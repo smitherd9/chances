@@ -143,6 +143,7 @@ $(document).ready(function() {
   var displayResults = function(data) {
 
       $('#load-more-btn').show();
+      $('#overallRating-h2').show();
       $('#displayScore').html('');
       clearResults();
 
