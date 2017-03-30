@@ -219,7 +219,7 @@ img {
 	font-size: 10em;
 	font-weight: bold;
 	text-align: center;
-	color: cornflowerblue;
+	color: whitesmoke;
 	font-family: "Shrikhand", cursive;
 	margin: auto;
 	background: #360033; /* fallback for old browsers */
@@ -242,7 +242,7 @@ img {
 	height: 10em;
 	margin: auto;
 	margin-top: 1em;
-	color: cornflowerblue;
+	color: whitesmoke;
 	font-family: 'Lato', sans-serif;
 }
 
