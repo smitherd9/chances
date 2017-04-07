@@ -104,6 +104,7 @@ var storeInData = function(response) {
                 'description': data.violation_description,
                 'dba': data.dba
             });
+            
         }
 
         if (data.hasOwnProperty('score')) {
@@ -116,9 +117,12 @@ var storeInData = function(response) {
 
     }
 
+    
     finalChancesScore();
 
 };
+
+
 
 var finalChancesScore = function() {
 

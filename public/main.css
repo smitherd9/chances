@@ -136,8 +136,27 @@ h3 {
 	text-align: center;
 }
 
+.form-group {
+	font-family: 'Lato', sans-serif;
+	color: #40345e;
+	text-align: center;
+}
+
 .input-group .form-control {
 	height: 46px;
+}
+
+.search-form {
+	text-align: center;	
+}
+
+.help-block li {
+	color: white;
+}
+
+.form-control-feedback {
+	margin-top: 0.5em;
+	margin-right: 3.5em;
 }
 
 img {
