@@ -98,11 +98,12 @@ var storeInData = function(response) {
     for (let i = 0; i < response.length; i++) {
         var data = response[i];
 
-        if (data.hasOwnProperty('violation_description') && (data.hasOwnProperty('inspection_date')) && (data.hasOwnProperty('dba'))) {
+        if (data.hasOwnProperty('violation_description') && (data.hasOwnProperty('inspection_date')) && (data.hasOwnProperty('dba')) && (data.hasOwnProperty('cuisine_description'))) {
             Data.vioDesc.push({
                 'inspection_date': data.inspection_date,
                 'description': data.violation_description,
-                'dba': data.dba
+                'dba': data.dba,
+                'cuisine_description': data.cuisine_description
             });
             
         }

@@ -128,6 +128,30 @@ h3 {
 	color: white;
 }
 
+.dropdown1, .dropdown2 {
+	width: 100%;
+	text-align: center;
+	margin: 18px;
+}
+
+#dropdownMenuButton1, #dropdownMenuButton2 {
+	width: 87%;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.dropdown-menu {
+  left: 46%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+  width: 25%;
+}
+
 
 .input-group {
 	font-family: 'Lato', sans-serif;
@@ -150,7 +174,16 @@ h3 {
 	text-align: center;	
 }
 
+.help-block {
+	text-align: center;
+}
+
+
 .help-block li {
+	color: white;
+}
+ 
+#error-msg-1, #error-msg-2, #error-msg-3 {
 	color: white;
 }
 
@@ -207,6 +240,8 @@ img {
 
 .btn {
 	height: 46px;
+	padding: 12px 24px;
+	font-size: 17px;
 }
 
 #load-more-btn, #load-previous-btn {

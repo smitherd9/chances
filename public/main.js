@@ -32,6 +32,73 @@ $(document).ready(function() {
         }
     });
 
+    var dropdownReset = function() {
+        $("#dropdownMenuButton1:parent").text('Select a NYC zipcode for which there is data');        
+        $("#dropdownMenuButton1:parent").val($(this).text())
+        $("#dropdownMenuButton2:parent").text('Select a type of cuisine');
+        $("#dropdownMenuButton2:parent").val($(this).text())
+    };
+
+
+    $(".dropdown1").on('click', 'li a', function(e){
+      e.preventDefault();
+      $("#dropdownMenuButton1:first-child").text($(this).text());
+      $("#dropdownMenuButton1:first-child").val($(this).text());
+   });
+
+    $(".dropdown2").on('click', 'li a', function(e){
+      e.preventDefault();
+      $("#dropdownMenuButton2:first-child").text($(this).text());
+      $("#dropdownMenuButton2:first-child").val($(this).text());
+   });
+
+
+
+    $('#search-btn').on('click', function(e){
+      e.preventDefault();
+      if ($('#dropdownMenuButton1').val() == "" ) {
+        $('#error-msg-1').text('Please select a zip code');  
+
+      }
+      else {
+        getInput();
+        dropdownReset();
+      }
+    });
+
+    $('#search-btn2').on('click', function(e){
+      e.preventDefault();
+      if ($('#dropdownMenuButton2').val() == "" ) {
+        // $('#error-msg-2').text('');
+        $('#error-msg-2').text('Please select a cuisine');  
+
+      }
+      else {
+        getInput();
+        dropdownReset();
+      }
+      
+    });
+
+    $('#rest-name-btn').on('click', function (e) {
+      e.preventDefault();
+      console.log($('#dba').val());
+      if ($('#dba').val() == '' ) {
+        $('#error-msg-3').text('Please enter the name of a NYC restaurant');  
+
+      }
+      else {
+        getInput();
+       
+      }
+
+
+
+
+    });
+
+
+
 
     $('#load-more-btn').on('click', function() {
         if (page < totalPages - 1) {
@@ -89,34 +156,35 @@ $(document).ready(function() {
     var getInput = function() {
         var query = {};
 
-        var cuisine = $('#cuisine').val();
+        var cuisine = $('#dropdownMenuButton2').val();
 
 
         if (cuisine) {
-            var upper = cuisine[0].toUpperCase();
-            var lower = cuisine.slice(1).toLowerCase();
-            var newCuisineString = upper + lower;
-            query.cuisine_description = newCuisineString;
-            byCuisine(newCuisineString, query);
+            // var upper = cuisine[0].toUpperCase();
+            // var lower = cuisine.slice(1).toLowerCase();
+            // var newCuisineString = upper + lower;
+            // query.cuisine_description = newCuisineString;
+            byCuisine(cuisine, query);
         }
         $('#cuisine').val('');
 
-        var zip = $('#zip').val();
+        var zip = $('#dropdownMenuButton1').val();
         if (zip) {
+          console.log('zip value: ' + zip);
             query.zipcode = zip;
             byZip(zip, query);
         }
 
-        // TODO: Fix zipcode search so only NYC zipcodes work
-        //     && (zip >= 10001) && (zip <= 10048) || (zip = 10055) || (zip = 10060) || (zip = 10069)
+
 
         $('#zip').val('');
 
-        var dba = $('#dba').val().toUpperCase();
+        var dba = $('#dba').val();
 
         if (dba) {
-            query.dba = dba;
-            byDba(dba, query);
+            var dbaUpper = dba.toUpperCase();
+            query.dba = dbaUpper;
+            byDba(dbaUpper, query);
         }
         $('#dba').val('');
 
@@ -198,7 +266,7 @@ $(document).ready(function() {
     // AJAX requests to What are the Chances? API 
 
     var byZip = function(zip, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
+        $.ajax('http://localhost:8080/zip/' + zip, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -224,7 +292,7 @@ $(document).ready(function() {
 
 
     var byCuisine = function(cuisine, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/cuisine/' + cuisine, {
+        $.ajax('http://localhost:8080/cuisine/' + cuisine, {
             type: 'GET',
             data: query,
             dataType: 'json'
