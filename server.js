@@ -17,6 +17,8 @@ var Data = {
 };
 
 
+// Search by zipcode
+
 app.get('/zip/:zip', function(req, res) {
     req.query.zipcode = req.params.zip;
     req.query.$limit = 15;
@@ -44,6 +46,9 @@ app.get('/zip/:zip', function(req, res) {
 
 
 
+
+// Search by Restaurant Name
+
 app.get('/dba/:dba', function(req, res) {
     req.query.dba = req.params.dba;
     req.query.$limit = 15;
@@ -69,6 +74,8 @@ app.get('/dba/:dba', function(req, res) {
 });
 
 
+// Search by type of cuisine
+
 app.get('/cuisine/:cuisine_description', function(req, res) {
     req.query.cuisine_description = req.params.cuisine_description;
     req.query.$limit = 15;
@@ -92,9 +99,128 @@ app.get('/cuisine/:cuisine_description', function(req, res) {
 
 });
 
+// Search by zipcode and restaurant name
+
+app.get('/zipdba/:zip/:dba', function(req, res) {
+    req.query.zipcode = req.params.zip;
+    req.query.dba = req.params.dba;
+    req.query.$limit = 15;
+    req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
+
+    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
+        .query(req.query)
+
+
+    .end(function(response) {
+        Data.vioDesc = [];
+        Data.grade = [];
+        Data.score = [];
+        storeInData(response.body);
+        var sendData = function(Data) {
+            res.json(Data);
+            Data.chancesRating = 0;
+
+        };
+
+        sendData(Data);
+    });
+
+});
+
+
+// Search by zipcode and type of cuisine
+
+app.get('/zipcuisine/:zip/:cuisine_description', function(req, res) {
+    req.query.zipcode = req.params.zip;
+    req.query.cuisine_description = req.params.cuisine_description;    
+    req.query.$limit = 15;
+    req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
+
+    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
+        .query(req.query)
+
+
+    .end(function(response) {
+        Data.vioDesc = [];
+        Data.grade = [];
+        Data.score = [];
+        storeInData(response.body);
+        var sendData = function(Data) {
+            res.json(Data);
+            Data.chancesRating = 0;
+
+        };
+
+        sendData(Data);
+    });
+
+});
+
+
+// Search by zipcode, type of cuisine and restaurant name
+
+app.get('/zipcuisinedba/:dba/:zip/:cuisine_description', function(req, res) {
+    req.query.zipcode = req.params.zip;
+    req.query.cuisine_description = req.params.cuisine_description;
+    req.query.dba = req.params.dba;
+    req.query.$limit = 15;
+    req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
+
+    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
+        .query(req.query)
+
+
+    .end(function(response) {
+        Data.vioDesc = [];
+        Data.grade = [];
+        Data.score = [];
+        storeInData(response.body);
+        var sendData = function(Data) {
+            res.json(Data);
+            Data.chancesRating = 0;
+
+        };
+
+        sendData(Data);
+    });
+
+});
+
+// Search by type of cuisine and restaurant name
+
+app.get('/cuisinedba/:dba/:cuisine_description', function(req, res) {
+    console.log('req.params.cuisine_description: ' + req.params.cuisine_description);
+    console.log('req.params.dba: ' + req.params.dba);    
+    req.query.cuisine_description = req.params.cuisine_description;
+    req.query.dba = req.params.dba;    
+    // req.query.$limit = 15;
+    req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
+
+    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
+        .query(req.query)
+
+
+    .end(function(response) {
+        Data.vioDesc = [];
+        Data.grade = [];
+        Data.score = [];
+        storeInData(response.body);
+        var sendData = function(Data) {
+            res.json(Data);
+            Data.chancesRating = 0;
+
+        };
+
+        sendData(Data);
+    });
+
+});
+
+
+
 
 var storeInData = function(response) {
-    console.log(response.length);
+    // console.log(response.length);
     for (let i = 0; i < response.length; i++) {
         var data = response[i];
 

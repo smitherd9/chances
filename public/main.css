@@ -23,7 +23,8 @@ a:hover {
 
 .navbar {
 	background-color: rgba(0, 0, 0, 0.25);
-	border-bottom: 1px solid whitesmoke;
+	/*border-bottom: 1px solid whitesmoke;*/
+	border: none;
 	text-align: center;
 }
 
@@ -136,6 +137,7 @@ h3 {
 
 #dropdownMenuButton1, #dropdownMenuButton2 {
 	width: 87%;
+	background-color: white;
 }
 
 .scrollable-menu {
@@ -144,12 +146,24 @@ h3 {
     overflow-x: hidden;
 }
 
-.dropdown-menu {
+.open > .dropdown-menu {
   left: 46%;
   right: auto;
   text-align: center;
   transform: translate(-50%, 0);
   width: 25%;
+
+}
+
+.open > .dropdown-menu.zipcodes {
+  left: 46%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+  width: 25%;
+  display: inline-flex;
+  flex-wrap: wrap;
+
 }
 
 
@@ -158,6 +172,16 @@ h3 {
 	color: #40345e;
 	margin: 20px;
 	text-align: center;
+	width: 87%;
+}
+
+#dba {
+	text-align: center;
+}
+
+input[type="text"]#dba::-webkit-input-placeholder {
+  color: black;
+  font-size: 17px;
 }
 
 .form-group {
@@ -168,6 +192,7 @@ h3 {
 
 .input-group .form-control {
 	height: 46px;
+	padding: 12px 24px;
 }
 
 .search-form {

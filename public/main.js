@@ -4,6 +4,7 @@ var itemsPerPage = 3;
 var totalPages = 0;
 
 
+
 $(document).ready(function() {
 
     //Extension function for animateCss
@@ -15,6 +16,8 @@ $(document).ready(function() {
             });
         }
     });
+
+    
 
 
     // Button Listeners
@@ -56,8 +59,13 @@ $(document).ready(function() {
 
     $('#search-btn').on('click', function(e){
       e.preventDefault();
-      if ($('#dropdownMenuButton1').val() == "" ) {
-        $('#error-msg-1').text('Please select a zip code');  
+      if (($('#dropdownMenuButton1').val() == "") && 
+        ($('#dropdownMenuButton2').val() == "" ) && ($('#dba').val() == '') ) {
+        $('#error-msg').fadeIn(500);
+        $('#error-msg').text('Please make a selection');
+        setTimeout(function(){
+            $('#error-msg').fadeOut(500);
+        }, 2000);  
 
       }
       else {
@@ -65,39 +73,6 @@ $(document).ready(function() {
         dropdownReset();
       }
     });
-
-    $('#search-btn2').on('click', function(e){
-      e.preventDefault();
-      if ($('#dropdownMenuButton2').val() == "" ) {
-        // $('#error-msg-2').text('');
-        $('#error-msg-2').text('Please select a cuisine');  
-
-      }
-      else {
-        getInput();
-        dropdownReset();
-      }
-      
-    });
-
-    $('#rest-name-btn').on('click', function (e) {
-      e.preventDefault();
-      console.log($('#dba').val());
-      if ($('#dba').val() == '' ) {
-        $('#error-msg-3').text('Please enter the name of a NYC restaurant');  
-
-      }
-      else {
-        getInput();
-       
-      }
-
-
-
-
-    });
-
-
 
 
     $('#load-more-btn').on('click', function() {
@@ -157,36 +132,59 @@ $(document).ready(function() {
         var query = {};
 
         var cuisine = $('#dropdownMenuButton2').val();
-
-
-        if (cuisine) {
-            // var upper = cuisine[0].toUpperCase();
-            // var lower = cuisine.slice(1).toLowerCase();
-            // var newCuisineString = upper + lower;
-            // query.cuisine_description = newCuisineString;
-            byCuisine(cuisine, query);
-        }
-        $('#cuisine').val('');
-
         var zip = $('#dropdownMenuButton1').val();
-        if (zip) {
+        var dba = $('#dba').val();
+
+        if ((zip) && (cuisine) && (dba)) {
+            var dbaUpper = dba.toUpperCase();
+            query.dba = dbaUpper;
+            query.zipcode = zip;
+            query.cuisine_description = cuisine;
+            byZipCuisineAndDba(zip, cuisine, dbaUpper, query);
+            $('#dba').val('');
+        }
+
+        else if ((zip) && (dba)) {
+            var dbaUpper = dba.toUpperCase();
+            query.dba = dbaUpper;
+            query.zipcode = zip;
+            byZipAndDba(zip, dbaUpper, query);
+            $('#dba').val('');
+        }
+
+        else if ((zip) && (cuisine)) {
+            query.zipcode = zip;
+            byZipAndCuisine(zip, cuisine, query);            
+        }
+
+        else if ((cuisine) && (dba)) {
+            var dbaUpper = dba.toUpperCase();
+            query.dba = dbaUpper;
+            query.cuisine_description = cuisine;
+            byCuisineAndDba(dbaUpper, cuisine, query);            
+        }
+
+
+        else if (cuisine) {
+            byCuisine(cuisine, query);
+        }     
+        
+
+        else if (zip) {
           console.log('zip value: ' + zip);
             query.zipcode = zip;
             byZip(zip, query);
         }
 
-
-
-        $('#zip').val('');
-
-        var dba = $('#dba').val();
-
-        if (dba) {
+        else {
             var dbaUpper = dba.toUpperCase();
             query.dba = dbaUpper;
             byDba(dbaUpper, query);
+            $('#dba').val('');
         }
-        $('#dba').val('');
+        
+
+
 
     };
 
@@ -218,10 +216,10 @@ $(document).ready(function() {
         $('#restName-h3').show();
         $('#displayScore').html('');
         clearResults();
+        Data = [];
 
 
         Data.push(data);
-        console.log('in displayResults: ' + data);
         totalPages = data.vioDesc.length / itemsPerPage;
         console.log(data);
         console.log('totalPages: ' + totalPages);
@@ -239,7 +237,7 @@ $(document).ready(function() {
 
                 return 0;
             });
-            console.log('at end of sInspDate: ' + data);
+            console.log('at end of InspDate: ' + data);
             return data.vioDesc;
 
 
@@ -267,6 +265,56 @@ $(document).ready(function() {
 
     var byZip = function(zip, query) {
         $.ajax('http://localhost:8080/zip/' + zip, {
+            type: 'GET',
+            data: query,
+            dataType: 'json'
+        })
+
+        .done(function(data) {
+            displayResults(data);
+        });
+    };
+
+    var byZipAndDba = function(zip, dba, query) {
+        $.ajax('http://localhost:8080/zipdba/' + zip + '/' + dba, {
+            type: 'GET',
+            data: query,
+            dataType: 'json'
+        })
+
+        .done(function(data) {
+            displayResults(data);
+        });
+    };
+
+    var byZipCuisineAndDba = function(zip, cuisine, dba, query) {
+        console.log('in ajax call: ' + cuisine);
+        console.log('in ajax call: ' + dba);
+        $.ajax('http://localhost:8080/zipcuisinedba/' + dba + '/' + zip + '/' + cuisine, {
+            type: 'GET',
+            data: query,
+            dataType: 'json'
+        })
+
+        .done(function(data) {
+            displayResults(data);
+        });
+    };
+
+    var byZipAndCuisine = function(zip, cuisine, query) {
+        $.ajax('http://localhost:8080/zipcuisine/' + zip + '/' + cuisine, {
+            type: 'GET',
+            data: query,
+            dataType: 'json'
+        })
+
+        .done(function(data) {
+            displayResults(data);
+        });
+    };
+
+    var byCuisineAndDba = function(dba, cuisine, query) {
+        $.ajax('http://localhost:8080/cuisinedba/' + dba + '/' + cuisine, {
             type: 'GET',
             data: query,
             dataType: 'json'

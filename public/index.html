@@ -37,7 +37,7 @@
         </div>
         <!--     End Header -->
         <!--     Begin Search Section -->
-        <!-- <div class="container-fluid"> -->
+
         <div class="row">
             <div class="col-sm-12">
             <div class="search-container">
@@ -46,7 +46,7 @@
                 Select a NYC zipcode for which there is data
                 <b class="caret"></b></button>
 
-                <ul class="dropdown-menu scrollable-menu">
+                <ul class="dropdown-menu scrollable-menu zipcodes">
                     <li><a href="#">10001</a></li>
                     <li><a href="#">10002</a></li>
                     <li><a href="#">10003</a></li>
@@ -157,17 +157,8 @@
                     <li><a href="#">11430</a></li>
                     <li><a href="#">11432</a></li>
                     <li><a href="#">11435</a></li>
-                </ul> 
-
-
-
-
-            <span><button class="btn btn-default" id="search-btn">Go!</button></span>
+                </ul>
             </div>
-
-            <div class="help-block with-errors" id="error-msg-1"></div>
-
-
             
            <div class="dropdown2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -260,29 +251,20 @@
                     <li><a href="#">Turkish</a></li>
                     <li><a href="#">Vegetarian</a></li>
                     <li><a href="#">Vietnamese/Cambodian/Malaysia</a></li>
-                </ul> 
-
-
-<!--                 <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a> -->
-           <!--  </div> -->
-            <span><button class="btn btn-default" id="search-btn2">Go!</button></span>
+                </ul>
             </div>
-
-            <div class="help-block with-errors" id="error-msg-2"></div>
-            
+           
 
 
             <div class="form-group has-feedback">
                     <div class="input-group">
                         <input type="text" class="form-control" id="dba" placeholder="Enter a NYC restaurant name Ex: Up Thai" aria-describedby="basic-addon1" pattern="^[_A-z]{1,}$" data-error="Please enter the name of a restaurant in NYC" required>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <span class="input-group-btn">
-        <button class="btn btn-default" type="button" id="rest-name-btn">Go!</button>
+                        <span>
+        <button class="btn btn-default" type="button" id="search-btn">Go!</button>
       </span>
                     </div>
-                    <div class="help-block with-errors" id="error-msg-3"></div>
+                    <div class="help-block with-errors" id="error-msg"></div>
                     </div>
 
 
@@ -291,54 +273,12 @@
 
             </div>
 
-                <!-- <div class="search-container"> -->
-<!--                 <form role="form" data-toggle="validator" class="search-form">
-                <div class="form-group has-feedback">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="zip" placeholder="Enter a NYC zipcode Ex: 10021" aria-describedby="basic-addon1" maxlength="5" data-minlength="5" pattern="^[_0-9]{1,}$" data-error="Please enter a valid 5 digit zipcode" required>
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        
-                        <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-    
-      </span>
 
-      
-                    </div>
-                    <div class="help-block with-errors"></div>
-                    </div>
-                    
-                    <div class="form-group has-feedback">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="dba" placeholder="Enter a NYC restaurant name Ex: Up Thai" aria-describedby="basic-addon1" pattern="^[_A-z]{1,}$" data-error="Please enter the name of a restaurant in NYC" required>
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                    </div>
-                    <div class="help-block with-errors"></div>
-                    </div>
-                    <div class="form-group has-feedback">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="cuisine" placeholder="Search by type of cuisine Ex: Italian" aria-describedby="basic-addon1" data-error="Please enter type of cuisine" required>
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                    </div>
-                    <div class="help-block with-errors"></div>
-                    </div>
-                    </form> -->
                 </div>
-<!--             </div>
-        </div>
-</form>
- -->
-        <!-- </div> -->
-        <!--     <br/> -->
+
         <!-- End Search Section -->
         <!-- Begin Content -->
-        <!-- <div class="container-fluid"> -->
+
         <div class="row" id="rating-display">
             <h2 id="overallRating-h2">Overall Rating:</h2>
             <div id="displayScore">
