@@ -175,12 +175,16 @@ h3 {
 	width: 87%;
 }
 
+#search-btn {
+	margin-top: 3.3em;
+}
+
 #dba {
 	text-align: center;
 }
 
 input[type="text"]#dba::-webkit-input-placeholder {
-  color: black;
+  color: #4c4c4c;
   font-size: 17px;
 }
 
@@ -188,6 +192,8 @@ input[type="text"]#dba::-webkit-input-placeholder {
 	font-family: 'Lato', sans-serif;
 	color: #40345e;
 	text-align: center;
+	margin-left: 40px;
+	width: 100%;
 }
 
 .input-group .form-control {
@@ -201,6 +207,8 @@ input[type="text"]#dba::-webkit-input-placeholder {
 
 .help-block {
 	text-align: center;
+	margin-top: -5px;
+	margin-bottom: -15px;
 }
 
 
@@ -208,7 +216,7 @@ input[type="text"]#dba::-webkit-input-placeholder {
 	color: white;
 }
  
-#error-msg-1, #error-msg-2, #error-msg-3 {
+#error-msg {
 	color: white;
 }
 
@@ -246,6 +254,7 @@ img {
 .search-container {
 	display: block;
 	margin: 0 auto;
+	text-align: center;
 	width: 40%;
 }
 

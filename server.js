@@ -77,6 +77,7 @@ app.get('/dba/:dba', function(req, res) {
 // Search by type of cuisine
 
 app.get('/cuisine/:cuisine_description', function(req, res) {
+    console.log('req.params.cuisine_description: ' + req.params.cuisine_description);
     req.query.cuisine_description = req.params.cuisine_description;
     req.query.$limit = 15;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';

@@ -166,6 +166,8 @@ $(document).ready(function() {
 
 
         else if (cuisine) {
+            query.cuisine_description = cuisine;
+            console.log('cuisine in getData: ' + cuisine);
             byCuisine(cuisine, query);
         }     
         
@@ -340,6 +342,8 @@ $(document).ready(function() {
 
 
     var byCuisine = function(cuisine, query) {
+        console.log('cuisine in byCuisine: ' + cuisine);
+        console.log(typeof(cuisine));
         $.ajax('http://localhost:8080/cuisine/' + cuisine, {
             type: 'GET',
             data: query,
