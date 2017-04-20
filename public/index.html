@@ -31,7 +31,7 @@
             <div class="header-container">
                 <span class="center-block"><a href="#" class="hvr-float-shadow"><img src="foodpoisoning.gif"></a></span>
                 <h1>Food poisoning in NYC</h1>
-                <a href="about.html" class="hvr-bounce-in"><h3>About</h3></a>
+                <a href="about.html" class="btn btn-default action-btn">About</a>
             </div>
         </div>
         <!--     End Header -->
@@ -160,7 +160,7 @@
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select a type of cuisine
                             <b class="caret"></b></button>
-                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+
                         <ul class="dropdown-menu scrollable-menu">
                             <li><a href="#">Afghan</a></li>
                             <li><a href="#">African</a></li>
@@ -260,7 +260,7 @@
                         
                     </div>
                     <div class="help-block with-errors" id="error-msg"></div>
-                    <button class="btn btn-default" type="button" id="search-btn">Go!</button>
+                    <button class="btn btn-default action-btn" type="button" id="search-btn">Go!</button>
                 </div>
             </div>
         </div>
@@ -268,11 +268,13 @@
         <!-- Begin Content -->
         <div class="row" id="rating-display">
             <h2 id="overallRating-h2">Overall Rating:</h2>
-            <div id="displayScore">
+            <div id="displayScore">    
+            </div>
+            <div id="displayScoreMsg">
             </div>
             <div class="row" id="load-btns">
-                <button id="load-previous-btn">Load Previous Results</button>
-                <button id="load-more-btn">Load More Results</button>
+                <button id="load-previous-btn" class="action-btn">Load Previous Results</button>
+                <button id="load-more-btn" class="action-btn">Load More Results</button>
             </div>
         </div>
         <div class="row" id="violation-description">

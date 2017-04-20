@@ -248,7 +248,7 @@ $(document).ready(function() {
         sortInspectionDate();
 
         $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
-
+        $('#displayScoreMsg').append('<p>Out of a possible 10</p>' + '<p>0 = Best or No data, 10 = Worst</p>').animateCss('slideInLeft');
         $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
         $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
         $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
