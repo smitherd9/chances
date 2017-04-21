@@ -371,16 +371,17 @@ img {
 }
 
 #violation-description {
-    background: #360033;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #360033, #0b8793);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #360033, #0b8793);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	max-width: 97%;
 }
 
 #date-of-inspection {
     padding-top: 8em;
+    max-width: 97%;
+}
+
+#name-of-restaurant {
+	max-width: 97%;
+	padding-top: 3em;
 }
 
 #rating-display {
