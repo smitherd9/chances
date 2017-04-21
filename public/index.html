@@ -39,11 +39,13 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="search-container">
+                    <h4>Get an overall chances score for just one or any combination</h4> 
+                    <h4>of zipcode, type of cuisine, or restaurant name</h4>
                     <div class="dropdown1">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Select a NYC zipcode for which there is data
-                            <b class="caret"></b></button>
-                        <ul class="dropdown-menu scrollable-menu zipcodes">
+                        <a href="#zipcodes" class="btn btn-secondary dropdown-toggle" data-toggle="collapse" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            NYC Zipcode
+                            <b class="caret"></b></a>
+                        <ul id="zipcodes" class="scrollable-menu zipcodes collapse">
                             <li><a href="#">10001</a></li>
                             <li><a href="#">10002</a></li>
                             <li><a href="#">10003</a></li>
@@ -156,12 +158,13 @@
                             <li><a href="#">11435</a></li>
                         </ul>
                     </div>
+                    
                     <div class="dropdown2">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Select a type of cuisine
-                            <b class="caret"></b></button>
+                        <a href="#cuisines" class="btn btn-secondary dropdown-toggle" data-toggle="collapse" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Type of cuisine
+                            <b class="caret"></b></a>
 
-                        <ul class="dropdown-menu scrollable-menu">
+                        <ul id="cuisines" class="scrollable-menu collapse">
                             <li><a href="#">Afghan</a></li>
                             <li><a href="#">African</a></li>
                             <li><a href="#">American</a></li>
@@ -249,9 +252,10 @@
                             <li><a href="#">Vietnamese/Cambodian/Malaysia</a></li>
                         </ul>
                     </div>
+                    
                     <div class="form-group has-feedback">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="dba" placeholder="Enter a NYC restaurant name Ex: Up Thai" aria-describedby="basic-addon1" pattern="^[_A-z]{1,}$" data-error="Please enter the name of a restaurant in NYC" required>
+                            <input type="text" class="form-control" id="dba" placeholder="NYC Restaurant Name Ex: Up Thai" aria-describedby="basic-addon1" pattern="^[_A-z]{1,}$" data-error="Please enter the name of a restaurant in NYC" required>
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <span>
         

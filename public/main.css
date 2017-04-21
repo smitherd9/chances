@@ -129,10 +129,28 @@ h3 {
 	color: white;
 }
 
+h4 {
+	color: white;
+	font-family: 'Lato', sans-serif;
+
+}
+
+ul {
+	list-style: none;
+}
+
 .dropdown1, .dropdown2 {
 	width: 100%;
 	text-align: center;
 	margin: 18px;
+}
+
+.dropdown1 > a {
+	color: black;
+}
+
+.dropdown2 > a {
+	color: black;
 }
 
 #dropdownMenuButton1, #dropdownMenuButton2 {
@@ -144,6 +162,9 @@ h3 {
     height: auto;
     max-height: 200px;
     overflow-x: hidden;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgba(0,0,0,.075);
 }
 
 .open > .dropdown-menu {
@@ -164,6 +185,36 @@ h3 {
   display: inline-flex;
   flex-wrap: wrap;
 
+}
+
+li > a:hover {
+	background-color: transparent;
+}
+
+#zipcodes, #cuisines {
+	color: white;
+}
+
+#zipcodes > li > a {
+	color: white;
+	font-size: 18px;
+    font-weight: 600;
+}
+
+#zipcodes > li:hover {
+	background-color: #0eb7c7;
+    border-radius: 5px;
+}
+
+#cuisines > li > a {
+	color: white;
+	font-size: 18px;
+    font-weight: 600;
+}
+
+#cuisines > li:hover {
+	background-color: #0eb7c7;
+    border-radius: 5px;
 }
 
 
@@ -469,8 +520,15 @@ img {
 	}
 }
 
+@media screen and (max-width: 992px) {
+	.action-btn {
+	width: 33%;
+	}
+	.form-group {
+		margin-left: 35px;
+	}
+}
 
-/*Media Queries*/
 
 @media screen and (min-width: 300px) {
 	.search-container {
@@ -489,7 +547,6 @@ img {
 	width: 60%;
 	}
 }
-
 
 @media screen and (min-width: 1000px) {
 	.search-container {
