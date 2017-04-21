@@ -34,12 +34,33 @@
                 <a href="about.html" class="btn btn-default action-btn">About</a>
             </div>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="calc-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">How the score is calculated</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>What are the Chances? calculates the overall score by getting an average inspection score for each restaurant, getting the average number of times a particular grade was received and condensing these two averages to a number from 0 to 10, with 0 being the lowest chance of food poisoning or that no data is available for that restaurant or area, and 10 being the greatest chance of food poisoning. The score is based on data from NYC's Department of Health and Mental Hygiene. You can find how they assign their own grades and scores here:</p>
+                        <p><a href="http://www1.nyc.gov/assets/doh/downloads/pdf/rii/how-we-score-grade.pdf">NYC DOHMH -- How we score and grade</a></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="modal-close-btn" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
         <!--     End Header -->
         <!--     Begin Search Section -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="search-container">
-                    <h4>Get an overall chances score for just one or any combination</h4> 
+                    <h4>Get an overall chances score for just one or any combination</h4>
                     <h4>of zipcode, type of cuisine, or restaurant name</h4>
                     <div class="dropdown1">
                         <a href="#zipcodes" class="btn btn-secondary dropdown-toggle" data-toggle="collapse" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -158,12 +179,10 @@
                             <li><a href="#">11435</a></li>
                         </ul>
                     </div>
-                    
                     <div class="dropdown2">
                         <a href="#cuisines" class="btn btn-secondary dropdown-toggle" data-toggle="collapse" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Type of cuisine
                             <b class="caret"></b></a>
-
                         <ul id="cuisines" class="scrollable-menu collapse">
                             <li><a href="#">Afghan</a></li>
                             <li><a href="#">African</a></li>
@@ -252,7 +271,6 @@
                             <li><a href="#">Vietnamese/Cambodian/Malaysia</a></li>
                         </ul>
                     </div>
-                    
                     <div class="form-group has-feedback">
                         <div class="input-group">
                             <input type="text" class="form-control" id="dba" placeholder="NYC Restaurant Name Ex: Up Thai" aria-describedby="basic-addon1" pattern="^[_A-z]{1,}$" data-error="Please enter the name of a restaurant in NYC" required>
@@ -261,7 +279,6 @@
         
       </span>
                         </div>
-                        
                     </div>
                     <div class="help-block with-errors" id="error-msg"></div>
                     <button class="btn btn-default action-btn" type="button" id="search-btn">Go!</button>
@@ -272,7 +289,7 @@
         <!-- Begin Content -->
         <div class="row" id="rating-display">
             <h2 id="overallRating-h2">Overall Rating:</h2>
-            <div id="displayScore">    
+            <div id="displayScore">
             </div>
             <div id="displayScoreMsg">
             </div>
@@ -281,20 +298,22 @@
                 <button id="load-more-btn" class="action-btn">Load More Results</button>
             </div>
         </div>
-        <div class="row" id="violation-description">
+        <div class="row" id="name-of-restaurant">
             <div class="col-sm-3 groupName">
-                <h3 id="vioDesc-h3">Violations:</h3>
+                <h3 id="restName-h3">Name of Restaurant:</h3>
             </div>
-            <div class="col-sm-3 description-columns">
-                <div id="displayDesc">
+            <div id="displayName-wrapper">
+                <div class="col-sm-3 name-columns">
+                    <div id="displayName">
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-3 description-columns">
-                <div id="displayDesc2">
+                <div class="col-sm-3 name-columns">
+                    <div id="displayName2">
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-3 description-columns">
-                <div id="displayDesc3">
+                <div class="col-sm-3 name-columns">
+                    <div id="displayName3">
+                    </div>
                 </div>
             </div>
         </div>
@@ -314,22 +333,20 @@
                 </div>
             </div>
         </div>
-        <div class="row" id="name-of-restaurant">
+        <div class="row" id="violation-description">
             <div class="col-sm-3 groupName">
-                <h3 id="restName-h3">Name of Restaurant:</h3>
+                <h3 id="vioDesc-h3">Violations:</h3>
             </div>
-            <div id="displayName-wrapper">
-                <div class="col-sm-3 name-columns">
-                    <div id="displayName">
-                    </div>
+            <div class="col-sm-3 description-columns">
+                <div id="displayDesc">
                 </div>
-                <div class="col-sm-3 name-columns">
-                    <div id="displayName2">
-                    </div>
+            </div>
+            <div class="col-sm-3 description-columns">
+                <div id="displayDesc2">
                 </div>
-                <div class="col-sm-3 name-columns">
-                    <div id="displayName3">
-                    </div>
+            </div>
+            <div class="col-sm-3 description-columns">
+                <div id="displayDesc3">
                 </div>
             </div>
         </div>

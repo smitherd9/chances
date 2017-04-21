@@ -17,7 +17,7 @@ $(document).ready(function() {
         }
     });
 
-    
+
 
 
     // Button Listeners
@@ -36,42 +36,43 @@ $(document).ready(function() {
     });
 
     var dropdownReset = function() {
-        $("#dropdownMenuButton1:parent").text('Select a NYC zipcode for which there is data');        
+        $("#dropdownMenuButton1:parent").text('NYC zipcode');
         $("#dropdownMenuButton1:parent").val($(this).text())
-        $("#dropdownMenuButton2:parent").text('Select a type of cuisine');
+        $("#dropdownMenuButton2:parent").text('Type of cuisine');
         $("#dropdownMenuButton2:parent").val($(this).text())
     };
 
 
-    $(".dropdown1").on('click', 'li a', function(e){
-      e.preventDefault();
-      $("#dropdownMenuButton1:first-child").text($(this).text());
-      $("#dropdownMenuButton1:first-child").val($(this).text());
-   });
+    $(".dropdown1").on('click', 'li a', function(e) {
+        e.preventDefault();
+        $("#dropdownMenuButton1:first-child").text($(this).text());
+        $("#dropdownMenuButton1:first-child").val($(this).text());
+        $("#zipcodes").collapse('hide');
+    });
 
-    $(".dropdown2").on('click', 'li a', function(e){
-      e.preventDefault();
-      $("#dropdownMenuButton2:first-child").text($(this).text());
-      $("#dropdownMenuButton2:first-child").val($(this).text());
-   });
+    $(".dropdown2").on('click', 'li a', function(e) {
+        e.preventDefault();
+        $("#dropdownMenuButton2:first-child").text($(this).text());
+        $("#dropdownMenuButton2:first-child").val($(this).text());
+        $("#cuisines").collapse('hide');
+    });
 
 
 
-    $('#search-btn').on('click', function(e){
-      e.preventDefault();
-      if (($('#dropdownMenuButton1').val() == "") && 
-        ($('#dropdownMenuButton2').val() == "" ) && ($('#dba').val() == '') ) {
-        $('#error-msg').fadeIn(500);
-        $('#error-msg').text('Please make a selection');
-        setTimeout(function(){
-            $('#error-msg').fadeOut(500);
-        }, 2000);  
+    $('#search-btn').on('click', function(e) {
+        e.preventDefault();
+        if (($('#dropdownMenuButton1').val() == "") &&
+            ($('#dropdownMenuButton2').val() == "") && ($('#dba').val() == '')) {
+            $('#error-msg').fadeIn(500);
+            $('#error-msg').text('Please make a selection');
+            setTimeout(function() {
+                $('#error-msg').fadeOut(500);
+            }, 2000);
 
-      }
-      else {
-        getInput();
-        dropdownReset();
-      }
+        } else {
+            getInput();
+            dropdownReset();
+        }
     });
 
 
@@ -142,49 +143,35 @@ $(document).ready(function() {
             query.cuisine_description = cuisine;
             byZipCuisineAndDba(zip, cuisine, dbaUpper, query);
             $('#dba').val('');
-        }
-
-        else if ((zip) && (dba)) {
+        } else if ((zip) && (dba)) {
             var dbaUpper = dba.toUpperCase();
             query.dba = dbaUpper;
             query.zipcode = zip;
             byZipAndDba(zip, dbaUpper, query);
             $('#dba').val('');
-        }
-
-        else if ((zip) && (cuisine)) {
+        } else if ((zip) && (cuisine)) {
             query.zipcode = zip;
-            byZipAndCuisine(zip, cuisine, query);            
-        }
-
-        else if ((cuisine) && (dba)) {
+            byZipAndCuisine(zip, cuisine, query);
+        } else if ((cuisine) && (dba)) {
             var dbaUpper = dba.toUpperCase();
             query.dba = dbaUpper;
             query.cuisine_description = cuisine;
-            byCuisineAndDba(dbaUpper, cuisine, query);            
-        }
-
-
-        else if (cuisine) {
+            byCuisineAndDba(dbaUpper, cuisine, query);
+        } else if (cuisine) {
             query.cuisine_description = cuisine;
             console.log('cuisine in getData: ' + cuisine);
             byCuisine(cuisine, query);
-        }     
-        
-
-        else if (zip) {
-          console.log('zip value: ' + zip);
+        } else if (zip) {
+            console.log('zip value: ' + zip);
             query.zipcode = zip;
             byZip(zip, query);
-        }
-
-        else {
+        } else {
             var dbaUpper = dba.toUpperCase();
             query.dba = dbaUpper;
             byDba(dbaUpper, query);
             $('#dba').val('');
         }
-        
+
 
 
 
@@ -217,6 +204,7 @@ $(document).ready(function() {
         $('#inspDate-h3').show();
         $('#restName-h3').show();
         $('#displayScore').html('');
+        $('#displayScoreMsg').html('');
         clearResults();
         Data = [];
 
@@ -248,7 +236,8 @@ $(document).ready(function() {
         sortInspectionDate();
 
         $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
-        $('#displayScoreMsg').append('<p>Out of a possible 10</p>' + '<p>0 = Best or No data, 10 = Worst</p>').animateCss('slideInLeft');
+        $('#displayScoreMsg').append('<p>Out of 10</p>' + '<p>0 = Best or No data</p>' + '<p>10 = Worst</p>').animateCss('slideInLeft');
+        $('#displayScoreMsg').append('<a href="#" data-toggle="modal" data-target="#calc-modal" class="btn btn-default action-btn" id="calc-btn">How is this calculated?</a>').animateCss('slideInLeft');
         $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
         $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
         $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
@@ -266,7 +255,7 @@ $(document).ready(function() {
     // AJAX requests to What are the Chances? API 
 
     var byZip = function(zip, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
+        $.ajax('http://localhost:8080/zip/' + zip, {
             type: 'GET',
             data: query,
             dataType: 'json'
