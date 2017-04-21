@@ -134,7 +134,7 @@ ul {
 .dropdown2 {
     width: 100%;
     text-align: center;
-    margin: 18px;
+    margin: 0 0 18px 0;
 }
 
 .dropdown1 > a {
@@ -212,9 +212,9 @@ li > a:hover {
 .input-group {
     font-family: 'Lato', sans-serif;
     color: #40345e;
-    margin: 20px;
+    margin: 0 0 18px 0;
     text-align: center;
-    width: 87%;
+    width: 100%;
 }
 
 #dba {
@@ -230,8 +230,8 @@ input[type="text"]#dba::-webkit-input-placeholder {
     font-family: 'Lato', sans-serif;
     color: #40345e;
     text-align: center;
-    margin-left: 40px;
-    width: 100%;
+    margin: 0 auto;
+    width: 87%;
 }
 
 .input-group .form-control {
@@ -513,9 +513,7 @@ img {
     .action-btn {
         width: 33%;
     }
-    .form-group {
-        margin-left: 35px;
-    }
+
 }
 
 @media screen and (min-width: 300px) {
