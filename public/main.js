@@ -95,8 +95,7 @@ $(document).ready(function() {
     $('#load-more-btn').on('click', function() {
         if (page < totalPages - 1) {
             page = page + 1;
-            loadData(page);
-            console.log(page);
+            loadData(page);        
 
             $('#load-previous-btn').show();
             if (page == totalPages - 1) {
@@ -108,8 +107,7 @@ $(document).ready(function() {
     $('#load-previous-btn').on('click', function() {
         if (page > 0) {
             page = page - 1;
-            loadData(page);
-            console.log(page);
+            loadData(page);            
             $('#load-more-btn').show();
             if (page == 0) {
                 $('#load-previous-btn').hide();
@@ -134,8 +132,7 @@ $(document).ready(function() {
 
 
 
-    var loadData = function(p) {
-        console.log(Data[0]);
+    var loadData = function(p) {        
         clearResults();
         $('#displayDesc').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 0].description + '</p></br>').animateCss('slideInRight');
         $('#displayDesc2').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 1].description + '</p></br>').animateCss('slideInRight');
@@ -182,11 +179,9 @@ $(document).ready(function() {
             query.cuisine_description = cuisine;
             byCuisineAndDba(dbaUpper, cuisine, query);
         } else if (cuisine) {
-            query.cuisine_description = cuisine;
-            console.log('cuisine in getData: ' + cuisine);
+            query.cuisine_description = cuisine;           
             byCuisine(cuisine, query);
-        } else if (zip) {
-            console.log('zip value: ' + zip);
+        } else if (zip) {            
             query.zipcode = zip;
             byZip(zip, query);
         } else {
@@ -251,16 +246,14 @@ $(document).ready(function() {
 
 
 
-    var geocode = function(element) {
-        console.log('string (element) in geocode: ' + element);
+    var geocode = function(element) {        
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({
             address: element
 
         }, function(results, status) {
             var pinsArray = [];
-            if (status == google.maps.GeocoderStatus.OK) {
-                console.log('results.geometry.location[0]: ' + results[0].geometry.location);
+            if (status == google.maps.GeocoderStatus.OK) {                
                 var myResult = results[0].geometry.location;
                 createMarker(myResult);
 
@@ -292,8 +285,7 @@ $(document).ready(function() {
             map: map,
             position: latlng
         });
-        markers.push(marker);
-        console.log(markers);
+        markers.push(marker);       
         setMapOnAll(map);
 
 
@@ -323,16 +315,14 @@ $(document).ready(function() {
 
 
         Data.push(data);
-        totalPages = data.vioDesc.length / itemsPerPage;
-        console.log(data);
-        console.log('totalPages: ' + totalPages);
+        totalPages = data.vioDesc.length / itemsPerPage;    
+
 
 
 
         // Sort the results by most recent inspection date
 
-        var sortInspectionDate = function() {
-            console.log('in sortInspDate');
+        var sortInspectionDate = function() {            
             data.vioDesc.sort(function(a, b) {
                 if (a.inspection_date > b.inspection_date) {
                     return -1;
@@ -344,7 +334,6 @@ $(document).ready(function() {
 
                 return 0;
             });
-            console.log('at end of InspDate: ' + data);
             return data.vioDesc;
 
 
@@ -377,7 +366,7 @@ $(document).ready(function() {
     // AJAX requests to What are the Chances? API 
 
     var byZip = function(zip, query) {
-        $.ajax('http://localhost:8080/zip/' + zip, {
+        $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -401,8 +390,6 @@ $(document).ready(function() {
     };
 
     var byZipCuisineAndDba = function(zip, cuisine, dba, query) {
-        console.log('in ajax call: ' + cuisine);
-        console.log('in ajax call: ' + dba);
         $.ajax('https://boiling-shelf-21235.herokuapp.com/zipcuisinedba/' + dba + '/' + zip + '/' + cuisine, {
             type: 'GET',
             data: query,
@@ -453,8 +440,6 @@ $(document).ready(function() {
 
 
     var byCuisine = function(cuisine, query) {
-        console.log('cuisine in byCuisine: ' + cuisine);
-        console.log(typeof(cuisine));
         $.ajax('https://boiling-shelf-21235.herokuapp.com/cuisine/' + cuisine, {
             type: 'GET',
             data: query,
