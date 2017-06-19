@@ -29,7 +29,7 @@
     <div class="container-fluid">
         <div class="page-header">
             <div class="header-container">
-                <span class="center-block"><a href="#" class="hvr-float-shadow"><img src="foodpoisoning.gif"></a></span>
+                <span class="center-block"><a href="#" class="hvr-float-shadow"><img id="clown" src="foodpoisoning.gif"></a></span>
                 <h1>Food poisoning in NYC</h1>
                 <a href="about.html" class="btn btn-default action-btn">About</a>
             </div>
@@ -347,7 +347,24 @@
                 </div>
             </div>
         </div>
+        
+        
+
+        
+
+    
+
+<div class="row">
+    <div class="col-sm-12" id="map-col">
+    <!-- Google Map -->
+    <div id="map"></div>            
+        <button id="clear-map-btn" class="action-btn">Clear Map</button>                
     </div>
+</div>
+
+</div>
+
+    
     <footer class="footer">
         <div class="container" id="footer-container">
             <div class="row" id="footer-row">
@@ -372,6 +389,8 @@
     <!-- FontAwesome -->
     <script src="https://use.fontawesome.com/346d870b8b.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmOwToeE7pKPmF-putGnIS_4c8YsQhdM0&callback=initMap">
+    </script>
     <script type="text/javascript" src="main.js"></script>
 </body>
 

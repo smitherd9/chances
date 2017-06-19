@@ -7,6 +7,7 @@ var app = express();
 var jsonParser = require('body-parser');
 app.use(express.static('public'));
 app.use(jsonParser.json());
+// var GoogleMapsLoader = require('google-maps');
 
 var Data = {
     chancesRating: 0,
@@ -17,11 +18,14 @@ var Data = {
 };
 
 
+
+
+
 // Search by zipcode
 
 app.get('/zip/:zip', function(req, res) {
     req.query.zipcode = req.params.zip;
-    req.query.$limit = 15;
+    req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
@@ -51,7 +55,7 @@ app.get('/zip/:zip', function(req, res) {
 
 app.get('/dba/:dba', function(req, res) {
     req.query.dba = req.params.dba;
-    req.query.$limit = 15;
+    req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
@@ -79,7 +83,7 @@ app.get('/dba/:dba', function(req, res) {
 app.get('/cuisine/:cuisine_description', function(req, res) {
     console.log('req.params.cuisine_description: ' + req.params.cuisine_description);
     req.query.cuisine_description = req.params.cuisine_description;
-    req.query.$limit = 15;
+    req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
@@ -105,7 +109,7 @@ app.get('/cuisine/:cuisine_description', function(req, res) {
 app.get('/zipdba/:zip/:dba', function(req, res) {
     req.query.zipcode = req.params.zip;
     req.query.dba = req.params.dba;
-    req.query.$limit = 15;
+    req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
@@ -134,7 +138,7 @@ app.get('/zipdba/:zip/:dba', function(req, res) {
 app.get('/zipcuisine/:zip/:cuisine_description', function(req, res) {
     req.query.zipcode = req.params.zip;
     req.query.cuisine_description = req.params.cuisine_description;    
-    req.query.$limit = 15;
+    req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
@@ -164,7 +168,7 @@ app.get('/zipcuisinedba/:dba/:zip/:cuisine_description', function(req, res) {
     req.query.zipcode = req.params.zip;
     req.query.cuisine_description = req.params.cuisine_description;
     req.query.dba = req.params.dba;
-    req.query.$limit = 15;
+    req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
@@ -194,7 +198,7 @@ app.get('/cuisinedba/:dba/:cuisine_description', function(req, res) {
     console.log('req.params.dba: ' + req.params.dba);    
     req.query.cuisine_description = req.params.cuisine_description;
     req.query.dba = req.params.dba;    
-    // req.query.$limit = 15;
+    req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
     unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
@@ -225,12 +229,17 @@ var storeInData = function(response) {
     for (let i = 0; i < response.length; i++) {
         var data = response[i];
 
-        if (data.hasOwnProperty('violation_description') && (data.hasOwnProperty('inspection_date')) && (data.hasOwnProperty('dba')) && (data.hasOwnProperty('cuisine_description'))) {
+        if (data.hasOwnProperty('violation_description') && (data.hasOwnProperty('inspection_date')) && (data.hasOwnProperty('dba')) 
+            && (data.hasOwnProperty('cuisine_description')) && (data.hasOwnProperty('building')) 
+            && (data.hasOwnProperty('street')) && (data.hasOwnProperty('zipcode'))) {
             Data.vioDesc.push({
                 'inspection_date': data.inspection_date,
                 'description': data.violation_description,
                 'dba': data.dba,
-                'cuisine_description': data.cuisine_description
+                'cuisine_description': data.cuisine_description,
+                'building': data.building,
+                'street': data.street,
+                'zipcode': data.zipcode
             });
             
         }

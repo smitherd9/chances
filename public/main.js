@@ -2,7 +2,22 @@ var Data = [];
 var page = 0;
 var itemsPerPage = 3;
 var totalPages = 0;
+var map;
+var markers = [];
 
+
+// Initialize Google Map
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: 40.735798,
+            lng: -73.993369
+        },
+        zoom: 12,
+        mapTypeId: 'roadmap'
+    });
+}
 
 
 $(document).ready(function() {
@@ -16,6 +31,7 @@ $(document).ready(function() {
             });
         }
     });
+
 
 
 
@@ -101,6 +117,14 @@ $(document).ready(function() {
         }
     });
 
+    // Clears markers from Google Map
+
+    $('#clear-map-btn').click(function() {
+        setMapOnAll(null);
+        markers = [];
+
+    });
+
 
 
 
@@ -179,6 +203,8 @@ $(document).ready(function() {
 
 
 
+    // Clear the restaurant text results
+
     var clearResults = function() {
         $('#displayDate').html('');
         $('#displayDate2').html('');
@@ -195,6 +221,93 @@ $(document).ready(function() {
 
     }
 
+
+
+    //  ******  Google Maps API Functions  ****** // 
+
+
+    // Extract addresses from data and create string for Google Geocoder.  Push to
+    // addresses array and then send to geocode 
+
+    var displayPins = function(data) {
+        var addresses = [];
+
+        for (var i = 0; i < data.vioDesc.length; i++) {
+            var streetAddress = data.vioDesc[i].building + ' ' + data.vioDesc[i].street + ' ' + 'New York, NY' + ' ' + data.vioDesc[i].zipcode;
+            console.log(streetAddress);
+            addresses.push(streetAddress);
+
+
+        }
+        addresses.forEach(function(element) {
+            geocode(element);
+            // Perhaps need a setTimeout as workaround to Google Maps API's query limits?
+            // setTimeout(function(){
+
+            // }, 1000)
+        });
+    }
+
+
+
+
+    var geocode = function(element) {
+        console.log('string (element) in geocode: ' + element);
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+            address: element
+
+        }, function(results, status) {
+            var pinsArray = [];
+            if (status == google.maps.GeocoderStatus.OK) {
+                console.log('results.geometry.location[0]: ' + results[0].geometry.location);
+                var myResult = results[0].geometry.location;
+                createMarker(myResult);
+
+                map.setCenter(results[0].geometry.location);
+                map.setZoom(12);
+
+
+
+            } else { // if status value is not equal to "google.maps.GeocoderStatus.OK"
+
+                // warning message
+                alert("The Geocode was not successful for the following reason: " + status);
+
+            }
+
+
+        });
+    }
+
+
+    // Create the actual marker on the Google map
+
+    var createMarker = function(latlng) {
+        // Remember to change calculation of Chances Rating to 
+        // reflect number of results received (low results usually = high score)
+        // However, if you can get Google Maps to work with unlimited results, not really a problem.
+
+        var marker = new google.maps.Marker({
+            map: map,
+            position: latlng
+        });
+        markers.push(marker);
+        console.log(markers);
+        setMapOnAll(map);
+
+
+
+    }
+
+    var setMapOnAll = function(map) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+        }
+    }
+
+
+    // Display the received results to the user
 
     var displayResults = function(data) {
 
@@ -213,6 +326,10 @@ $(document).ready(function() {
         totalPages = data.vioDesc.length / itemsPerPage;
         console.log(data);
         console.log('totalPages: ' + totalPages);
+
+
+
+        // Sort the results by most recent inspection date
 
         var sortInspectionDate = function() {
             console.log('in sortInspDate');
@@ -235,6 +352,7 @@ $(document).ready(function() {
 
         sortInspectionDate();
 
+
         $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
         $('#displayScoreMsg').append('<p>Out of 10</p>' + '<p>0 = Best or No data</p>' + '<p>10 = Worst</p>').animateCss('slideInLeft');
         $('#displayScoreMsg').append('<a href="#" data-toggle="modal" data-target="#calc-modal" class="btn btn-default action-btn" id="calc-btn">How is this calculated?</a>').animateCss('slideInLeft');
@@ -249,13 +367,17 @@ $(document).ready(function() {
         $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p></br>').animateCss('fadeIn');
         $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p></br>').animateCss('fadeIn');
         $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p></br>').animateCss('fadeIn');
+
+
+        // Call to function to place pins on Google Map
+        displayPins(data);
     }
 
 
     // AJAX requests to What are the Chances? API 
 
     var byZip = function(zip, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
+        $.ajax('http://localhost:8080/zip/' + zip, {
             type: 'GET',
             data: query,
             dataType: 'json'

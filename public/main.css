@@ -2,6 +2,17 @@
     box-sizing: border-box;
 }
 
+#map {
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#map-col-div {
+    height: 500px;
+}
+
 body,
 html {
     height: 100%;
@@ -262,7 +273,7 @@ input[type="text"]#dba::-webkit-input-placeholder {
     margin-right: 3.5em;
 }
 
-img {
+#clown {
     width: 7em;
     height: 7em;
     border-radius: 50%;
@@ -334,6 +345,16 @@ img {
 #search-btn {
     margin-top: 3.3em;
     width: 33%;
+}
+
+#clear-map-btn {
+    padding: 12px;
+    margin: 50px 5px 0px 0px;
+
+}
+
+#map-col {
+    text-align: center;
 }
 
 #load-more-btn,
