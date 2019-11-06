@@ -506,6 +506,10 @@ input[type="text"]#dba::-webkit-input-placeholder {
     margin: 0 auto;
 }
 
+.card-img-top {
+    height: 183px;
+}
+
 
 /*Font Awesome Styles*/
 
