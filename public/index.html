@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>What are the chances?</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Shrikhand" rel="stylesheet">
     <link rel="stylesheet" href="main.css" type="text/css" />
@@ -284,18 +284,90 @@
         </div>
         <!-- End Search Section -->
         <!-- Begin Content -->
-        <div class="row" id="rating-display">
+
+        <!-- <div class="row" id="rating-display">
             <h2 id="overallRating-h2">Overall Rating:</h2>
             <div id="displayScore">
             </div>
             <div id="displayScoreMsg">
-            </div>
+            </div> -->
+            
+            <div class="container-fluid card-section">
+                    <div class="row">
+                        <div class="col-sm-4">
+                    <div class="card">
+                            <img class="card-img-top" src="./museum-cafe.jpeg" alt="A cafe">
+                            <div class="card-body">
+                              <h5 class="card-title">Restaurant:</h5>
+                              <div id="displayName"></div>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item">
+                                  <h5 id="inspDate-h3">Last Inspection:</h5>
+                                  <div id="displayDate"></div>  
+                                </li>                  
+                            </ul>
+                            <div class="card-body">
+                                    <h5 id="vioDesc-h3">Violations:</h5>
+                                    <div id="displayDesc"></div>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-sm-4">
+                          <div class="card">
+                                <img class="card-img-top" src="./sushi.jpg" alt="Sushi">
+                                <div class="card-body">
+                                  <h5 class="card-title">Restaurant:</h5>
+                                  <div id="displayName2"></div>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                  <li class="list-group-item">
+                                      <h5>Last Inspection:</h5>
+                                      <div id="displayDate2"></div>  
+                                    </li>                  
+                                </ul>
+                                <div class="card-body">
+                                        <h5>Violations:</h5>
+                                        <div id="displayDesc2"></div>
+                                </div>
+                              </div>
+                            </div>
+            
+                            <div class="col-sm-4">
+                              <div class="card">
+                                    <img class="card-img-top" src="./indian.jpg" alt="Indian food">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Restaurant:</h5>
+                                      <div id="displayName3"></div>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                      <li class="list-group-item">
+                                          <h5>Last Inspection:</h5>
+                                          <div id="displayDate3"></div>  
+                                        </li>                  
+                                    </ul>
+                                    <div class="card-body">
+                                            <h5>Violations:</h5>
+                                            <div id="displayDesc3"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+            
             <div class="row" id="load-btns">
                 <button id="load-previous-btn" class="action-btn">Load Previous Results</button>
                 <button id="load-more-btn" class="action-btn">Load More Results</button>
             </div>
-        </div>
-        <div class="row" id="name-of-restaurant">
+        <!-- </div> -->
+
+        
+
+
+
+
+        <!-- <div class="row" id="name-of-restaurant">
             <div class="col-sm-3 groupName">
                 <h3 id="restName-h3">Name of Restaurant:</h3>
             </div>
@@ -346,7 +418,7 @@
                 <div id="displayDesc3">
                 </div>
             </div>
-        </div>
+        </div> -->
         
         
 
@@ -370,7 +442,7 @@
             <div class="row" id="footer-row">
                 <div class="col-sm-12">
                     <span>
-                    <a href="https://www.linkedin.com/in/daniel-smither-62b871130" target="_blank"><i class="fa fa-linkedin-square fa-2x hvr-grow-rotate" aria-hidden="true"></i></a><i class="fa fa-copyright" aria-hidden="true"></i>2016 A project by
+                    <a href="https://www.linkedin.com/in/daniel-smither-62b871130" target="_blank"><i class="fa fa-linkedin-square fa-2x hvr-grow-rotate" aria-hidden="true"></i></a><i class="fa fa-copyright" aria-hidden="true"></i>2019 A project by
                     <a href="https://smitherd9.github.io" target="_blank">
                     Daniel Smither
                     </a>
@@ -381,11 +453,15 @@
         </div>
     </footer>
     <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>Kp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- MomentJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
     <!-- Bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- FontAwesome -->
     <script src="https://use.fontawesome.com/346d870b8b.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>

@@ -77,25 +77,25 @@ $(document).ready(function() {
 
     $('#search-btn').on('click', function(e) {
         e.preventDefault();
-        if (($('#dropdownMenuButton1').val() == "") &&
-            ($('#dropdownMenuButton2').val() == "") && ($('#dba').val() == '')) {
-            $('#error-msg').fadeIn(500);
-            $('#error-msg').text('Please make a selection');
+        ($('#dropdownMenuButton1').val() === "" &&
+            $('#dropdownMenuButton2').val() === "" && $('#dba').val() === '') ? 
+            $('#error-msg').fadeIn(500): 
+            $('#error-msg').text('Please make a selection')
             setTimeout(function() {
                 $('#error-msg').fadeOut(500);
             }, 2000);
 
-        } else {
-            getInput();
+           getInput();
             dropdownReset();
-        }
+        
     });
 
 
     $('#load-more-btn').on('click', function() {
         if (page < totalPages - 1) {
             page = page + 1;
-            loadData(page);        
+            loadData(page);
+            $('.card').animateCss('flipInY');        
 
             $('#load-previous-btn').show();
             if (page == totalPages - 1) {
@@ -107,7 +107,9 @@ $(document).ready(function() {
     $('#load-previous-btn').on('click', function() {
         if (page > 0) {
             page = page - 1;
-            loadData(page);            
+            loadData(page);
+            $('.card').animateCss('flipInY');             
+            
             $('#load-more-btn').show();
             if (page == 0) {
                 $('#load-previous-btn').hide();
@@ -134,9 +136,9 @@ $(document).ready(function() {
 
     var loadData = function(p) {        
         clearResults();
-        $('#displayDesc').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 0].description + '</p></br>').animateCss('slideInRight');
-        $('#displayDesc2').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 1].description + '</p></br>').animateCss('slideInRight');
-        $('#displayDesc3').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 2].description + '</p></br>').animateCss('slideInRight');
+        $('#displayDesc').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 0].description + '</p></br>').animateCss('fadeIn');
+        $('#displayDesc2').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 1].description + '</p></br>').animateCss('fadeIn');
+        $('#displayDesc3').append('<p>' + Data[0].vioDesc[(p * itemsPerPage) + 2].description + '</p></br>').animateCss('fadeIn');
 
         $('#displayDate').append('<p>' + moment(Data[0].vioDesc[(p * itemsPerPage) + 0].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
         $('#displayDate2').append('<p>' + moment(Data[0].vioDesc[(p * itemsPerPage) + 1].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
@@ -341,21 +343,21 @@ $(document).ready(function() {
 
         sortInspectionDate();
 
-
+        $('.card').show().animateCss('lightSpeedIn');
         $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
         $('#displayScoreMsg').append('<p>Out of 10</p>' + '<p>0 = Best or No data</p>' + '<p>10 = Worst</p>').animateCss('slideInLeft');
         $('#displayScoreMsg').append('<a href="#" data-toggle="modal" data-target="#calc-modal" class="btn btn-default action-btn" id="calc-btn">How is this calculated?</a>').animateCss('slideInLeft');
-        $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
-        $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
-        $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p></br>').animateCss('fadeIn');
+        $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p>').animateCss('fadeIn');
+        $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p>').animateCss('fadeIn');
+        $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p>').animateCss('fadeIn');
 
-        $('#displayDesc').append('<p>' + data.vioDesc[0].description + '</p></br>').animateCss('slideInRight');
-        $('#displayDesc2').append('<p>' + data.vioDesc[1].description + '</p></br>').animateCss('slideInRight');
-        $('#displayDesc3').append('<p>' + data.vioDesc[2].description + '</p></br>').animateCss('slideInRight');
+        $('#displayDesc').append('<p>' + data.vioDesc[0].description + '</p>').animateCss('fadeIn');
+        $('#displayDesc2').append('<p>' + data.vioDesc[1].description + '</p>').animateCss('fadeIn');
+        $('#displayDesc3').append('<p>' + data.vioDesc[2].description + '</p>').animateCss('fadeIn');
 
-        $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p></br>').animateCss('fadeIn');
-        $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p></br>').animateCss('fadeIn');
-        $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p></br>').animateCss('fadeIn');
+        $('#displayName').append('<p>' + data.vioDesc[0].dba + '</p>').animateCss('fadeIn');
+        $('#displayName2').append('<p>' + data.vioDesc[1].dba + '</p>').animateCss('fadeIn');
+        $('#displayName3').append('<p>' + data.vioDesc[2].dba + '</p>').animateCss('fadeIn');
 
 
         // Call to function to place pins on Google Map
