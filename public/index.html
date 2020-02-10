@@ -31,7 +31,8 @@
             <div class="header-container">
                 <span class="center-block"><a href="#" class="hvr-float-shadow"><img id="clown" src="foodpoisoning.gif"></a></span>
                 <h1>Food poisoning in NYC</h1>
-                <a href="about.html" class="btn btn-default action-btn">About</a>
+                <a href="#" data-toggle="modal" data-target="#calc-modal" 
+                class="btn btn-default action-btn" id="calc-btn">About</a>
             </div>
         </div>
         <!-- Modal -->
@@ -39,11 +40,26 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">How the score is calculated</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        
                     </div>
-                    <div class="modal-body">
-                        <p>What are the Chances? calculates the overall score by getting an average inspection score for each restaurant, getting the average number of times a particular grade was received and condensing these two averages to a number from 0 to 10, with 0 being the lowest chance of food poisoning or that no data is available for that restaurant or area, and 10 being the greatest chance of food poisoning. The score is based on data from NYC's Department of Health and Mental Hygiene. You can find how they assign their own grades and scores here:</p>
+                     <div class="modal-body">
+                        <p>What are the Chances? calculates your overall chances 
+                            of food poisoning by gathering inspection data from the NYC
+                            Department of Health and Mental Hygiene.</p>
+
+                            <p>Each restaurant is given an inspection score and a letter grade
+                            by NYC DOHMH.</p>  
+                            
+                            <p>WATC? gets the inspection scores for each restaurant, generates an average score, 
+                            and also generates an average score based on the number of times a particular 
+                            letter grade was received.  It then codenses these two scores to a number from 0 to 10 with 0 being
+                            the lowest chance of food poisoning (or no data available) and 10 being the highest.</p>
+
+                            <p>Users can search by zipcode, type of cuisine, specific restaurant or any combination of these
+                            three. You can learn more about how NYC DOHMH grades and scores here:</p>                                           
+                        
                         <p><a href="http://www1.nyc.gov/assets/doh/downloads/pdf/rii/how-we-score-grade.pdf">NYC DOHMH -- How we score and grade</a></p>
                     </div>
                     <div class="modal-footer">
@@ -268,7 +284,7 @@
                             <li><a href="#">Thai</a></li>
                             <li><a href="#">Turkish</a></li>
                             <li><a href="#">Vegetarian</a></li>
-                            <li><a href="#">Vietnamese/Cambodian/Malaysia</a></li>
+                            <li><a href="#">Vietnamese/Cambodian/Malaysian</a></li>
                         </ul>
                     </div>
                     <div class="form-group has-feedback">
