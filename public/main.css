@@ -423,13 +423,12 @@ input[type="text"]#dba::-webkit-input-placeholder {
 #rating-display {
     text-align: center;
     width: 100%;
-    height: 25em;
-    margin: 0em 0em 5em 0em;
+    height: 1em;
+    margin: 2em 0em;
 }
 
 #displayScore {
     font-size: 10em;
-    font-weight: bold;
     text-align: center;
     color: whitesmoke;
     font-family: "Shrikhand", cursive;
@@ -479,6 +478,7 @@ input[type="text"]#dba::-webkit-input-placeholder {
 
 #overallRating-h2 {
     display: none;
+    margin: auto;
 }
 
 #vioDesc-h3 {

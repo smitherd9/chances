@@ -310,8 +310,7 @@ $(document).ready(function() {
         $('#vioDesc-h3').show();
         $('#inspDate-h3').show();
         $('#restName-h3').show();
-        $('#displayScore').html('');
-        $('#displayScoreMsg').html('');
+        $('#displayScore').html('');        
         clearResults();
         Data = [];
 
@@ -345,8 +344,6 @@ $(document).ready(function() {
 
         $('.card').show().animateCss('lightSpeedIn');
         $('#displayScore').append('<p>' + data.chancesRating + '</p>').animateCss('slideInLeft');
-        $('#displayScoreMsg').append('<p>Out of 10</p>' + '<p>0 = Best or No data</p>' + '<p>10 = Worst</p>').animateCss('slideInLeft');
-        $('#displayScoreMsg').append('<a href="#" data-toggle="modal" data-target="#calc-modal" class="btn btn-default action-btn" id="calc-btn">How is this calculated?</a>').animateCss('slideInLeft');
         $('#displayDate').append('<p>' + moment(data.vioDesc[0].inspection_date).fromNow() + '</p>').animateCss('fadeIn');
         $('#displayDate2').append('<p>' + moment(data.vioDesc[1].inspection_date).fromNow() + '</p>').animateCss('fadeIn');
         $('#displayDate3').append('<p>' + moment(data.vioDesc[2].inspection_date).fromNow() + '</p>').animateCss('fadeIn');
@@ -368,7 +365,7 @@ $(document).ready(function() {
     // AJAX requests to What are the Chances? API 
 
     var byZip = function(zip, query) {
-        $.ajax('http://localhost:8080/zip/' + zip, {
+        $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
             type: 'GET',
             data: query,
             dataType: 'json'
