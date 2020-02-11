@@ -365,7 +365,7 @@ $(document).ready(function() {
     // AJAX requests to What are the Chances? API 
 
     var byZip = function(zip, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
+        $.ajax('http://localhost:8080/zip/' + zip, {
             type: 'GET',
             data: query,
             dataType: 'json'
