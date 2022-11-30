@@ -377,7 +377,7 @@ $(document).ready(function() {
     };
 
     var byZipAndDba = function(zip, dba, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zipdba/' + zip + '/' + dba, {
+        $.ajax('https://chances.smitherd9.repl.co/zipdba/' + zip + '/' + dba, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -389,7 +389,7 @@ $(document).ready(function() {
     };
 
     var byZipCuisineAndDba = function(zip, cuisine, dba, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zipcuisinedba/' + dba + '/' + zip + '/' + cuisine, {
+        $.ajax('https://chances.smitherd9.repl.co/zipcuisinedba/' + dba + '/' + zip + '/' + cuisine, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -401,7 +401,7 @@ $(document).ready(function() {
     };
 
     var byZipAndCuisine = function(zip, cuisine, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zipcuisine/' + zip + '/' + cuisine, {
+        $.ajax('https://chances.smitherd9.repl.co/zipcuisine/' + zip + '/' + cuisine, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -413,7 +413,7 @@ $(document).ready(function() {
     };
 
     var byCuisineAndDba = function(dba, cuisine, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/cuisinedba/' + dba + '/' + cuisine, {
+        $.ajax('https://chances.smitherd9.repl.co/cuisinedba/' + dba + '/' + cuisine, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -426,7 +426,7 @@ $(document).ready(function() {
 
 
     var byDba = function(dba, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/dba/' + dba, {
+        $.ajax('https://chances.smitherd9.repl.co/dba/' + dba, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -439,7 +439,7 @@ $(document).ready(function() {
 
 
     var byCuisine = function(cuisine, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/cuisine/' + cuisine, {
+        $.ajax('https://chances.smitherd9.repl.co/cuisine/' + cuisine, {
             type: 'GET',
             data: query,
             dataType: 'json'
