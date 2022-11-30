@@ -31,7 +31,7 @@
     "express": "^4.17.1",
     "google-maps": "^4.2.3",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "unirest": "^0.6.0"
   }
 }
