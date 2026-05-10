@@ -366,7 +366,7 @@ $(document).ready(function() {
     // AJAX requests to What are the Chances? API 
 
     var byZip = function(zip, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zip/' + zip, {
+        $.ajax('/zip/' + zip, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -378,7 +378,7 @@ $(document).ready(function() {
     };
 
     var byZipAndDba = function(zip, dba, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zipdba/' + zip + '/' + dba, {
+        $.ajax('/zipdba/' + zip + '/' + dba, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -390,7 +390,7 @@ $(document).ready(function() {
     };
 
     var byZipCuisineAndDba = function(zip, cuisine, dba, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zipcuisinedba/' + dba + '/' + zip + '/' + cuisine, {
+        $.ajax('/zipcuisinedba/' + dba + '/' + zip + '/' + cuisine, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -402,7 +402,7 @@ $(document).ready(function() {
     };
 
     var byZipAndCuisine = function(zip, cuisine, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/zipcuisine/' + zip + '/' + cuisine, {
+        $.ajax('/zipcuisine/' + zip + '/' + cuisine, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -414,7 +414,7 @@ $(document).ready(function() {
     };
 
     var byCuisineAndDba = function(dba, cuisine, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/cuisinedba/' + dba + '/' + cuisine, {
+        $.ajax('/cuisinedba/' + dba + '/' + cuisine, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -427,7 +427,7 @@ $(document).ready(function() {
 
 
     var byDba = function(dba, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/dba/' + dba, {
+        $.ajax('/dba/' + dba, {
             type: 'GET',
             data: query,
             dataType: 'json'
@@ -440,7 +440,7 @@ $(document).ready(function() {
 
 
     var byCuisine = function(cuisine, query) {
-        $.ajax('https://boiling-shelf-21235.herokuapp.com/cuisine/' + cuisine, {
+        $.ajax('/cuisine/' + cuisine, {
             type: 'GET',
             data: query,
             dataType: 'json'
