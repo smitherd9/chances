@@ -3,10 +3,12 @@
 
 var express = require('express');
 var unirest = require('unirest');
+var cors = require('cors');
 var app = express();
 var jsonParser = require('body-parser');
 app.use(express.static('public'));
 app.use(jsonParser.json());
+app.use(cors());
 // var GoogleMapsLoader = require('google-maps');
 
 var Data = {
