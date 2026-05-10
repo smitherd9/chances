@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>What are the chances?</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Shrikhand" rel="stylesheet">
     <link rel="stylesheet" href="main.css" type="text/css" />
@@ -29,9 +29,10 @@
     <div class="container-fluid">
         <div class="page-header">
             <div class="header-container">
-                <span class="center-block"><a href="#" class="hvr-float-shadow"><img src="foodpoisoning.gif"></a></span>
+                <span class="center-block"><a href="#" class="hvr-float-shadow"><img id="clown" src="foodpoisoning.gif"></a></span>
                 <h1>Food poisoning in NYC</h1>
-                <a href="about.html" class="btn btn-default action-btn">About</a>
+                <a href="#" data-toggle="modal" data-target="#calc-modal" 
+                class="btn btn-default action-btn" id="calc-btn">About</a>
             </div>
         </div>
         <!-- Modal -->
@@ -39,11 +40,26 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">How the score is calculated</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        
                     </div>
-                    <div class="modal-body">
-                        <p>What are the Chances? calculates the overall score by getting an average inspection score for each restaurant, getting the average number of times a particular grade was received and condensing these two averages to a number from 0 to 10, with 0 being the lowest chance of food poisoning or that no data is available for that restaurant or area, and 10 being the greatest chance of food poisoning. The score is based on data from NYC's Department of Health and Mental Hygiene. You can find how they assign their own grades and scores here:</p>
+                     <div class="modal-body">
+                        <p>What are the Chances? calculates your overall chances 
+                            of food poisoning by gathering inspection data from the NYC
+                            Department of Health and Mental Hygiene.</p>
+
+                            <p>Each restaurant is given an inspection score and a letter grade
+                            by NYC DOHMH.</p>  
+                            
+                            <p>WATC? gets the inspection scores for each restaurant, generates an average score, 
+                            and also generates an average score based on the number of times a particular 
+                            letter grade was received.  It then codenses these two scores to a number from 0 to 10 with 0 being
+                            the lowest chance of food poisoning (or no data available) and 10 being the highest.</p>
+
+                            <p>Users can search by zipcode, type of cuisine, specific restaurant or any combination of these
+                            three. You can learn more about how NYC DOHMH grades and scores here:</p>                                           
+                        
                         <p><a href="http://www1.nyc.gov/assets/doh/downloads/pdf/rii/how-we-score-grade.pdf">NYC DOHMH -- How we score and grade</a></p>
                     </div>
                     <div class="modal-footer">
@@ -268,7 +284,7 @@
                             <li><a href="#">Thai</a></li>
                             <li><a href="#">Turkish</a></li>
                             <li><a href="#">Vegetarian</a></li>
-                            <li><a href="#">Vietnamese/Cambodian/Malaysia</a></li>
+                            <li><a href="#">Vietnamese/Cambodian/Malaysian</a></li>
                         </ul>
                     </div>
                     <div class="form-group has-feedback">
@@ -284,18 +300,93 @@
         </div>
         <!-- End Search Section -->
         <!-- Begin Content -->
+
         <div class="row" id="rating-display">
             <h2 id="overallRating-h2">Overall Rating:</h2>
+        </div>
+
+        <div class="row" id="rating-display-number">
             <div id="displayScore">
-            </div>
-            <div id="displayScoreMsg">
-            </div>
+            </div>           
+            <!-- <div id="displayScoreMsg"> -->
+        </div>
+            
+            <div class="container-fluid card-section">
+                    <div class="row">
+                        <div class="col-sm-4">
+                    <div class="card">
+                            <img class="card-img-top" src="./museum-cafe.jpeg" alt="A cafe">
+                            <div class="card-body">
+                              <h5 class="card-title">Restaurant:</h5>
+                              <div id="displayName"></div>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item">
+                                  <h5 id="inspDate-h3">Last Inspection:</h5>
+                                  <div id="displayDate"></div>  
+                                </li>                  
+                            </ul>
+                            <div class="card-body">
+                                    <h5 id="vioDesc-h3">Violations:</h5>
+                                    <div id="displayDesc"></div>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-sm-4">
+                          <div class="card">
+                                <img class="card-img-top" src="./sushi.jpg" alt="Sushi">
+                                <div class="card-body">
+                                  <h5 class="card-title">Restaurant:</h5>
+                                  <div id="displayName2"></div>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                  <li class="list-group-item">
+                                      <h5>Last Inspection:</h5>
+                                      <div id="displayDate2"></div>  
+                                    </li>                  
+                                </ul>
+                                <div class="card-body">
+                                        <h5>Violations:</h5>
+                                        <div id="displayDesc2"></div>
+                                </div>
+                              </div>
+                            </div>
+            
+                            <div class="col-sm-4">
+                              <div class="card">
+                                    <img class="card-img-top" src="./indian.jpg" alt="Indian food">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Restaurant:</h5>
+                                      <div id="displayName3"></div>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                      <li class="list-group-item">
+                                          <h5>Last Inspection:</h5>
+                                          <div id="displayDate3"></div>  
+                                        </li>                  
+                                    </ul>
+                                    <div class="card-body">
+                                            <h5>Violations:</h5>
+                                            <div id="displayDesc3"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+            
             <div class="row" id="load-btns">
                 <button id="load-previous-btn" class="action-btn">Load Previous Results</button>
                 <button id="load-more-btn" class="action-btn">Load More Results</button>
             </div>
-        </div>
-        <div class="row" id="name-of-restaurant">
+        <!-- </div> -->
+
+        
+
+
+
+
+        <!-- <div class="row" id="name-of-restaurant">
             <div class="col-sm-3 groupName">
                 <h3 id="restName-h3">Name of Restaurant:</h3>
             </div>
@@ -346,14 +437,31 @@
                 <div id="displayDesc3">
                 </div>
             </div>
-        </div>
+        </div> -->
+        
+        
+
+        
+
+    
+
+<div class="row">
+    <div class="col-sm-12" id="map-col">
+    <!-- Google Map -->
+    <div id="map"></div>            
+        <button id="clear-map-btn" class="action-btn">Clear Map</button>                
     </div>
+</div>
+
+</div>
+
+    
     <footer class="footer">
         <div class="container" id="footer-container">
             <div class="row" id="footer-row">
                 <div class="col-sm-12">
                     <span>
-                    <a href="https://www.linkedin.com/in/daniel-smither-62b871130" target="_blank"><i class="fa fa-linkedin-square fa-2x hvr-grow-rotate" aria-hidden="true"></i></a><i class="fa fa-copyright" aria-hidden="true"></i>2016 A project by
+                    <a href="https://www.linkedin.com/in/daniel-smither-62b871130" target="_blank"><i class="fa fa-linkedin-square fa-2x hvr-grow-rotate" aria-hidden="true"></i></a><i class="fa fa-copyright" aria-hidden="true"></i>2019 A project by
                     <a href="https://smitherd9.github.io" target="_blank">
                     Daniel Smither
                     </a>
@@ -364,14 +472,20 @@
         </div>
     </footer>
     <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>Kp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- MomentJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
     <!-- Bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- FontAwesome -->
     <script src="https://use.fontawesome.com/346d870b8b.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmOwToeE7pKPmF-putGnIS_4c8YsQhdM0&callback=initMap">
+    </script>
     <script type="text/javascript" src="main.js"></script>
 </body>
 
