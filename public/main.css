@@ -269,6 +269,8 @@ input[type="text"]#dba::-webkit-input-placeholder {
 
 #error-msg {
     color: white;
+    position: absolute;
+    display: none;
 }
 
 .form-control-feedback {

@@ -77,17 +77,17 @@ $(document).ready(function() {
 
     $('#search-btn').on('click', function(e) {
         e.preventDefault();
-        ($('#dropdownMenuButton1').val() === "" &&
-            $('#dropdownMenuButton2').val() === "" && $('#dba').val() === '') ? 
-            $('#error-msg').fadeIn(500): 
-            $('#error-msg').text('Please make a selection')
+        if ($('#dropdownMenuButton1').val() === '' &&
+            $('#dropdownMenuButton2').val() === '' && $('#dba').val() === '') {
+            $('#error-msg').text('Please make a selection');
+            $('#error-msg').fadeIn(500);
             setTimeout(function() {
                 $('#error-msg').fadeOut(500);
             }, 2000);
-
-           getInput();
+        } else {
+            getInput();
             dropdownReset();
-        
+        }
     });
 
 
