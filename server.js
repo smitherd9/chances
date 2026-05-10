@@ -2,14 +2,13 @@
 
 
 var express = require('express');
-var unirest = require('unirest');
+var axios = require('axios');
 var cors = require('cors');
 var app = express();
 var jsonParser = require('body-parser');
 app.use(express.static('public'));
 app.use(jsonParser.json());
 app.use(cors());
-// var GoogleMapsLoader = require('google-maps');
 
 var Data = {
     chancesRating: 0,
@@ -19,8 +18,7 @@ var Data = {
 
 };
 
-
-
+const NYC_API = 'https://data.cityofnewyork.us/resource/9w7m-hzhe.json';
 
 
 // Search by zipcode
@@ -30,22 +28,20 @@ app.get('/zip/:zip', function(req, res) {
     req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
-    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
-        .query(req.query)
-
-
-    .end(function(response) {
+    axios.get(NYC_API, { params: req.query })
+    .then(function(response) {
         Data.vioDesc = [];
         Data.grade = [];
         Data.score = [];
-        storeInData(response.body);
+        storeInData(response.data);
         var sendData = function(Data) {
             res.json(Data);
             Data.chancesRating = 0;
-
         };
-
         sendData(Data);
+    })
+    .catch(function() {
+        res.status(500).json({ error: 'Failed to fetch data' });
     });
 
 });
@@ -60,21 +56,20 @@ app.get('/dba/:dba', function(req, res) {
     req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
-    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
-        .query(req.query)
-
-
-    .end(function(response) {
+    axios.get(NYC_API, { params: req.query })
+    .then(function(response) {
         Data.vioDesc = [];
         Data.grade = [];
         Data.score = [];
-        storeInData(response.body);
+        storeInData(response.data);
         var sendData = function(Data) {
             res.json(Data);
             Data.chancesRating = 0;
-
         };
         sendData(Data);
+    })
+    .catch(function() {
+        res.status(500).json({ error: 'Failed to fetch data' });
     });
 
 });
@@ -83,25 +78,24 @@ app.get('/dba/:dba', function(req, res) {
 // Search by type of cuisine
 
 app.get('/cuisine/:cuisine_description', function(req, res) {
-    console.log('req.params.cuisine_description: ' + req.params.cuisine_description);
     req.query.cuisine_description = req.params.cuisine_description;
     req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
-    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
-        .query(req.query)
-
-
-    .end(function(response) {
+    axios.get(NYC_API, { params: req.query })
+    .then(function(response) {
         Data.vioDesc = [];
         Data.grade = [];
         Data.score = [];
-        storeInData(response.body);
+        storeInData(response.data);
         var sendData = function(Data) {
             res.json(Data);
             Data.chancesRating = 0;
         };
         sendData(Data);
+    })
+    .catch(function() {
+        res.status(500).json({ error: 'Failed to fetch data' });
     });
 
 });
@@ -114,22 +108,20 @@ app.get('/zipdba/:zip/:dba', function(req, res) {
     req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
-    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
-        .query(req.query)
-
-
-    .end(function(response) {
+    axios.get(NYC_API, { params: req.query })
+    .then(function(response) {
         Data.vioDesc = [];
         Data.grade = [];
         Data.score = [];
-        storeInData(response.body);
+        storeInData(response.data);
         var sendData = function(Data) {
             res.json(Data);
             Data.chancesRating = 0;
-
         };
-
         sendData(Data);
+    })
+    .catch(function() {
+        res.status(500).json({ error: 'Failed to fetch data' });
     });
 
 });
@@ -139,26 +131,24 @@ app.get('/zipdba/:zip/:dba', function(req, res) {
 
 app.get('/zipcuisine/:zip/:cuisine_description', function(req, res) {
     req.query.zipcode = req.params.zip;
-    req.query.cuisine_description = req.params.cuisine_description;    
+    req.query.cuisine_description = req.params.cuisine_description;
     req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
-    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
-        .query(req.query)
-
-
-    .end(function(response) {
+    axios.get(NYC_API, { params: req.query })
+    .then(function(response) {
         Data.vioDesc = [];
         Data.grade = [];
         Data.score = [];
-        storeInData(response.body);
+        storeInData(response.data);
         var sendData = function(Data) {
             res.json(Data);
             Data.chancesRating = 0;
-
         };
-
         sendData(Data);
+    })
+    .catch(function() {
+        res.status(500).json({ error: 'Failed to fetch data' });
     });
 
 });
@@ -173,22 +163,20 @@ app.get('/zipcuisinedba/:dba/:zip/:cuisine_description', function(req, res) {
     req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
-    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
-        .query(req.query)
-
-
-    .end(function(response) {
+    axios.get(NYC_API, { params: req.query })
+    .then(function(response) {
         Data.vioDesc = [];
         Data.grade = [];
         Data.score = [];
-        storeInData(response.body);
+        storeInData(response.data);
         var sendData = function(Data) {
             res.json(Data);
             Data.chancesRating = 0;
-
         };
-
         sendData(Data);
+    })
+    .catch(function() {
+        res.status(500).json({ error: 'Failed to fetch data' });
     });
 
 });
@@ -196,29 +184,25 @@ app.get('/zipcuisinedba/:dba/:zip/:cuisine_description', function(req, res) {
 // Search by type of cuisine and restaurant name
 
 app.get('/cuisinedba/:dba/:cuisine_description', function(req, res) {
-    console.log('req.params.cuisine_description: ' + req.params.cuisine_description);
-    console.log('req.params.dba: ' + req.params.dba);    
     req.query.cuisine_description = req.params.cuisine_description;
-    req.query.dba = req.params.dba;    
+    req.query.dba = req.params.dba;
     req.query.$limit = 10;
     req.query.$$app_token = 'bOdo0GBO11GSiRssvuQLv0t3A';
 
-    unirest.get('https://data.cityofnewyork.us/resource/9w7m-hzhe.json?')
-        .query(req.query)
-
-
-    .end(function(response) {
+    axios.get(NYC_API, { params: req.query })
+    .then(function(response) {
         Data.vioDesc = [];
         Data.grade = [];
         Data.score = [];
-        storeInData(response.body);
+        storeInData(response.data);
         var sendData = function(Data) {
             res.json(Data);
             Data.chancesRating = 0;
-
         };
-
         sendData(Data);
+    })
+    .catch(function() {
+        res.status(500).json({ error: 'Failed to fetch data' });
     });
 
 });
@@ -227,12 +211,11 @@ app.get('/cuisinedba/:dba/:cuisine_description', function(req, res) {
 
 
 var storeInData = function(response) {
-    // console.log(response.length);
     for (let i = 0; i < response.length; i++) {
         var data = response[i];
 
-        if (data.hasOwnProperty('violation_description') && (data.hasOwnProperty('inspection_date')) && (data.hasOwnProperty('dba')) 
-            && (data.hasOwnProperty('cuisine_description')) && (data.hasOwnProperty('building')) 
+        if (data.hasOwnProperty('violation_description') && (data.hasOwnProperty('inspection_date')) && (data.hasOwnProperty('dba'))
+            && (data.hasOwnProperty('cuisine_description')) && (data.hasOwnProperty('building'))
             && (data.hasOwnProperty('street')) && (data.hasOwnProperty('zipcode'))) {
             Data.vioDesc.push({
                 'inspection_date': data.inspection_date,
@@ -243,7 +226,7 @@ var storeInData = function(response) {
                 'street': data.street,
                 'zipcode': data.zipcode
             });
-            
+
         }
 
         if (data.hasOwnProperty('score')) {
@@ -256,7 +239,7 @@ var storeInData = function(response) {
 
     }
 
-    
+
     finalChancesScore();
 
 };

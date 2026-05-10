@@ -24,6 +24,7 @@
     "nock": "^11.8.2"
   },
   "dependencies": {
+    "axios": "^1.16.0",
     "body-parser": "^1.19.0",
     "bootstrap-validator": "^0.11.9",
     "cors": "^2.8.5",
@@ -31,7 +32,6 @@
     "express": "^4.17.3",
     "google-maps": "^4.2.3",
     "jquery": "^3.5.0",
-    "moment": "^2.29.4",
-    "unirest": "^0.6.0"
+    "moment": "^2.29.4"
   }
 }
