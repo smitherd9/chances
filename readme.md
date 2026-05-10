@@ -22,12 +22,6 @@
 #### What Are The Chances? was built using HTML, CSS, Javascript, jQuery, NodeJS, Express, and Unirest.  Body Parser middleware was also used.
 #### Dev dependencies include Chai, Mocha and Nock for testing and Travis CI is used for continuous integration.
 
-#### Results Screen Desktop Screenshots
-![watc-results-1](https://cloud.githubusercontent.com/assets/17256531/25559808/ade6b3be-2d10-11e7-9f53-3652abdd1bcc.png)
-![watc-results-2](https://cloud.githubusercontent.com/assets/17256531/25559809/af692000-2d10-11e7-911f-36b2e606c361.png)
-
-
-
 #### Mobile Screenshot
 
 ![watc-mobile](https://cloud.githubusercontent.com/assets/17256531/25559810/b68fe8be-2d10-11e7-8661-c9434c544287.png)
